@@ -1,0 +1,3 @@
+protocol CreateBarScreen {
+    func openCreateProfileScreen()
+}
