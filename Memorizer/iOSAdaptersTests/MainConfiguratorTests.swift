@@ -5,15 +5,18 @@ class MainConfiguratorTests: XCTestCase {
     
     private var sut: MemorizerConfigurator!
     private var configurable: Configurable!
+    private var viewControllerFactory: ViewControllerFactorySpy!
     
     override func setUp() {
         super.setUp()
         configurable = Configurable()
-        sut = MemorizerConfigurator()
+        viewControllerFactory = ViewControllerFactorySpy()
+        sut = MemorizerConfigurator(viewControllerFactory)
     }
     
     override func tearDown() {
         configurable = nil
+        viewControllerFactory = nil
         sut = nil
         super.tearDown()
     }
@@ -38,7 +41,14 @@ class MainConfiguratorTests: XCTestCase {
     func test_configure_usesViewControllerPresenterFromConfigurable() {
         sut.configure(configurable)
         configurable.appStarter.onStart()
-        XCTAssertEqual(configurable.controllerPresenterSpy.presentCallCount, 1)
+        XCTAssertEqual(configurable.controllerPresenterSpy.addChildViewControllerCallCount, 1)
+    }
+    
+    func test_configure_usesFactoryFromInitializer() {
+        sut.configure(configurable)
+        configurable.appStarter.onStart()
+        XCTAssertTrue(configurable.controllerPresenterSpy
+            .savedChildController === viewControllerFactory.testCreateController)
     }
     
     func test_retainCycle() {
@@ -55,7 +65,7 @@ extension MainConfiguratorTests {
         var appStarter: AppStarter!
         
         var controllerPresenterSpy = ControllerPresenterSpy()
-        var controllerPresenter: UIControllerPresenter {
+        var controllerPresenter: UIViewController {
             return controllerPresenterSpy
         }
     
@@ -66,12 +76,13 @@ extension MainConfiguratorTests {
             configurationDoneCallBack?()
         }
     }
-    class ControllerAndConfigurable: Configurable, UIControllerPresenter {
-        override var controllerPresenter: UIControllerPresenter {
+    class ControllerAndConfigurable: UIViewController, MainConfigurable {
+        var appStarter: AppStarter!
+        
+        var controllerPresenter: UIViewController {
             return self
         }
-        func present(_ viewControllerToPresent: UIViewController,
-                     animated flag: Bool, completion: (() -> Swift.Void)?) {
+        func configurationDone() {
         }
     }
 }

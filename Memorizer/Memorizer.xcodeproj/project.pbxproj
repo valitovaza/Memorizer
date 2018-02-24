@@ -23,6 +23,11 @@
 		56358B6620415FD400D9BFF4 /* PilesChangeListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B6520415FD400D9BFF4 /* PilesChangeListener.swift */; };
 		56358B6920416E9C00D9BFF4 /* UIControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B6820416E9C00D9BFF4 /* UIControllerPresenter.swift */; };
 		56358B6C2041744100D9BFF4 /* ControllerPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B6B2041744100D9BFF4 /* ControllerPresenterSpy.swift */; };
+		56358B6E2041797300D9BFF4 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B6D2041797300D9BFF4 /* ViewControllerFactory.swift */; };
+		56358B7020417B3400D9BFF4 /* PileListViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B6F20417B3400D9BFF4 /* PileListViewControllerFactory.swift */; };
+		56358B7220417BC300D9BFF4 /* ViewControllerFactorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B7120417BC300D9BFF4 /* ViewControllerFactorySpy.swift */; };
+		56358B742041834800D9BFF4 /* UIControllerPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B732041834800D9BFF4 /* UIControllerPresentable.swift */; };
+		56358B762041850900D9BFF4 /* UIControllerPresentableSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B752041850900D9BFF4 /* UIControllerPresentableSpy.swift */; };
 		564ABD62202FEEE300243CBB /* MemorizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564ABD61202FEEE300243CBB /* MemorizerTests.swift */; };
 		564ABD64202FEF2400243CBB /* Memorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564ABD63202FEF2400243CBB /* Memorizer.swift */; };
 		56881D3B203971A8001BEBAD /* CreateBarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56881D3A203971A8001BEBAD /* CreateBarScreen.swift */; };
@@ -119,6 +124,11 @@
 		56358B6520415FD400D9BFF4 /* PilesChangeListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesChangeListener.swift; sourceTree = "<group>"; };
 		56358B6820416E9C00D9BFF4 /* UIControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControllerPresenter.swift; sourceTree = "<group>"; };
 		56358B6B2041744100D9BFF4 /* ControllerPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerPresenterSpy.swift; sourceTree = "<group>"; };
+		56358B6D2041797300D9BFF4 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		56358B6F20417B3400D9BFF4 /* PileListViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListViewControllerFactory.swift; sourceTree = "<group>"; };
+		56358B7120417BC300D9BFF4 /* ViewControllerFactorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactorySpy.swift; sourceTree = "<group>"; };
+		56358B732041834800D9BFF4 /* UIControllerPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControllerPresentable.swift; sourceTree = "<group>"; };
+		56358B752041850900D9BFF4 /* UIControllerPresentableSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControllerPresentableSpy.swift; sourceTree = "<group>"; };
 		564ABD61202FEEE300243CBB /* MemorizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizerTests.swift; sourceTree = "<group>"; };
 		564ABD63202FEF2400243CBB /* Memorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memorizer.swift; sourceTree = "<group>"; };
 		56881D3A203971A8001BEBAD /* CreateBarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBarScreen.swift; sourceTree = "<group>"; };
@@ -272,6 +282,8 @@
 			isa = PBXGroup;
 			children = (
 				56358B6820416E9C00D9BFF4 /* UIControllerPresenter.swift */,
+				56358B732041834800D9BFF4 /* UIControllerPresentable.swift */,
+				56358B6D2041797300D9BFF4 /* ViewControllerFactory.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -280,6 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				56358B6B2041744100D9BFF4 /* ControllerPresenterSpy.swift */,
+				56358B752041850900D9BFF4 /* UIControllerPresentableSpy.swift */,
+				56358B7120417BC300D9BFF4 /* ViewControllerFactorySpy.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -415,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				56C446362041426B00D5D9B2 /* PileListViewController.swift */,
+				56358B6F20417B3400D9BFF4 /* PileListViewControllerFactory.swift */,
 			);
 			path = PileList;
 			sourceTree = "<group>";
@@ -695,6 +710,7 @@
 				56881DB220399450001BEBAD /* AppDelegate.swift in Sources */,
 				56C446372041426B00D5D9B2 /* PileListViewController.swift in Sources */,
 				56881DF520399DCE001BEBAD /* MainViewController.swift in Sources */,
+				56358B7020417B3400D9BFF4 /* PileListViewControllerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,8 +719,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				56881DFA2039A676001BEBAD /* MainConfigurator.swift in Sources */,
+				56358B742041834800D9BFF4 /* UIControllerPresentable.swift in Sources */,
 				56358B6920416E9C00D9BFF4 /* UIControllerPresenter.swift in Sources */,
 				56881E052039B785001BEBAD /* PileListScreen.swift in Sources */,
+				56358B6E2041797300D9BFF4 /* ViewControllerFactory.swift in Sources */,
 				56881DF82039A605001BEBAD /* Presenter.swift in Sources */,
 				56881DF72039A5F5001BEBAD /* Memorizer.swift in Sources */,
 			);
@@ -714,7 +732,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56358B7220417BC300D9BFF4 /* ViewControllerFactorySpy.swift in Sources */,
 				56881DFF2039AF40001BEBAD /* MainConfiguratorTests.swift in Sources */,
+				56358B762041850900D9BFF4 /* UIControllerPresentableSpy.swift in Sources */,
 				56358B6C2041744100D9BFF4 /* ControllerPresenterSpy.swift in Sources */,
 				56881E032039B70C001BEBAD /* PileListScreenTests.swift in Sources */,
 			);

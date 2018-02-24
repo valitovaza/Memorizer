@@ -2,10 +2,10 @@ import UIKit
 import iOSAdapters
 
 class MainViewController: UIViewController, MainConfigurable {
-    var configurator: MainConfigurator = MemorizerConfigurator()
+    var configurator: MainConfigurator = MemorizerConfigurator(PileListViewControllerFactory())
     
     var appStarter: AppStarter!
-    var controllerPresenter: UIControllerPresenter {
+    var controllerPresenter: UIViewController {
         return self
     }
     func configurationDone() {

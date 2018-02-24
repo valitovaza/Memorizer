@@ -3,15 +3,22 @@ public protocol MainConfigurator {
 }
 public protocol MainConfigurable: class {
     var appStarter: AppStarter! { get set }
-    var controllerPresenter: UIControllerPresenter { get }
+    var controllerPresenter: UIViewController { get }
     func configurationDone()
 }
 public class MemorizerConfigurator {
-    public init() {}
+    private let viewControllerFactory: ViewControllerFactory
+    public init(_ viewControllerFactory: ViewControllerFactory) {
+        self.viewControllerFactory = viewControllerFactory
+    }
 }
+import UIKit
+
 extension MemorizerConfigurator: MainConfigurator {
     public func configure(_ main: MainConfigurable) {
-        main.appStarter = Memorizer(PileListScreen(main.controllerPresenter))
+        let pileListScreen = PileListScreen(main.controllerPresenter,
+                                            viewControllerFactory)
+        main.appStarter = Memorizer(pileListScreen)
         main.configurationDone()
     }
 }
