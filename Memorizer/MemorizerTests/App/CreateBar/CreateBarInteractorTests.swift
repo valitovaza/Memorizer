@@ -19,14 +19,14 @@ class CreateBarInteractorTests: XCTestCase {
     
     func testOnCreate_presentCreateProfileScreen() {
         sut.onCreatePile()
-        XCTAssertEqual(screen.openCreateProfileScreenWasInvoked, 1)
+        XCTAssertEqual(screen.openCreatePileScreenWasInvoked, 1)
     }
 }
 extension CreateBarInteractorTests {
     class ScreenSpy: CreateBarScreen {
-        var openCreateProfileScreenWasInvoked = 0
-        func openCreateProfileScreen() {
-            openCreateProfileScreenWasInvoked += 1
+        var openCreatePileScreenWasInvoked = 0
+        func openCreatePileScreen() {
+            openCreatePileScreenWasInvoked += 1
         }
     }
 }

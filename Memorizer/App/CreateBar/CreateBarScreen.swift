@@ -1,3 +1,3 @@
 protocol CreateBarScreen {
-    func openCreateProfileScreen()
+    func openCreatePileScreen()
 }

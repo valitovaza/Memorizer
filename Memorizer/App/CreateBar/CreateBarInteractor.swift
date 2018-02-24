@@ -9,6 +9,6 @@ class CreateBarInteractor {
 }
 extension CreateBarInteractor: CreateBarEventHandler {
     func onCreatePile() {
-        screen.openCreateProfileScreen()
+        screen.openCreatePileScreen()
     }
 }
