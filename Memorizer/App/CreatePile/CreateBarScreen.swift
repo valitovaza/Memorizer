@@ -1,3 +1,3 @@
-protocol CreateBarScreen {
+protocol CreatePileScreen {
     func openCreatePileScreen()
 }

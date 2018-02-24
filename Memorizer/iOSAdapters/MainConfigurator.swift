@@ -3,6 +3,7 @@ public protocol MainConfigurator {
 }
 public protocol MainConfigurable: class {
     var appStarter: AppStarter! { get set }
+    var controllerPresenter: UIControllerPresenter { get }
     func configurationDone()
 }
 public class MemorizerConfigurator {
@@ -10,7 +11,7 @@ public class MemorizerConfigurator {
 }
 extension MemorizerConfigurator: MainConfigurator {
     public func configure(_ main: MainConfigurable) {
-        //main.configurationDone()
-        //main.appStarter = Memorizer(<#T##presenter: Presenter##Presenter#>)
+        main.appStarter = Memorizer(PileListScreen(main.controllerPresenter))
+        main.configurationDone()
     }
 }

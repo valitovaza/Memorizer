@@ -16,11 +16,13 @@
 		562D18EE1FEFCC1F00A750E5 /* Sequence+shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18ED1FEFCC1F00A750E5 /* Sequence+shuffle.swift */; };
 		562D18F11FEFCD1500A750E5 /* shuffleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18F01FEFCD1500A750E5 /* shuffleTests.swift */; };
 		562D18F31FEFD5A700A750E5 /* ArrayShuffler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18F21FEFD5A700A750E5 /* ArrayShuffler.swift */; };
-		56357C9120300380006561E4 /* PileListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56357C9020300380006561E4 /* PileListInteractorTests.swift */; };
-		56357C9320300480006561E4 /* PileListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56357C9220300480006561E4 /* PileListInteractor.swift */; };
+		56357C9120300380006561E4 /* PileListLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56357C9020300380006561E4 /* PileListLoaderTests.swift */; };
 		56357C9920300BCA006561E4 /* PileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56357C9820300BCA006561E4 /* PileRepository.swift */; };
 		56357C9C20300DC1006561E4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56357C9B20300DC1006561E4 /* Result.swift */; };
-		56357CA020302544006561E4 /* PileListInteractorTests+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56357C9F20302544006561E4 /* PileListInteractorTests+.swift */; };
+		56357CA020302544006561E4 /* PilesChangeListenerTests+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56357C9F20302544006561E4 /* PilesChangeListenerTests+.swift */; };
+		56358B6620415FD400D9BFF4 /* PilesChangeListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B6520415FD400D9BFF4 /* PilesChangeListener.swift */; };
+		56358B6920416E9C00D9BFF4 /* UIControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B6820416E9C00D9BFF4 /* UIControllerPresenter.swift */; };
+		56358B6C2041744100D9BFF4 /* ControllerPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B6B2041744100D9BFF4 /* ControllerPresenterSpy.swift */; };
 		564ABD62202FEEE300243CBB /* MemorizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564ABD61202FEEE300243CBB /* MemorizerTests.swift */; };
 		564ABD64202FEF2400243CBB /* Memorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564ABD63202FEF2400243CBB /* Memorizer.swift */; };
 		56881D3B203971A8001BEBAD /* CreateBarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56881D3A203971A8001BEBAD /* CreateBarScreen.swift */; };
@@ -44,7 +46,13 @@
 		56B81A7720383AFD009D8B1D /* PileListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A7620383AFD009D8B1D /* PileListScreen.swift */; };
 		56B81A7920383D4C009D8B1D /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A7820383D4C009D8B1D /* Presenter.swift */; };
 		56B81A882038562B009D8B1D /* CreateBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A872038562B009D8B1D /* CreateBarInteractor.swift */; };
-		56B81A8B203877B7009D8B1D /* CreateBarInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A8A203877B7009D8B1D /* CreateBarInteractorTests.swift */; };
+		56B81A8B203877B7009D8B1D /* CreatePileInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A8A203877B7009D8B1D /* CreatePileInteractorTests.swift */; };
+		56C446372041426B00D5D9B2 /* PileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C446362041426B00D5D9B2 /* PileListViewController.swift */; };
+		56C4463B20414AAD00D5D9B2 /* PileListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4463820414A1600D5D9B2 /* PileListLoader.swift */; };
+		56C4463D20414BF900D5D9B2 /* PilesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4463C20414BF900D5D9B2 /* PilesInteractorTests.swift */; };
+		56C4463F20414C8500D5D9B2 /* PilesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4463E20414C8500D5D9B2 /* PilesInteractor.swift */; };
+		56C4464120414FE400D5D9B2 /* RepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4464020414FE400D5D9B2 /* RepositorySpy.swift */; };
+		56C4464320415D0100D5D9B2 /* PilesChangeListenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4464220415D0100D5D9B2 /* PilesChangeListenerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,11 +112,13 @@
 		562D18ED1FEFCC1F00A750E5 /* Sequence+shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+shuffle.swift"; sourceTree = "<group>"; };
 		562D18F01FEFCD1500A750E5 /* shuffleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shuffleTests.swift; sourceTree = "<group>"; };
 		562D18F21FEFD5A700A750E5 /* ArrayShuffler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayShuffler.swift; sourceTree = "<group>"; };
-		56357C9020300380006561E4 /* PileListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListInteractorTests.swift; sourceTree = "<group>"; };
-		56357C9220300480006561E4 /* PileListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListInteractor.swift; sourceTree = "<group>"; };
+		56357C9020300380006561E4 /* PileListLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListLoaderTests.swift; sourceTree = "<group>"; };
 		56357C9820300BCA006561E4 /* PileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileRepository.swift; sourceTree = "<group>"; };
 		56357C9B20300DC1006561E4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		56357C9F20302544006561E4 /* PileListInteractorTests+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PileListInteractorTests+.swift"; sourceTree = "<group>"; };
+		56357C9F20302544006561E4 /* PilesChangeListenerTests+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PilesChangeListenerTests+.swift"; sourceTree = "<group>"; };
+		56358B6520415FD400D9BFF4 /* PilesChangeListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesChangeListener.swift; sourceTree = "<group>"; };
+		56358B6820416E9C00D9BFF4 /* UIControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControllerPresenter.swift; sourceTree = "<group>"; };
+		56358B6B2041744100D9BFF4 /* ControllerPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerPresenterSpy.swift; sourceTree = "<group>"; };
 		564ABD61202FEEE300243CBB /* MemorizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizerTests.swift; sourceTree = "<group>"; };
 		564ABD63202FEF2400243CBB /* Memorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memorizer.swift; sourceTree = "<group>"; };
 		56881D3A203971A8001BEBAD /* CreateBarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBarScreen.swift; sourceTree = "<group>"; };
@@ -135,7 +145,13 @@
 		56B81A7620383AFD009D8B1D /* PileListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListScreen.swift; sourceTree = "<group>"; };
 		56B81A7820383D4C009D8B1D /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		56B81A872038562B009D8B1D /* CreateBarInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBarInteractor.swift; sourceTree = "<group>"; };
-		56B81A8A203877B7009D8B1D /* CreateBarInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBarInteractorTests.swift; sourceTree = "<group>"; };
+		56B81A8A203877B7009D8B1D /* CreatePileInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePileInteractorTests.swift; sourceTree = "<group>"; };
+		56C446362041426B00D5D9B2 /* PileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListViewController.swift; sourceTree = "<group>"; };
+		56C4463820414A1600D5D9B2 /* PileListLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PileListLoader.swift; sourceTree = "<group>"; };
+		56C4463C20414BF900D5D9B2 /* PilesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesInteractorTests.swift; sourceTree = "<group>"; };
+		56C4463E20414C8500D5D9B2 /* PilesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesInteractor.swift; sourceTree = "<group>"; };
+		56C4464020414FE400D5D9B2 /* RepositorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySpy.swift; sourceTree = "<group>"; };
+		56C4464220415D0100D5D9B2 /* PilesChangeListenerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesChangeListenerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,10 +268,27 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		56358B6720416E8E00D9BFF4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				56358B6820416E9C00D9BFF4 /* UIControllerPresenter.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		56358B6A2041743800D9BFF4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				56358B6B2041744100D9BFF4 /* ControllerPresenterSpy.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		56881DB020399450001BEBAD /* iOSApp */ = {
 			isa = PBXGroup;
 			children = (
 				56881DF620399E1B001BEBAD /* Common */,
+				56C446352041424E00D5D9B2 /* PileList */,
 				56881DB820399450001BEBAD /* Assets.xcassets */,
 				56881DBA20399450001BEBAD /* LaunchScreen.storyboard */,
 				56881DBD20399450001BEBAD /* Info.plist */,
@@ -266,6 +299,7 @@
 		56881DC720399978001BEBAD /* iOSAdapters */ = {
 			isa = PBXGroup;
 			children = (
+				56358B6720416E8E00D9BFF4 /* Common */,
 				56881E002039B484001BEBAD /* PileListScreen */,
 				56881DF92039A676001BEBAD /* MainConfigurator.swift */,
 				56881DF220399BBA001BEBAD /* iOSAdapters.h */,
@@ -277,6 +311,7 @@
 		56881DD420399978001BEBAD /* iOSAdaptersTests */ = {
 			isa = PBXGroup;
 			children = (
+				56358B6A2041743800D9BFF4 /* Common */,
 				56881E012039B49C001BEBAD /* PileListScreen */,
 				56881DFE2039AF40001BEBAD /* MainConfiguratorTests.swift */,
 				56881DD720399978001BEBAD /* Info.plist */,
@@ -331,6 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				56B81A7420382B15009D8B1D /* PresenterSpy.swift */,
+				56C4464020414FE400D5D9B2 /* RepositorySpy.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -339,7 +375,9 @@
 			isa = PBXGroup;
 			children = (
 				56357C9820300BCA006561E4 /* PileRepository.swift */,
-				56357C9220300480006561E4 /* PileListInteractor.swift */,
+				56C4463820414A1600D5D9B2 /* PileListLoader.swift */,
+				56358B6520415FD400D9BFF4 /* PilesChangeListener.swift */,
+				56C4463E20414C8500D5D9B2 /* PilesInteractor.swift */,
 				56B81A7620383AFD009D8B1D /* PileListScreen.swift */,
 			);
 			path = PileList;
@@ -348,27 +386,37 @@
 		56B81A7E2038511F009D8B1D /* PileList */ = {
 			isa = PBXGroup;
 			children = (
-				56357C9020300380006561E4 /* PileListInteractorTests.swift */,
-				56357C9F20302544006561E4 /* PileListInteractorTests+.swift */,
+				56357C9020300380006561E4 /* PileListLoaderTests.swift */,
+				56C4464220415D0100D5D9B2 /* PilesChangeListenerTests.swift */,
+				56357C9F20302544006561E4 /* PilesChangeListenerTests+.swift */,
+				56C4463C20414BF900D5D9B2 /* PilesInteractorTests.swift */,
 			);
 			path = PileList;
 			sourceTree = "<group>";
 		};
-		56B81A862038562B009D8B1D /* CreateBar */ = {
+		56B81A862038562B009D8B1D /* CreatePile */ = {
 			isa = PBXGroup;
 			children = (
 				56B81A872038562B009D8B1D /* CreateBarInteractor.swift */,
 				56881D3A203971A8001BEBAD /* CreateBarScreen.swift */,
 			);
-			path = CreateBar;
+			path = CreatePile;
 			sourceTree = "<group>";
 		};
-		56B81A89203877B7009D8B1D /* CreateBar */ = {
+		56B81A89203877B7009D8B1D /* CreatePile */ = {
 			isa = PBXGroup;
 			children = (
-				56B81A8A203877B7009D8B1D /* CreateBarInteractorTests.swift */,
+				56B81A8A203877B7009D8B1D /* CreatePileInteractorTests.swift */,
 			);
-			path = CreateBar;
+			path = CreatePile;
+			sourceTree = "<group>";
+		};
+		56C446352041424E00D5D9B2 /* PileList */ = {
+			isa = PBXGroup;
+			children = (
+				56C446362041426B00D5D9B2 /* PileListViewController.swift */,
+			);
+			path = PileList;
 			sourceTree = "<group>";
 		};
 		56DE778F202EFFD500D0D981 /* Core */ = {
@@ -387,7 +435,7 @@
 			children = (
 				564ABD63202FEF2400243CBB /* Memorizer.swift */,
 				56357C9A20300DA3006561E4 /* Common */,
-				56B81A862038562B009D8B1D /* CreateBar */,
+				56B81A862038562B009D8B1D /* CreatePile */,
 				56B81A7A20384EFE009D8B1D /* PileList */,
 			);
 			path = App;
@@ -398,7 +446,7 @@
 			children = (
 				564ABD61202FEEE300243CBB /* MemorizerTests.swift */,
 				56B81A7320382B02009D8B1D /* Common */,
-				56B81A89203877B7009D8B1D /* CreateBar */,
+				56B81A89203877B7009D8B1D /* CreatePile */,
 				56B81A7E2038511F009D8B1D /* PileList */,
 			);
 			path = App;
@@ -615,22 +663,27 @@
 				562D18DF1FEEE2FD00A750E5 /* CardTests.swift in Sources */,
 				562D18E31FEF932400A750E5 /* CardPileTests.swift in Sources */,
 				562D18E91FEFACBD00A750E5 /* CardSideTests.swift in Sources */,
-				56B81A8B203877B7009D8B1D /* CreateBarInteractorTests.swift in Sources */,
-				56357C9320300480006561E4 /* PileListInteractor.swift in Sources */,
+				56B81A8B203877B7009D8B1D /* CreatePileInteractorTests.swift in Sources */,
 				564ABD64202FEF2400243CBB /* Memorizer.swift in Sources */,
+				56C4463D20414BF900D5D9B2 /* PilesInteractorTests.swift in Sources */,
 				562D18EB1FEFB99600A750E5 /* CardPile.swift in Sources */,
 				56B81A7720383AFD009D8B1D /* PileListScreen.swift in Sources */,
 				56B81A882038562B009D8B1D /* CreateBarInteractor.swift in Sources */,
 				56B81A7920383D4C009D8B1D /* Presenter.swift in Sources */,
 				562D18E11FEEE32300A750E5 /* Card.swift in Sources */,
 				562D18F31FEFD5A700A750E5 /* ArrayShuffler.swift in Sources */,
+				56C4464120414FE400D5D9B2 /* RepositorySpy.swift in Sources */,
 				562D18F11FEFCD1500A750E5 /* shuffleTests.swift in Sources */,
 				562D18EE1FEFCC1F00A750E5 /* Sequence+shuffle.swift in Sources */,
+				56C4463F20414C8500D5D9B2 /* PilesInteractor.swift in Sources */,
+				56358B6620415FD400D9BFF4 /* PilesChangeListener.swift in Sources */,
 				56B81A7520382B15009D8B1D /* PresenterSpy.swift in Sources */,
-				56357CA020302544006561E4 /* PileListInteractorTests+.swift in Sources */,
+				56C4463B20414AAD00D5D9B2 /* PileListLoader.swift in Sources */,
+				56357CA020302544006561E4 /* PilesChangeListenerTests+.swift in Sources */,
 				56881D3B203971A8001BEBAD /* CreateBarScreen.swift in Sources */,
 				56357C9920300BCA006561E4 /* PileRepository.swift in Sources */,
-				56357C9120300380006561E4 /* PileListInteractorTests.swift in Sources */,
+				56C4464320415D0100D5D9B2 /* PilesChangeListenerTests.swift in Sources */,
+				56357C9120300380006561E4 /* PileListLoaderTests.swift in Sources */,
 				562D18E71FEFABC900A750E5 /* CardSide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,6 +693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56881DB220399450001BEBAD /* AppDelegate.swift in Sources */,
+				56C446372041426B00D5D9B2 /* PileListViewController.swift in Sources */,
 				56881DF520399DCE001BEBAD /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -649,6 +703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56881DFA2039A676001BEBAD /* MainConfigurator.swift in Sources */,
+				56358B6920416E9C00D9BFF4 /* UIControllerPresenter.swift in Sources */,
 				56881E052039B785001BEBAD /* PileListScreen.swift in Sources */,
 				56881DF82039A605001BEBAD /* Presenter.swift in Sources */,
 				56881DF72039A5F5001BEBAD /* Memorizer.swift in Sources */,
@@ -660,6 +715,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56881DFF2039AF40001BEBAD /* MainConfiguratorTests.swift in Sources */,
+				56358B6C2041744100D9BFF4 /* ControllerPresenterSpy.swift in Sources */,
 				56881E032039B70C001BEBAD /* PileListScreenTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
