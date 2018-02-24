@@ -11,10 +11,15 @@ class PileListScreen {
 }
 extension PileListScreen: Presenter {
     func present() {
-        let childViewController = viewControllerFactory.createViewController()
+        let childViewController = viewControllerFactory.create()
         controllerPresenter?.addChildViewController(childViewController)
+        addViewAndLayout(childViewController, controllerPresenter)
+        childViewController.didMove(toParentViewController: controllerPresenter)
+    }
+    private func addViewAndLayout(_ childViewController: UIViewController,
+                                  _ parentViewController: UIViewController?) {
         if let childView = childViewController.view,
-            let parentView = controllerPresenter?.view {
+            let parentView = parentViewController?.view {
             childView.translatesAutoresizingMaskIntoConstraints = false
             parentView.addSubview(childView)
             NSLayoutConstraint.activate([
@@ -28,6 +33,5 @@ extension PileListScreen: Presenter {
                     .constraint(equalTo: parentView.bottomAnchor)
             ])
         }
-        childViewController.didMove(toParentViewController: controllerPresenter)
     }
 }

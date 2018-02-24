@@ -2,7 +2,7 @@ import UIKit
 import iOSAdapters
 
 class MainViewController: UIViewController, MainConfigurable {
-    var configurator: MainConfigurator = MemorizerConfigurator(PileListViewControllerFactory())
+    var configurator: MainConfigurator = MemorizerConfigurator(PileListVCFactory())
     
     var appStarter: AppStarter!
     var controllerPresenter: UIViewController {

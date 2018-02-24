@@ -3,7 +3,7 @@ import XCTest
 
 class ViewControllerFactorySpy: ViewControllerFactory {
     var testCreateController = UIControllerPresentableSpy()
-    func createViewController() -> UIViewController {
+    func create() -> UIViewController {
         return testCreateController
     }
 }
