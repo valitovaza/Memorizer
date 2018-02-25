@@ -22,8 +22,7 @@ class PileListLoaderTests: XCTestCase {
     
     func test_onLoad_presentLoadingState() {
         sut.onLoad()
-        XCTAssertEqual(screen.presentStateWasInvoked, 1)
-        XCTAssertEqual(screen.savedState, .loading)
+        XCTAssertEqual(screen.presentLoadingWasInvoked, 1)
     }
     
     func test_onLoad_fetchPiles() {
@@ -33,18 +32,16 @@ class PileListLoaderTests: XCTestCase {
     
     func test_onLoad_loadingState_BeforeFetchPiles() {
         repository.onFetchPileBlock = {[unowned self] in
-            XCTAssertEqual(self.screen.presentStateWasInvoked, 1)
+            XCTAssertEqual(self.screen.presentLoadingWasInvoked, 1)
         }
         sut.onLoad()
     }
 }
 extension PileListLoaderTests {
     class ScreenSpy: PilesLoaderScreen {
-        var presentStateWasInvoked = 0
-        var savedState: PileListScreenState?
-        func present(state: PileListScreenState) {
-            presentStateWasInvoked += 1
-            savedState = state
+        var presentLoadingWasInvoked = 0
+        func presentLoading() {
+            presentLoadingWasInvoked += 1
         }
     }
 }

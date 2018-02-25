@@ -1,4 +1,4 @@
-protocol CreatePileHandler {
+public protocol CreatePileHandler {
     func onCreatePile()
 }
 class CreatePileInteractor {

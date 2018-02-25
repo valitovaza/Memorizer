@@ -1,8 +1,8 @@
-protocol PileRepository {
+public protocol PileRepository {
     func fetchPiles()
     func delete(at index: Int)
 }
-protocol PileRepositoryDelegate {
+protocol PileRepositoryDelegate: class {
     func onPilesFetched(_ pileHolders: [CardList])
     func onPileRemoved(at index: Int)
     func onPileAdded(pile: CardList, at index: Int)

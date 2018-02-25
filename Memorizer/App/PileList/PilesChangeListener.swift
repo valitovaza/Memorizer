@@ -1,16 +1,15 @@
-protocol PilesChangesListenerScreen: PileListScreen, PilesLoaderScreen {}
 class PilesChangeListener {
-    private let screen: PilesChangesListenerScreen
-    init(_ screen: PilesChangesListenerScreen) {
+    private let screen: PilesScreen
+    init(_ screen: PilesScreen) {
         self.screen = screen
     }
 }
 extension PilesChangeListener: PileRepositoryDelegate {
     func onPilesFetched(_ pileHolders: [CardList]) {
         if pileHolders.count > 0 {
-            screen.present(state: .piles(pileHolders))
+            screen.present(piles: pileHolders)
         }else{
-            screen.present(state: .empty)
+            screen.presentEmpty()
         }
     }
     func onPileRemoved(at index: Int) {

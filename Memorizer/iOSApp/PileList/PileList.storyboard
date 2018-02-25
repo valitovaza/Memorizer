@@ -32,12 +32,29 @@
                     <view key="view" contentMode="scaleToFill" id="llk-q4-pao">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2Kb-j3-2SZ">
+                                <rect key="frame" x="169" y="347" width="37" height="37"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2Kb-j3-2SZ" firstAttribute="centerX" secondItem="ped-wD-XgR" secondAttribute="centerX" id="gSj-Zo-ziZ"/>
+                            <constraint firstItem="2Kb-j3-2SZ" firstAttribute="centerY" secondItem="ped-wD-XgR" secondAttribute="centerY" id="qMU-pz-5Du"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ped-wD-XgR"/>
                     </view>
                     <navigationItem key="navigationItem" title="Memorizer" id="WgL-0Q-abi">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="w2Z-YD-vWG"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="w2Z-YD-vWG">
+                            <connections>
+                                <action selector="createPile:" destination="C0r-pl-pdc" id="vtk-Mg-mFJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="2Kb-j3-2SZ" id="DWi-4K-DXN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVo-s6-Poc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

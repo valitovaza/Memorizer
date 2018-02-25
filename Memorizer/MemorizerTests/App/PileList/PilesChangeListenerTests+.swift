@@ -30,7 +30,6 @@ extension PilesChangeListenerTests {
         return arc4random_uniform(max) + 1
     }
 }
-extension PileListScreenState: Equatable {}
 func compare(_ lholders: [CardList], _ rholders: [CardList]) -> Bool {
     guard lholders.count == rholders.count else { return false }
     for (index, element) in lholders.enumerated() {
@@ -44,19 +43,6 @@ func `is`(_ lholder: CardList, equalTo rholder: CardList) -> Bool {
         guard rholder.cards[index] == element else { return false }
     }
     return true
-}
-func ==(lhs: PileListScreenState, rhs: PileListScreenState) -> Bool {
-    if case .loading = lhs, case .loading = rhs {
-        return true
-    }
-    if case .empty = lhs, case .empty = rhs {
-        return true
-    }
-    if case .piles(let lholders) = lhs,
-        case .piles(let rholders) = rhs {
-        return compare(lholders, rholders)
-    }
-    return false
 }
 extension Card: Equatable {}
 func ==(lhs: Card, rhs: Card) -> Bool {

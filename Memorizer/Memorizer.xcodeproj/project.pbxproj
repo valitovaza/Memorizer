@@ -35,8 +35,25 @@
 		56358B862041B35400D9BFF4 /* UIStoryboard+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B852041B35400D9BFF4 /* UIStoryboard+Tests.swift */; };
 		56358B892041C00500D9BFF4 /* PileListVCFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B882041C00500D9BFF4 /* PileListVCFactoryTests.swift */; };
 		56358B8B2041C33700D9BFF4 /* PileListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B8A2041C33700D9BFF4 /* PileListViewControllerTests.swift */; };
+		56358B8F20426EBA00D9BFF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56358B9120426EBA00D9BFF4 /* Localizable.strings */; };
+		56358B94204270F800D9BFF4 /* TextLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B93204270F800D9BFF4 /* TextLocalization.swift */; };
+		56358B9620427CD500D9BFF4 /* PileListEventReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B9520427CD500D9BFF4 /* PileListEventReceiver.swift */; };
+		56358B9820427CEF00D9BFF4 /* PileListEventReceiverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B9720427CEF00D9BFF4 /* PileListEventReceiverTests.swift */; };
+		56358B9920427F4F00D9BFF4 /* PileListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4463820414A1600D5D9B2 /* PileListLoader.swift */; };
+		56358B9A20427F5C00D9BFF4 /* PileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56357C9820300BCA006561E4 /* PileRepository.swift */; };
+		56358B9B20427F6700D9BFF4 /* PileListScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A7620383AFD009D8B1D /* PileListScreens.swift */; };
+		56358B9C2042808A00D9BFF4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18E01FEEE32300A750E5 /* Card.swift */; };
+		56358B9D2042809100D9BFF4 /* CardSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18E61FEFABC900A750E5 /* CardSide.swift */; };
+		56358B9E204280A200D9BFF4 /* CardPile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18EA1FEFB99600A750E5 /* CardPile.swift */; };
+		56358B9F204280AB00D9BFF4 /* ArrayShuffler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18F21FEFD5A700A750E5 /* ArrayShuffler.swift */; };
+		56358BA0204282BF00D9BFF4 /* CreateBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A872038562B009D8B1D /* CreateBarInteractor.swift */; };
+		56358BA1204282C500D9BFF4 /* CreateBarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56881D3A203971A8001BEBAD /* CreateBarScreen.swift */; };
+		56358BA3204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA2204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift */; };
+		56358BA5204299F500D9BFF4 /* PilesInMemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA4204299F500D9BFF4 /* PilesInMemoryRepository.swift */; };
 		564ABD62202FEEE300243CBB /* MemorizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564ABD61202FEEE300243CBB /* MemorizerTests.swift */; };
 		564ABD64202FEF2400243CBB /* Memorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564ABD63202FEF2400243CBB /* Memorizer.swift */; };
+		5675D2562042B0660019A0CD /* SpinnerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */; };
+		5675D2572042B07A0019A0CD /* SpinnerAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA62042AF1200D9BFF4 /* SpinnerAnimatorTests.swift */; };
 		56881D3B203971A8001BEBAD /* CreateBarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56881D3A203971A8001BEBAD /* CreateBarScreen.swift */; };
 		56881DB220399450001BEBAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56881DB120399450001BEBAD /* AppDelegate.swift */; };
 		56881DB720399450001BEBAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56881DB520399450001BEBAD /* Main.storyboard */; };
@@ -55,7 +72,7 @@
 		56881E032039B70C001BEBAD /* PileListScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56881E022039B70C001BEBAD /* PileListScreenTests.swift */; };
 		56881E052039B785001BEBAD /* PileListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56881E042039B785001BEBAD /* PileListScreen.swift */; };
 		56B81A7520382B15009D8B1D /* PresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A7420382B15009D8B1D /* PresenterSpy.swift */; };
-		56B81A7720383AFD009D8B1D /* PileListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A7620383AFD009D8B1D /* PileListScreen.swift */; };
+		56B81A7720383AFD009D8B1D /* PileListScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A7620383AFD009D8B1D /* PileListScreens.swift */; };
 		56B81A7920383D4C009D8B1D /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A7820383D4C009D8B1D /* Presenter.swift */; };
 		56B81A882038562B009D8B1D /* CreateBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A872038562B009D8B1D /* CreateBarInteractor.swift */; };
 		56B81A8B203877B7009D8B1D /* CreatePileInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A8A203877B7009D8B1D /* CreatePileInteractorTests.swift */; };
@@ -143,8 +160,17 @@
 		56358B852041B35400D9BFF4 /* UIStoryboard+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Tests.swift"; sourceTree = "<group>"; };
 		56358B882041C00500D9BFF4 /* PileListVCFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListVCFactoryTests.swift; sourceTree = "<group>"; };
 		56358B8A2041C33700D9BFF4 /* PileListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListViewControllerTests.swift; sourceTree = "<group>"; };
+		56358B9020426EBA00D9BFF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		56358B9220426EDD00D9BFF4 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		56358B93204270F800D9BFF4 /* TextLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLocalization.swift; sourceTree = "<group>"; };
+		56358B9520427CD500D9BFF4 /* PileListEventReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListEventReceiver.swift; sourceTree = "<group>"; };
+		56358B9720427CEF00D9BFF4 /* PileListEventReceiverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListEventReceiverTests.swift; sourceTree = "<group>"; };
+		56358BA2204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesInMemoryRepositoryTests.swift; sourceTree = "<group>"; };
+		56358BA4204299F500D9BFF4 /* PilesInMemoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesInMemoryRepository.swift; sourceTree = "<group>"; };
+		56358BA62042AF1200D9BFF4 /* SpinnerAnimatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerAnimatorTests.swift; sourceTree = "<group>"; };
 		564ABD61202FEEE300243CBB /* MemorizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizerTests.swift; sourceTree = "<group>"; };
 		564ABD63202FEF2400243CBB /* Memorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memorizer.swift; sourceTree = "<group>"; };
+		5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerAnimator.swift; sourceTree = "<group>"; };
 		56881D3A203971A8001BEBAD /* CreateBarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBarScreen.swift; sourceTree = "<group>"; };
 		56881DAF20399450001BEBAD /* iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56881DB120399450001BEBAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -166,7 +192,7 @@
 		56881E022039B70C001BEBAD /* PileListScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListScreenTests.swift; sourceTree = "<group>"; };
 		56881E042039B785001BEBAD /* PileListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListScreen.swift; sourceTree = "<group>"; };
 		56B81A7420382B15009D8B1D /* PresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterSpy.swift; sourceTree = "<group>"; };
-		56B81A7620383AFD009D8B1D /* PileListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListScreen.swift; sourceTree = "<group>"; };
+		56B81A7620383AFD009D8B1D /* PileListScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListScreens.swift; sourceTree = "<group>"; };
 		56B81A7820383D4C009D8B1D /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		56B81A872038562B009D8B1D /* CreateBarInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBarInteractor.swift; sourceTree = "<group>"; };
 		56B81A8A203877B7009D8B1D /* CreatePileInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePileInteractorTests.swift; sourceTree = "<group>"; };
@@ -334,9 +360,19 @@
 			isa = PBXGroup;
 			children = (
 				56358B882041C00500D9BFF4 /* PileListVCFactoryTests.swift */,
+				56358B9720427CEF00D9BFF4 /* PileListEventReceiverTests.swift */,
 				56358B8A2041C33700D9BFF4 /* PileListViewControllerTests.swift */,
 			);
 			path = PileList;
+			sourceTree = "<group>";
+		};
+		56358B8C20426DF500D9BFF4 /* Texts */ = {
+			isa = PBXGroup;
+			children = (
+				56358B93204270F800D9BFF4 /* TextLocalization.swift */,
+				56358B9120426EBA00D9BFF4 /* Localizable.strings */,
+			);
+			path = Texts;
 			sourceTree = "<group>";
 		};
 		56881DB020399450001BEBAD /* iOSApp */ = {
@@ -390,6 +426,7 @@
 				56881DB120399450001BEBAD /* AppDelegate.swift */,
 				56881DF420399DCE001BEBAD /* MainViewController.swift */,
 				56881DB520399450001BEBAD /* Main.storyboard */,
+				56358B8C20426DF500D9BFF4 /* Texts */,
 				56358B812041B28300D9BFF4 /* VCFactory */,
 			);
 			path = Common;
@@ -408,6 +445,8 @@
 			isa = PBXGroup;
 			children = (
 				56881E042039B785001BEBAD /* PileListScreen.swift */,
+				5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */,
+				56358BA4204299F500D9BFF4 /* PilesInMemoryRepository.swift */,
 			);
 			path = PileListScreen;
 			sourceTree = "<group>";
@@ -416,6 +455,8 @@
 			isa = PBXGroup;
 			children = (
 				56881E022039B70C001BEBAD /* PileListScreenTests.swift */,
+				56358BA62042AF1200D9BFF4 /* SpinnerAnimatorTests.swift */,
+				56358BA2204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift */,
 			);
 			path = PileListScreen;
 			sourceTree = "<group>";
@@ -436,7 +477,7 @@
 				56C4463820414A1600D5D9B2 /* PileListLoader.swift */,
 				56358B6520415FD400D9BFF4 /* PilesChangeListener.swift */,
 				56C4463E20414C8500D5D9B2 /* PilesInteractor.swift */,
-				56B81A7620383AFD009D8B1D /* PileListScreen.swift */,
+				56B81A7620383AFD009D8B1D /* PileListScreens.swift */,
 			);
 			path = PileList;
 			sourceTree = "<group>";
@@ -473,6 +514,7 @@
 			isa = PBXGroup;
 			children = (
 				56358B7D2041AF6700D9BFF4 /* PileListVCFactory.swift */,
+				56358B9520427CD500D9BFF4 /* PileListEventReceiver.swift */,
 				56C446362041426B00D5D9B2 /* PileListViewController.swift */,
 				56358B772041A96600D9BFF4 /* PileList.storyboard */,
 			);
@@ -657,6 +699,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"ru-RU",
 			);
 			mainGroup = 562D18C91FEEE15B00A750E5;
 			productRefGroup = 562D18D61FEEE23000A750E5 /* Products */;
@@ -684,6 +727,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56358B8F20426EBA00D9BFF4 /* Localizable.strings in Resources */,
 				56358B782041A96600D9BFF4 /* PileList.storyboard in Resources */,
 				56881DBC20399450001BEBAD /* LaunchScreen.storyboard in Resources */,
 				56881DB920399450001BEBAD /* Assets.xcassets in Resources */,
@@ -728,7 +772,7 @@
 				564ABD64202FEF2400243CBB /* Memorizer.swift in Sources */,
 				56C4463D20414BF900D5D9B2 /* PilesInteractorTests.swift in Sources */,
 				562D18EB1FEFB99600A750E5 /* CardPile.swift in Sources */,
-				56B81A7720383AFD009D8B1D /* PileListScreen.swift in Sources */,
+				56B81A7720383AFD009D8B1D /* PileListScreens.swift in Sources */,
 				56B81A882038562B009D8B1D /* CreateBarInteractor.swift in Sources */,
 				56B81A7920383D4C009D8B1D /* Presenter.swift in Sources */,
 				562D18E11FEEE32300A750E5 /* Card.swift in Sources */,
@@ -755,6 +799,8 @@
 			files = (
 				56881DB220399450001BEBAD /* AppDelegate.swift in Sources */,
 				56358B7E2041AF6700D9BFF4 /* PileListVCFactory.swift in Sources */,
+				56358B94204270F800D9BFF4 /* TextLocalization.swift in Sources */,
+				56358B9620427CD500D9BFF4 /* PileListEventReceiver.swift in Sources */,
 				56358B842041B30F00D9BFF4 /* UIStoryboard+.swift in Sources */,
 				56358B7A2041AB6000D9BFF4 /* UIControllerFactory.swift in Sources */,
 				56C446372041426B00D5D9B2 /* PileListViewController.swift in Sources */,
@@ -768,11 +814,22 @@
 			files = (
 				56881DFA2039A676001BEBAD /* MainConfigurator.swift in Sources */,
 				56358B742041834800D9BFF4 /* UIControllerPresentable.swift in Sources */,
+				56358BA5204299F500D9BFF4 /* PilesInMemoryRepository.swift in Sources */,
 				56358B6920416E9C00D9BFF4 /* UIControllerPresenter.swift in Sources */,
+				56358B9B20427F6700D9BFF4 /* PileListScreens.swift in Sources */,
+				56358B9D2042809100D9BFF4 /* CardSide.swift in Sources */,
+				56358BA0204282BF00D9BFF4 /* CreateBarInteractor.swift in Sources */,
 				56881E052039B785001BEBAD /* PileListScreen.swift in Sources */,
+				56358B9F204280AB00D9BFF4 /* ArrayShuffler.swift in Sources */,
+				56358B9920427F4F00D9BFF4 /* PileListLoader.swift in Sources */,
+				56358BA1204282C500D9BFF4 /* CreateBarScreen.swift in Sources */,
 				56358B6E2041797300D9BFF4 /* ViewControllerFactory.swift in Sources */,
 				56881DF82039A605001BEBAD /* Presenter.swift in Sources */,
 				56881DF72039A5F5001BEBAD /* Memorizer.swift in Sources */,
+				5675D2562042B0660019A0CD /* SpinnerAnimator.swift in Sources */,
+				56358B9A20427F5C00D9BFF4 /* PileRepository.swift in Sources */,
+				56358B9E204280A200D9BFF4 /* CardPile.swift in Sources */,
+				56358B9C2042808A00D9BFF4 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,6 +840,8 @@
 				56358B7220417BC300D9BFF4 /* ViewControllerFactorySpy.swift in Sources */,
 				56881DFF2039AF40001BEBAD /* MainConfiguratorTests.swift in Sources */,
 				56358B762041850900D9BFF4 /* UIControllerPresentableSpy.swift in Sources */,
+				56358BA3204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift in Sources */,
+				5675D2572042B07A0019A0CD /* SpinnerAnimatorTests.swift in Sources */,
 				56358B6C2041744100D9BFF4 /* ControllerPresenterSpy.swift in Sources */,
 				56881E032039B70C001BEBAD /* PileListScreenTests.swift in Sources */,
 			);
@@ -796,6 +855,7 @@
 				56358B892041C00500D9BFF4 /* PileListVCFactoryTests.swift in Sources */,
 				56358B8B2041C33700D9BFF4 /* PileListViewControllerTests.swift in Sources */,
 				56358B802041B1BB00D9BFF4 /* UIControllerFactoryTests.swift in Sources */,
+				56358B9820427CEF00D9BFF4 /* PileListEventReceiverTests.swift in Sources */,
 				56881DFD2039A9E3001BEBAD /* MainViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -826,6 +886,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		56358B9120426EBA00D9BFF4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56358B9020426EBA00D9BFF4 /* en */,
+				56358B9220426EDD00D9BFF4 /* ru-RU */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		56881DB520399450001BEBAD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -848,12 +917,14 @@
 		562D18CE1FEEE15B00A750E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 			};
 			name = Debug;
 		};
 		562D18CF1FEEE15B00A750E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 			};
 			name = Release;
 		};
