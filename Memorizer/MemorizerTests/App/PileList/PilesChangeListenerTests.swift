@@ -24,9 +24,10 @@ class PilesChangeListenerTests: XCTestCase {
         XCTAssertTrue(compare(screen.savedPiles, testPileHolders))
     }
     
-    func test_onEmptyProfilesFetched_presentEmptyScreen() {
+    func test_onEmptyProfilesFetched_presentEmptyPilesFetched() {
         sut.onPilesFetched([])
-        XCTAssertEqual(screen.presentEmptyWasInvoked, 1)
+        XCTAssertEqual(screen.presentPilesWasInvoked, 1)
+        XCTAssertTrue(compare(screen.savedPiles, []))
     }
     
     func test_onPileRemoved_presentRemoved() {
@@ -69,11 +70,6 @@ extension PilesChangeListenerTests {
         func present(piles: [CardList]) {
             presentPilesWasInvoked += 1
             savedPiles = piles
-        }
-        
-        var presentEmptyWasInvoked = 0
-        func presentEmpty() {
-            presentEmptyWasInvoked += 1
         }
         
         var presentNewPileWasInvoked = 0

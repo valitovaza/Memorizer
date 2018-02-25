@@ -1,13 +1,13 @@
 public protocol CreatePileHandler {
     func onCreatePile()
 }
-class CreatePileInteractor {
+class CreatePileLogic {
     private let screen: CreatePileScreen
     init(_ screen: CreatePileScreen) {
         self.screen = screen
     }
 }
-extension CreatePileInteractor: CreatePileHandler {
+extension CreatePileLogic: CreatePileHandler {
     func onCreatePile() {
         screen.openCreatePileScreen()
     }

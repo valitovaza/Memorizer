@@ -1,14 +1,14 @@
 import XCTest
 
-class CreatePileInteractorTests: XCTestCase {
+class CreatePileLogicTests: XCTestCase {
 
-    private var sut: CreatePileInteractor!
+    private var sut: CreatePileLogic!
     private var screen: ScreenSpy!
     
     override func setUp() {
         super.setUp()
         screen = ScreenSpy()
-        sut = CreatePileInteractor(screen)
+        sut = CreatePileLogic(screen)
     }
     
     override func tearDown() {
@@ -22,7 +22,7 @@ class CreatePileInteractorTests: XCTestCase {
         XCTAssertEqual(screen.openCreatePileScreenWasInvoked, 1)
     }
 }
-extension CreatePileInteractorTests {
+extension CreatePileLogicTests {
     class ScreenSpy: CreatePileScreen {
         var openCreatePileScreenWasInvoked = 0
         func openCreatePileScreen() {

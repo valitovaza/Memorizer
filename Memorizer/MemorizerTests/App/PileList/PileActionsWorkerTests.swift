@@ -1,16 +1,16 @@
 import XCTest
 
-class PilesInteractorTests: XCTestCase {
+class PileActionsWorkerTests: XCTestCase {
     
-    private var sut: PilesInteractor!
+    private var sut: PileActionsWorker!
     private var router: RouterSpy!
-    private var repository: RepositorySpy!
+    private var repository: PileRepositorySpy!
     
     override func setUp() {
         super.setUp()
         router = RouterSpy()
-        repository = RepositorySpy()
-        sut = PilesInteractor(router, repository)
+        repository = PileRepositorySpy()
+        sut = PileActionsWorker(router, repository)
     }
     
     override func tearDown() {
@@ -41,7 +41,7 @@ class PilesInteractorTests: XCTestCase {
         XCTAssertEqual(repository.deleteIndex, testIndex)
     }
 }
-extension PilesInteractorTests {
+extension PileActionsWorkerTests {
     class RouterSpy: RileListRouter {
         var openEditPileAtIndexWasInvoked = 0
         var editIndex: Int?

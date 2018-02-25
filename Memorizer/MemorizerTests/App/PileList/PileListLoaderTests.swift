@@ -3,13 +3,13 @@ import XCTest
 class PileListLoaderTests: XCTestCase {
 
     private var sut: PileListLoader!
-    private var repository: RepositorySpy!
+    private var repository: PileRepositorySpy!
     private var screen: ScreenSpy!
     
     override func setUp() {
         super.setUp()
         screen = ScreenSpy()
-        repository = RepositorySpy()
+        repository = PileRepositorySpy()
         sut = PileListLoader(screen, repository)
     }
     

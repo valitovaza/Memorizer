@@ -3,7 +3,7 @@ protocol PileList {
     func onRepeat(at index: Int)
     func onDelete(at index: Int)
 }
-class PilesInteractor {
+class PileActionsWorker {
     private let router: RileListRouter
     private let repository: PileRepository
     init(_ router: RileListRouter,
@@ -12,7 +12,7 @@ class PilesInteractor {
         self.repository = repository
     }
 }
-extension PilesInteractor: PileList {
+extension PileActionsWorker: PileList {
     func onEdit(at index: Int) {
         router.openEditPile(at: index)
     }

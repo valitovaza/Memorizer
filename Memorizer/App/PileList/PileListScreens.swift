@@ -3,10 +3,16 @@ public protocol PilesLoaderScreen {
 }
 protocol PilesScreen {
     func present(piles: [CardList])
-    func presentEmpty()
     func presentNew(pile: CardList, at index: Int)
     func onPileRemoved(at index: Int)
     func presentChange(of pile: CardList, at index: Int)
+}
+protocol PilesListOrEmptyScreen {
+    func presentPileList()
+    func presentEmpty()
+}
+protocol CreatePileScreen {
+    func openCreatePileScreen()
 }
 protocol CardList {
     var cards: [Card] { get }

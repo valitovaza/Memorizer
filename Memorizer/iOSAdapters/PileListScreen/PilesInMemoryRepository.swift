@@ -3,6 +3,9 @@ public class PilesInMemoryRepository {
     public init(){}
 }
 extension PilesInMemoryRepository: PileRepository {
+    public var count: Int {
+        return 0
+    }
     public func fetchPiles() {
         delegate?.onPilesFetched([])
     }

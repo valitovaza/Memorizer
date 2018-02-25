@@ -6,11 +6,7 @@ class PilesChangeListener {
 }
 extension PilesChangeListener: PileRepositoryDelegate {
     func onPilesFetched(_ pileHolders: [CardList]) {
-        if pileHolders.count > 0 {
-            screen.present(piles: pileHolders)
-        }else{
-            screen.presentEmpty()
-        }
+        screen.present(piles: pileHolders)
     }
     func onPileRemoved(at index: Int) {
         screen.onPileRemoved(at: index)

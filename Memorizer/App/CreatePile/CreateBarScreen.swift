@@ -1,3 +1,0 @@
-protocol CreatePileScreen {
-    func openCreatePileScreen()
-}

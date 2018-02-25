@@ -1,6 +1,9 @@
-public protocol PileRepository {
+public protocol PileRepository: PilesCountHolder {
     func fetchPiles()
     func delete(at index: Int)
+}
+public protocol PilesCountHolder {
+    var count: Int { get }
 }
 protocol PileRepositoryDelegate: class {
     func onPilesFetched(_ pileHolders: [CardList])
