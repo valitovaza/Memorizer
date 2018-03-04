@@ -1,5 +1,5 @@
 public class PilesInMemoryRepository {
-    weak var delegate: PileRepositoryDelegate?
+    public weak var delegate: PileRepositoryDelegate?
     public init(){}
 }
 extension PilesInMemoryRepository: PileRepository {

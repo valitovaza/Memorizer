@@ -7,14 +7,14 @@ protocol PilesScreen {
     func onPileRemoved(at index: Int)
     func presentChange(of pile: CardList, at index: Int)
 }
-protocol PilesListOrEmptyScreen {
+public protocol PilesListOrEmptyScreen {
     func presentPileList()
     func presentEmpty()
 }
 protocol CreatePileScreen {
     func openCreatePileScreen()
 }
-protocol CardList {
+public protocol CardList {
     var cards: [Card] { get }
 }
 extension CardPile: CardList {}

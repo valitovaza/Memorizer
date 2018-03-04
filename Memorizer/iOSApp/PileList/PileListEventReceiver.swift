@@ -3,6 +3,7 @@ import iOSAdapters
 class PileListEventReceiver {
     private let pilesLoader: PilesLoader
     private let createInteractor: CreatePileHandler
+    var pileListOrEmptyResolver: PileListOrEmptyResolver?
     init(_ pilesLoader: PilesLoader,
          _ createInteractor: CreatePileHandler) {
         self.pilesLoader = pilesLoader

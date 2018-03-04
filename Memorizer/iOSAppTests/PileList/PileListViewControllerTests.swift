@@ -1,7 +1,7 @@
 import XCTest
 @testable import iOSApp
 
-class PileListViewControllerTests: XCTestCase {
+class PileListViewControllerTests: LocalizerTests {
     
     private var sut: PileListViewController!
     private var navigationController: UINavigationController!
@@ -28,6 +28,12 @@ class PileListViewControllerTests: XCTestCase {
         navigationController = nil
     }
     
+    func test_outletsFromStoryboard() {
+        loadViews()
+        XCTAssertTrue(sut.emptyView.isHidden)
+        XCTAssertTrue(sut.contentView.isHidden)
+    }
+    
     func test_activityIsStopped() {
         loadViews()
         XCTAssertFalse(sut.activityIndicator.isAnimating)
@@ -50,8 +56,60 @@ class PileListViewControllerTests: XCTestCase {
         sut.animateActivityIndicator()
         XCTAssertTrue(sut.activityIndicator.isAnimating)
     }
+    
+    func test_showEmptyView_stopsSpinnerAnimation() {
+        startActivity()
+        sut.showEmptyView()
+        XCTAssertFalse(sut.activityIndicator.isAnimating)
+    }
+    
+    func test_showEmptyView_unhideEmptyView() {
+        hideEmptyView()
+        sut.showEmptyView()
+        XCTAssertFalse(sut.emptyView.isHidden)
+        XCTAssertTrue(sut.contentView.isHidden)
+    }
+    private func hideEmptyView() {
+        loadViews()
+        sut.emptyView.isHidden = true
+        sut.contentView.isHidden = false
+    }
+    
+    func test_showContentView_stopsSpinnerAnimation() {
+        startActivity()
+        sut.showContentView()
+        XCTAssertFalse(sut.activityIndicator.isAnimating)
+    }
+    
+    func test_showContentView_unhideContentView() {
+        hideContentView()
+        sut.showContentView()
+        XCTAssertTrue(sut.emptyView.isHidden)
+        XCTAssertFalse(sut.contentView.isHidden)
+    }
+    private func hideContentView() {
+        loadViews()
+        sut.emptyView.isHidden = false
+        sut.contentView.isHidden = true
+    }
+    private func startActivity() {
+        loadViews()
+        sut.activityIndicator.startAnimating()
+    }
     private func loadViews() {
         _=sut.view
+    }
+    
+    func test_onLoad_titleL10n_en() {
+        L10n.localizeFunc = L10n.enTr
+        sut.viewDidLoad()
+        XCTAssertEqual(sut.navigationItem.title, L10n.memorizer)
+    }
+    
+    func test_onLoad_titleL10n_ru() {
+        L10n.localizeFunc = L10n.ruTr
+        sut.viewDidLoad()
+        XCTAssertEqual(sut.navigationItem.title, L10n.memorizer)
     }
 }
 extension PileListViewControllerTests {

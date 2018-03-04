@@ -36,9 +36,15 @@ class PileListVCFactoryTests: XCTestCase {
     }
     
     func test_create_initializeEventHandler() {
+        XCTAssertNotNil(createPileListVcFromStoryboard()?.eventHandler)
+    }
+    
+    func test_pileListOrEmptyResolverHolded() {
+        XCTAssertNotNil((createPileListVcFromStoryboard()?.eventHandler as? PileListEventReceiver)?.pileListOrEmptyResolver)
+    }
+    private func createPileListVcFromStoryboard() -> PileListViewController? {
         let nav = sut.create() as? UINavigationController
-        let pileListVc = nav?.viewControllers.first as? PileListViewController
-        XCTAssertNotNil(pileListVc?.eventHandler)
+        return nav?.viewControllers.first as? PileListViewController
     }
     
     func test_retainCycle() {

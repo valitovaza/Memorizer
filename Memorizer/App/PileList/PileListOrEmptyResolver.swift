@@ -1,17 +1,17 @@
-class PileListOrEmptyResolver {
+public class PileListOrEmptyResolver {
     private let countHolder: PilesCountHolder
     private let screen: PilesListOrEmptyScreen
-    init(_ countHolder: PilesCountHolder,
-         _ screen: PilesListOrEmptyScreen) {
+    public init(_ countHolder: PilesCountHolder,
+                _ screen: PilesListOrEmptyScreen) {
         self.countHolder = countHolder
         self.screen = screen
     }
 }
 extension PileListOrEmptyResolver: PileRepositoryDelegate {
-    func onPilesFetched(_ pileHolders: [CardList]) {
+    public func onPilesFetched(_ pileHolders: [CardList]) {
         checkCount()
     }
-    func onPileRemoved(at index: Int) {
+    public func onPileRemoved(at index: Int) {
         checkCount()
     }
     private func checkCount() {
@@ -21,9 +21,9 @@ extension PileListOrEmptyResolver: PileRepositoryDelegate {
             screen.presentEmpty()
         }
     }
-    func onPileAdded(pile: CardList, at index: Int) {
+    public func onPileAdded(pile: CardList, at index: Int) {
         screen.presentPileList()
     }
-    func onPileChanged(pile: CardList, at index: Int) {
+    public func onPileChanged(pile: CardList, at index: Int) {
     }
 }

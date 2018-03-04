@@ -5,7 +5,7 @@ public protocol PileRepository: PilesCountHolder {
 public protocol PilesCountHolder {
     var count: Int { get }
 }
-protocol PileRepositoryDelegate: class {
+public protocol PileRepositoryDelegate: class {
     func onPilesFetched(_ pileHolders: [CardList])
     func onPileRemoved(at index: Int)
     func onPileAdded(pile: CardList, at index: Int)

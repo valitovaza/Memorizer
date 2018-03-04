@@ -12,6 +12,8 @@ class PileListViewController: UIViewController {
     
     var eventHandler: PileListEventHandler?
 
+    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func createPile(_ sender: Any) {
@@ -20,11 +22,27 @@ class PileListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        localize()
         eventHandler?.handle(event: .onLoad)
+    }
+    private func localize() {
+        navigationItem.title = L10n.memorizer
     }
 }
 extension PileListViewController: ActivityIndicatorPresenter {
     func animateActivityIndicator() {
         activityIndicator.startAnimating()
+    }
+}
+extension PileListViewController: EmptyStateView {
+    func showEmptyView() {
+        activityIndicator.stopAnimating()
+        emptyView.isHidden = false
+        contentView.isHidden = true
+    }
+    func showContentView() {
+        activityIndicator.stopAnimating()
+        emptyView.isHidden = true
+        contentView.isHidden = false
     }
 }
