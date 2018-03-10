@@ -43,6 +43,8 @@ func `is`(_ lholder: CardList, equalTo rholder: CardList) -> Bool {
     return true
 }
 extension Card: Equatable {}
-func ==(lhs: Card, rhs: Card) -> Bool {
-    return lhs.back.cardText == rhs.back.cardText
+public func ==(lhs: Card, rhs: Card) -> Bool {
+    guard let lhsInfo = lhs.back as? CustomStringConvertible,
+        let rhsInfo = rhs.back as? CustomStringConvertible else { return false }
+    return lhsInfo.description == rhsInfo.description
 }

@@ -12,7 +12,8 @@ class CardPileTests: XCTestCase {
     override func setUp() {
         super.setUp()
         shuffler = ShufflerSpy()
-        sut = CardPile(shuffler)
+        sut = CardPile()
+        sut.shuffler = shuffler
     }
     
     override func tearDown() {
@@ -222,7 +223,7 @@ class CardPileTests: XCTestCase {
         sut.add(testFirstCard)
     }
 }
-private class ShufflerSpy: ArrayShuffler {
+private class ShufflerSpy: Shuffler {
     var testArray: [CardInfo] = []
     var savedArray: [CardInfo] = []
     var shuffleWasInvoked = 0

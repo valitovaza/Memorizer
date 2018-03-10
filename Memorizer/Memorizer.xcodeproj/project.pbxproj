@@ -11,11 +11,8 @@
 		562D18E11FEEE32300A750E5 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18E01FEEE32300A750E5 /* Card.swift */; };
 		562D18E31FEF932400A750E5 /* CardPileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18E21FEF932400A750E5 /* CardPileTests.swift */; };
 		562D18E71FEFABC900A750E5 /* CardSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18E61FEFABC900A750E5 /* CardSide.swift */; };
-		562D18E91FEFACBD00A750E5 /* CardSideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18E81FEFACBD00A750E5 /* CardSideTests.swift */; };
 		562D18EB1FEFB99600A750E5 /* CardPile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18EA1FEFB99600A750E5 /* CardPile.swift */; };
-		562D18EE1FEFCC1F00A750E5 /* Sequence+shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18ED1FEFCC1F00A750E5 /* Sequence+shuffle.swift */; };
-		562D18F11FEFCD1500A750E5 /* shuffleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18F01FEFCD1500A750E5 /* shuffleTests.swift */; };
-		562D18F31FEFD5A700A750E5 /* ArrayShuffler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18F21FEFD5A700A750E5 /* ArrayShuffler.swift */; };
+		562D18F11FEFCD1500A750E5 /* ShufflerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18F01FEFCD1500A750E5 /* ShufflerTests.swift */; };
 		56357C9120300380006561E4 /* PileListLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56357C9020300380006561E4 /* PileListLoaderTests.swift */; };
 		56357C9920300BCA006561E4 /* PileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56357C9820300BCA006561E4 /* PileRepository.swift */; };
 		56357C9C20300DC1006561E4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56357C9B20300DC1006561E4 /* Result.swift */; };
@@ -44,7 +41,6 @@
 		56358B9C2042808A00D9BFF4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18E01FEEE32300A750E5 /* Card.swift */; };
 		56358B9D2042809100D9BFF4 /* CardSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18E61FEFABC900A750E5 /* CardSide.swift */; };
 		56358B9E204280A200D9BFF4 /* CardPile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18EA1FEFB99600A750E5 /* CardPile.swift */; };
-		56358B9F204280AB00D9BFF4 /* ArrayShuffler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18F21FEFD5A700A750E5 /* ArrayShuffler.swift */; };
 		56358BA0204282BF00D9BFF4 /* CreatePileLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A872038562B009D8B1D /* CreatePileLogic.swift */; };
 		56358BA3204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA2204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift */; };
 		56358BA5204299F500D9BFF4 /* PilesInMemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA4204299F500D9BFF4 /* PilesInMemoryRepository.swift */; };
@@ -77,6 +73,8 @@
 		568991A9204C21D000776431 /* PileListEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991A8204C21D000776431 /* PileListEmptyViewController.swift */; };
 		568991AB204C21F700776431 /* PileListEmptyViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991AA204C21F700776431 /* PileListEmptyViewControllerTests.swift */; };
 		568991B0204C241100776431 /* TestTextLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991AF204C241100776431 /* TestTextLocalization.swift */; };
+		568991B6204C69C800776431 /* Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991B5204C69C800776431 /* Shuffle.swift */; };
+		568991B8204C69E300776431 /* Shuffler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991B7204C69E300776431 /* Shuffler.swift */; };
 		56B81A7520382B15009D8B1D /* PresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A7420382B15009D8B1D /* PresenterSpy.swift */; };
 		56B81A7720383AFD009D8B1D /* PileListScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A7620383AFD009D8B1D /* PileListScreens.swift */; };
 		56B81A7920383D4C009D8B1D /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A7820383D4C009D8B1D /* Presenter.swift */; };
@@ -88,6 +86,10 @@
 		56C4463F20414C8500D5D9B2 /* PileActionsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4463E20414C8500D5D9B2 /* PileActionsWorker.swift */; };
 		56C4464120414FE400D5D9B2 /* PileRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4464020414FE400D5D9B2 /* PileRepositorySpy.swift */; };
 		56C4464320415D0100D5D9B2 /* PilesChangeListenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4464220415D0100D5D9B2 /* PilesChangeListenerTests.swift */; };
+		56CA59A5204C7FE900440185 /* CardSidePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CA59A4204C7FE900440185 /* CardSidePresenter.swift */; };
+		56CA59A6204C810400440185 /* Shuffler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991B7204C69E300776431 /* Shuffler.swift */; };
+		56CA59A7204C810800440185 /* Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991B5204C69C800776431 /* Shuffle.swift */; };
+		56F6A834204E9A1100164707 /* PileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F6A833204E9A1100164707 /* PileItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,11 +144,8 @@
 		562D18E01FEEE32300A750E5 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		562D18E21FEF932400A750E5 /* CardPileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPileTests.swift; sourceTree = "<group>"; };
 		562D18E61FEFABC900A750E5 /* CardSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSide.swift; sourceTree = "<group>"; };
-		562D18E81FEFACBD00A750E5 /* CardSideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSideTests.swift; sourceTree = "<group>"; };
 		562D18EA1FEFB99600A750E5 /* CardPile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPile.swift; sourceTree = "<group>"; };
-		562D18ED1FEFCC1F00A750E5 /* Sequence+shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+shuffle.swift"; sourceTree = "<group>"; };
-		562D18F01FEFCD1500A750E5 /* shuffleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shuffleTests.swift; sourceTree = "<group>"; };
-		562D18F21FEFD5A700A750E5 /* ArrayShuffler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayShuffler.swift; sourceTree = "<group>"; };
+		562D18F01FEFCD1500A750E5 /* ShufflerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShufflerTests.swift; sourceTree = "<group>"; };
 		56357C9020300380006561E4 /* PileListLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListLoaderTests.swift; sourceTree = "<group>"; };
 		56357C9820300BCA006561E4 /* PileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileRepository.swift; sourceTree = "<group>"; };
 		56357C9B20300DC1006561E4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -203,6 +202,8 @@
 		568991A8204C21D000776431 /* PileListEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListEmptyViewController.swift; sourceTree = "<group>"; };
 		568991AA204C21F700776431 /* PileListEmptyViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListEmptyViewControllerTests.swift; sourceTree = "<group>"; };
 		568991AF204C241100776431 /* TestTextLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTextLocalization.swift; sourceTree = "<group>"; };
+		568991B5204C69C800776431 /* Shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shuffle.swift; sourceTree = "<group>"; };
+		568991B7204C69E300776431 /* Shuffler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shuffler.swift; sourceTree = "<group>"; };
 		56B81A7420382B15009D8B1D /* PresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterSpy.swift; sourceTree = "<group>"; };
 		56B81A7620383AFD009D8B1D /* PileListScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListScreens.swift; sourceTree = "<group>"; };
 		56B81A7820383D4C009D8B1D /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
@@ -214,6 +215,8 @@
 		56C4463E20414C8500D5D9B2 /* PileActionsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileActionsWorker.swift; sourceTree = "<group>"; };
 		56C4464020414FE400D5D9B2 /* PileRepositorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileRepositorySpy.swift; sourceTree = "<group>"; };
 		56C4464220415D0100D5D9B2 /* PilesChangeListenerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesChangeListenerTests.swift; sourceTree = "<group>"; };
+		56CA59A4204C7FE900440185 /* CardSidePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSidePresenter.swift; sourceTree = "<group>"; };
+		56F6A833204E9A1100164707 /* PileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,8 +310,8 @@
 		562D18EC1FEFCC0400A750E5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				562D18ED1FEFCC1F00A750E5 /* Sequence+shuffle.swift */,
-				562D18F21FEFD5A700A750E5 /* ArrayShuffler.swift */,
+				568991B5204C69C800776431 /* Shuffle.swift */,
+				568991B7204C69E300776431 /* Shuffler.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -316,7 +319,7 @@
 		562D18EF1FEFCCFD00A750E5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				562D18F01FEFCD1500A750E5 /* shuffleTests.swift */,
+				562D18F01FEFCD1500A750E5 /* ShufflerTests.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			children = (
 				56357C9B20300DC1006561E4 /* Result.swift */,
 				56B81A7820383D4C009D8B1D /* Presenter.swift */,
+				56CA59A4204C7FE900440185 /* CardSidePresenter.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -498,6 +502,7 @@
 		56B81A7A20384EFE009D8B1D /* PileList */ = {
 			isa = PBXGroup;
 			children = (
+				56F6A833204E9A1100164707 /* PileItem.swift */,
 				56357C9820300BCA006561E4 /* PileRepository.swift */,
 				56C4463820414A1600D5D9B2 /* PileListLoader.swift */,
 				56B81A872038562B009D8B1D /* CreatePileLogic.swift */,
@@ -538,7 +543,6 @@
 			children = (
 				562D18EF1FEFCCFD00A750E5 /* Common */,
 				562D18DE1FEEE2FD00A750E5 /* CardTests.swift */,
-				562D18E81FEFACBD00A750E5 /* CardSideTests.swift */,
 				562D18E21FEF932400A750E5 /* CardPileTests.swift */,
 			);
 			path = Core;
@@ -773,12 +777,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				568991B8204C69E300776431 /* Shuffler.swift in Sources */,
 				56357C9C20300DC1006561E4 /* Result.swift in Sources */,
 				564ABD62202FEEE300243CBB /* MemorizerTests.swift in Sources */,
 				562D18DF1FEEE2FD00A750E5 /* CardTests.swift in Sources */,
+				56CA59A5204C7FE900440185 /* CardSidePresenter.swift in Sources */,
 				5675D25D2042C7900019A0CD /* PileGenerator.swift in Sources */,
 				562D18E31FEF932400A750E5 /* CardPileTests.swift in Sources */,
-				562D18E91FEFACBD00A750E5 /* CardSideTests.swift in Sources */,
 				56B81A8B203877B7009D8B1D /* CreatePileLogicTests.swift in Sources */,
 				564ABD64202FEF2400243CBB /* Memorizer.swift in Sources */,
 				56C4463D20414BF900D5D9B2 /* PileActionsWorkerTests.swift in Sources */,
@@ -786,16 +791,16 @@
 				56B81A7720383AFD009D8B1D /* PileListScreens.swift in Sources */,
 				56B81A882038562B009D8B1D /* CreatePileLogic.swift in Sources */,
 				56B81A7920383D4C009D8B1D /* Presenter.swift in Sources */,
+				568991B6204C69C800776431 /* Shuffle.swift in Sources */,
 				562D18E11FEEE32300A750E5 /* Card.swift in Sources */,
-				562D18F31FEFD5A700A750E5 /* ArrayShuffler.swift in Sources */,
 				56C4464120414FE400D5D9B2 /* PileRepositorySpy.swift in Sources */,
 				5675D2592042C0710019A0CD /* PileListOrEmptyResolverTests.swift in Sources */,
-				562D18F11FEFCD1500A750E5 /* shuffleTests.swift in Sources */,
-				562D18EE1FEFCC1F00A750E5 /* Sequence+shuffle.swift in Sources */,
+				562D18F11FEFCD1500A750E5 /* ShufflerTests.swift in Sources */,
 				56C4463F20414C8500D5D9B2 /* PileActionsWorker.swift in Sources */,
 				56358B6620415FD400D9BFF4 /* PilesChangeListener.swift in Sources */,
 				56B81A7520382B15009D8B1D /* PresenterSpy.swift in Sources */,
 				56C4463B20414AAD00D5D9B2 /* PileListLoader.swift in Sources */,
+				56F6A834204E9A1100164707 /* PileItem.swift in Sources */,
 				56357C9920300BCA006561E4 /* PileRepository.swift in Sources */,
 				5675D25B2042C0A70019A0CD /* PileListOrEmptyResolver.swift in Sources */,
 				56C4464320415D0100D5D9B2 /* PilesChangeListenerTests.swift in Sources */,
@@ -829,11 +834,12 @@
 				56358BA5204299F500D9BFF4 /* PilesInMemoryRepository.swift in Sources */,
 				56358B6920416E9C00D9BFF4 /* UIControllerPresenter.swift in Sources */,
 				5675D2622042DEBA0019A0CD /* EmptyStateViewPresenter.swift in Sources */,
+				56CA59A7204C810800440185 /* Shuffle.swift in Sources */,
 				56358B9B20427F6700D9BFF4 /* PileListScreens.swift in Sources */,
 				56358B9D2042809100D9BFF4 /* CardSide.swift in Sources */,
 				56358BA0204282BF00D9BFF4 /* CreatePileLogic.swift in Sources */,
+				56CA59A6204C810400440185 /* Shuffler.swift in Sources */,
 				56881E052039B785001BEBAD /* PileListScreen.swift in Sources */,
-				56358B9F204280AB00D9BFF4 /* ArrayShuffler.swift in Sources */,
 				56358B9920427F4F00D9BFF4 /* PileListLoader.swift in Sources */,
 				56358B6E2041797300D9BFF4 /* ViewControllerFactory.swift in Sources */,
 				56881DF82039A605001BEBAD /* Presenter.swift in Sources */,

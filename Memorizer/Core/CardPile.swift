@@ -6,22 +6,22 @@ protocol Pile {
     mutating func markTopCardForgotten()
     mutating func prepareForExam()
 }
+
 typealias CardInfo = (card: Card, isExamined: Bool)
+
 struct CardPile {
+    
+    var shuffler: Shuffler = ArrayShuffler()
+    
     var cards: [Card] {
         return cardInfos.map({$0.0})
     }
     var isExamined: Bool {
         return cardInfos.filter({!$0.isExamined}).isEmpty
     }
+    
     private var cardInfos: [CardInfo] = []
     private let forgottenIndex = 3
-    
-    private let shuffler: ArrayShuffler
-    
-    init(_ shuffler: ArrayShuffler) {
-        self.shuffler = shuffler
-    }
 }
 extension CardPile: Pile {
     mutating func add(_ card: Card) {

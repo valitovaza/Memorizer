@@ -1,6 +1,6 @@
 public class PilesInMemoryRepository {
     public weak var delegate: PileRepositoryDelegate?
-    public init(){}
+    public init() {}
 }
 extension PilesInMemoryRepository: PileRepository {
     public var count: Int {
