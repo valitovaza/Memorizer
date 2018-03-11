@@ -11,25 +11,13 @@ class PileListVCFactory: ViewControllerFactory {
     private func setEventHandler(_ nav: UINavigationController) {
         guard let pileListVc = nav
             .visibleViewController as? PileListViewController else { return }
-        pileListVc.eventHandler = createEventHandler(pileListVc, pileListVc)
+        pileListVc.eventHandler = createEventHandler(pileListVc)
     }
-    private func createEventHandler(_ activityIndicatorPresenter: ActivityIndicatorPresenter,
-                                    _ emptyStateView: EmptyStateView) -> PileListEventReceiver {
+    private func createEventHandler(_ activityIndicatorPresenter: ActivityIndicatorPresenter) -> PileListEventReceiver {
         let spinnerAnimator = SpinnerAnimator(activityIndicatorPresenter)
         let repository = PilesInMemoryRepository()
-        let emptyStatePresenter = EmptyStateViewPresenter(emptyStateView)
-        let listOrEmptyResolver = PileListOrEmptyResolver(repository,
-                                                          emptyStatePresenter)
-        repository.delegate = listOrEmptyResolver
         let pileListLoader = PileListLoader(spinnerAnimator, repository)
-        let eventReceiver = PileListEventReceiver(pileListLoader,
-                                                  StubCreatePileHandler())
-        eventReceiver.pileListOrEmptyResolver = listOrEmptyResolver
+        let eventReceiver = PileListEventReceiver(pileListLoader)
         return eventReceiver
-    }
-}
-class StubCreatePileHandler: CreatePileHandler {
-    func onCreatePile() {
-        print("onCreatePile")
     }
 }

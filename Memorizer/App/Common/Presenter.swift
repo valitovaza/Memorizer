@@ -1,3 +1,0 @@
-protocol Presenter {
-    func present()
-}

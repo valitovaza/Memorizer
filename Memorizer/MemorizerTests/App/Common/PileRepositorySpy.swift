@@ -1,4 +1,4 @@
-class PileRepositorySpy: PileRepository {
+class PileRepositorySpy: PileItemRepository {
     var testCount = 0
     var count: Int {
         return testCount

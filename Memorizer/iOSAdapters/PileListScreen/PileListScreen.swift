@@ -8,8 +8,6 @@ class PileListScreen {
         self.controllerPresenter = controllerPresenter
         self.viewControllerFactory = viewControllerFactory
     }
-}
-extension PileListScreen: Presenter {
     func present() {
         let childViewController = viewControllerFactory.create()
         controllerPresenter?.addChildViewController(childViewController)

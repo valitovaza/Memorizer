@@ -25,18 +25,18 @@ class PilesInMemoryRepositoryTests: XCTestCase {
     }
 }
 extension PilesInMemoryRepositoryTests {
-    class DelegateSpy: PileRepositoryDelegate {
+    class DelegateSpy: PileItemRepositoryDelegate {
         var onPilesFetchedCallCount = 0
-        func onPilesFetched(_ pileHolders: [CardList]) {
+        func onPilesFetched(_ pileHolders: [PileItem]) {
             onPilesFetchedCallCount += 1
         }
         func onPileRemoved(at index: Int) {
             
         }
-        func onPileAdded(pile: CardList, at index: Int) {
+        func onPileAdded(pile: PileItem, at index: Int) {
             
         }
-        func onPileChanged(pile: CardList, at index: Int) {
+        func onPileChanged(pile: PileItem, at index: Int) {
             
         }
     }

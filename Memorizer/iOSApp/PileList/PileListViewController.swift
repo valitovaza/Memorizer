@@ -34,15 +34,3 @@ extension PileListViewController: ActivityIndicatorPresenter {
         activityIndicator.startAnimating()
     }
 }
-extension PileListViewController: EmptyStateView {
-    func showEmptyView() {
-        activityIndicator.stopAnimating()
-        emptyView.isHidden = false
-        contentView.isHidden = true
-    }
-    func showContentView() {
-        activityIndicator.stopAnimating()
-        emptyView.isHidden = true
-        contentView.isHidden = false
-    }
-}

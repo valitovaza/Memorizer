@@ -8,7 +8,6 @@ struct TestPresenter: CardSidePresenter {
         
     }
 }
-
 struct PresenterHolder {
     var presenter: CardSidePresenter!
 }

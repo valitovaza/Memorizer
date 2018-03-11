@@ -1,4 +1,5 @@
 protocol Pile {
+    var isExamined: Bool { get }
     mutating func add(_ card: Card)
     mutating func remove(at index: Int)
     mutating func shuffle()
@@ -16,14 +17,14 @@ struct CardPile {
     var cards: [Card] {
         return cardInfos.map({$0.0})
     }
-    var isExamined: Bool {
-        return cardInfos.filter({!$0.isExamined}).isEmpty
-    }
     
     private var cardInfos: [CardInfo] = []
     private let forgottenIndex = 3
 }
 extension CardPile: Pile {
+    var isExamined: Bool {
+        return cardInfos.filter({!$0.isExamined}).isEmpty
+    }
     mutating func add(_ card: Card) {
         cardInfos.insert((card, false), at: 0)
     }

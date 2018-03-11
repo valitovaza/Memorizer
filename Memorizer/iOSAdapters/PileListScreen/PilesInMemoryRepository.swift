@@ -1,8 +1,8 @@
 public class PilesInMemoryRepository {
-    public weak var delegate: PileRepositoryDelegate?
+    public var delegate: PileItemRepositoryDelegate?
     public init() {}
 }
-extension PilesInMemoryRepository: PileRepository {
+extension PilesInMemoryRepository: PileItemRepository {
     public var count: Int {
         return 0
     }

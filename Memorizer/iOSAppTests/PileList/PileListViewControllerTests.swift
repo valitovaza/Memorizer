@@ -57,45 +57,6 @@ class PileListViewControllerTests: LocalizerTests {
         XCTAssertTrue(sut.activityIndicator.isAnimating)
     }
     
-    func test_showEmptyView_stopsSpinnerAnimation() {
-        startActivity()
-        sut.showEmptyView()
-        XCTAssertFalse(sut.activityIndicator.isAnimating)
-    }
-    
-    func test_showEmptyView_unhideEmptyView() {
-        hideEmptyView()
-        sut.showEmptyView()
-        XCTAssertFalse(sut.emptyView.isHidden)
-        XCTAssertTrue(sut.contentView.isHidden)
-    }
-    private func hideEmptyView() {
-        loadViews()
-        sut.emptyView.isHidden = true
-        sut.contentView.isHidden = false
-    }
-    
-    func test_showContentView_stopsSpinnerAnimation() {
-        startActivity()
-        sut.showContentView()
-        XCTAssertFalse(sut.activityIndicator.isAnimating)
-    }
-    
-    func test_showContentView_unhideContentView() {
-        hideContentView()
-        sut.showContentView()
-        XCTAssertTrue(sut.emptyView.isHidden)
-        XCTAssertFalse(sut.contentView.isHidden)
-    }
-    private func hideContentView() {
-        loadViews()
-        sut.emptyView.isHidden = false
-        sut.contentView.isHidden = true
-    }
-    private func startActivity() {
-        loadViews()
-        sut.activityIndicator.startAnimating()
-    }
     private func loadViews() {
         _=sut.view
     }

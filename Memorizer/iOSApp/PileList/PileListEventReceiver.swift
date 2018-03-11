@@ -2,12 +2,9 @@ import iOSAdapters
 
 class PileListEventReceiver {
     private let pilesLoader: PilesLoader
-    private let createInteractor: CreatePileHandler
-    var pileListOrEmptyResolver: PileListOrEmptyResolver?
-    init(_ pilesLoader: PilesLoader,
-         _ createInteractor: CreatePileHandler) {
+    var pilesEmptyToggle: PilesEmptyToggle?
+    init(_ pilesLoader: PilesLoader) {
         self.pilesLoader = pilesLoader
-        self.createInteractor = createInteractor
     }
 }
 extension PileListEventReceiver: PileListEventHandler {
@@ -16,7 +13,7 @@ extension PileListEventReceiver: PileListEventHandler {
         case .onLoad:
             pilesLoader.onLoad()
         case .onCreate:
-            createInteractor.onCreatePile()
+            print("onCreate")
         }
     }
 }

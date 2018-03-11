@@ -1,8 +1,8 @@
 import XCTest
 
-class PileListOrEmptyResolverTests: XCTestCase {
+class PilesEmptyToggleTests: XCTestCase {
     
-    private var sut: PileListOrEmptyResolver!
+    private var sut: PilesEmptyToggle!
     private var repository: PileRepositorySpy!
     private var screen: ScreenSpy!
     
@@ -10,7 +10,7 @@ class PileListOrEmptyResolverTests: XCTestCase {
         super.setUp()
         repository = PileRepositorySpy()
         screen = ScreenSpy()
-        sut = PileListOrEmptyResolver(repository, screen)
+        sut = PilesEmptyToggle(repository, screen)
     }
     
     override func tearDown() {
@@ -45,7 +45,7 @@ class PileListOrEmptyResolverTests: XCTestCase {
     }
     
     func test_onPileAdded_presentList() {
-        sut.onPileAdded(pile: generatedTestPileHolder, at: 0)
+        sut.onPileAdded(pile: PileItem.testNewItem, at: 0)
         checkPileListPresented()
     }
     
@@ -58,8 +58,8 @@ class PileListOrEmptyResolverTests: XCTestCase {
         XCTAssertEqual(screen.presentPileListCallCount, 1)
     }
 }
-extension PileListOrEmptyResolverTests {
-    class ScreenSpy: PilesListOrEmptyScreen {
+extension PilesEmptyToggleTests {
+    class ScreenSpy: PilesOrEmptyScreen {
         var presentPileListCallCount = 0
         func presentPileList() {
             presentPileListCallCount += 1
