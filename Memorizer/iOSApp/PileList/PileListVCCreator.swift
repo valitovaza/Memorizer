@@ -1,10 +1,10 @@
 import UIKit
 import iOSAdapters
 
-class PileListVCFactory: ViewControllerFactory {
-    var factoryFunc: ((_ storyboard: UIStoryboard.Storyboard, _ controller: UIViewController.Type) -> UINavigationController) = UIControllerFactory.instantiateNavigation
+class PileListVCCreator: ViewControllerCreator {
+    var createFunc: ((_ storyboard: UIStoryboard.Storyboard, _ controller: UIViewController.Type) -> UINavigationController) = UIControllerFactory.instantiateNavigation
     func create() -> UIViewController {
-        let nav = factoryFunc(.PileList, PileListViewController.self)
+        let nav = createFunc(.PileList, PileListViewController.self)
         setEventHandler(nav)
         return nav
     }

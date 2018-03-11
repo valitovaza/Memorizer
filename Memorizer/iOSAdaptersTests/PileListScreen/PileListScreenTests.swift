@@ -5,18 +5,18 @@ class PileListScreenTests: XCTestCase {
     
     private var sut: PileListScreen!
     private var controllerPresenter: ControllerPresenterSpy!
-    private var viewControllerFactory: ViewControllerFactorySpy!
+    private var viewControllerCreator: ViewControllerCreatorSpy!
     
     override func setUp() {
         super.setUp()
         controllerPresenter = ControllerPresenterSpy()
-        viewControllerFactory = ViewControllerFactorySpy()
-        sut = PileListScreen(controllerPresenter, viewControllerFactory)
+        viewControllerCreator = ViewControllerCreatorSpy()
+        sut = PileListScreen(controllerPresenter, viewControllerCreator)
     }
     
     override func tearDown() {
         controllerPresenter = nil
-        viewControllerFactory = nil
+        viewControllerCreator = nil
         sut = nil
         super.tearDown()
     }
@@ -30,12 +30,12 @@ class PileListScreenTests: XCTestCase {
     func test_present_usesViewControllerFromfactory() {
         sut.present()
         XCTAssertTrue(controllerPresenter
-            .savedChildController === viewControllerFactory.testCreateController)
+            .savedChildController === viewControllerCreator.testCreateController)
     }
     
     func test_present_didMove() {
         sut.present()
-        XCTAssertEqual(viewControllerFactory
+        XCTAssertEqual(viewControllerCreator
             .testCreateController.didMoveCallCount, 1)
     }
 }

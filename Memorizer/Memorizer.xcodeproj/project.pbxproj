@@ -17,17 +17,17 @@
 		56357C9920300BCA006561E4 /* PileItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56357C9820300BCA006561E4 /* PileItemRepository.swift */; };
 		56358B6920416E9C00D9BFF4 /* UIControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B6820416E9C00D9BFF4 /* UIControllerPresenter.swift */; };
 		56358B6C2041744100D9BFF4 /* ControllerPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B6B2041744100D9BFF4 /* ControllerPresenterSpy.swift */; };
-		56358B6E2041797300D9BFF4 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B6D2041797300D9BFF4 /* ViewControllerFactory.swift */; };
-		56358B7220417BC300D9BFF4 /* ViewControllerFactorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B7120417BC300D9BFF4 /* ViewControllerFactorySpy.swift */; };
+		56358B6E2041797300D9BFF4 /* ViewControllerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B6D2041797300D9BFF4 /* ViewControllerCreator.swift */; };
+		56358B7220417BC300D9BFF4 /* ViewControllerCreatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B7120417BC300D9BFF4 /* ViewControllerCreatorSpy.swift */; };
 		56358B742041834800D9BFF4 /* UIControllerPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B732041834800D9BFF4 /* UIControllerPresentable.swift */; };
 		56358B762041850900D9BFF4 /* UIControllerPresentableSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B752041850900D9BFF4 /* UIControllerPresentableSpy.swift */; };
 		56358B782041A96600D9BFF4 /* PileList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56358B772041A96600D9BFF4 /* PileList.storyboard */; };
 		56358B7A2041AB6000D9BFF4 /* UIControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B792041AB6000D9BFF4 /* UIControllerFactory.swift */; };
-		56358B7E2041AF6700D9BFF4 /* PileListVCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B7D2041AF6700D9BFF4 /* PileListVCFactory.swift */; };
+		56358B7E2041AF6700D9BFF4 /* PileListVCCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B7D2041AF6700D9BFF4 /* PileListVCCreator.swift */; };
 		56358B802041B1BB00D9BFF4 /* UIControllerFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B7F2041B1BB00D9BFF4 /* UIControllerFactoryTests.swift */; };
 		56358B842041B30F00D9BFF4 /* UIStoryboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B832041B30F00D9BFF4 /* UIStoryboard+.swift */; };
 		56358B862041B35400D9BFF4 /* UIStoryboard+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B852041B35400D9BFF4 /* UIStoryboard+Tests.swift */; };
-		56358B892041C00500D9BFF4 /* PileListVCFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B882041C00500D9BFF4 /* PileListVCFactoryTests.swift */; };
+		56358B892041C00500D9BFF4 /* PileListVCCreatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B882041C00500D9BFF4 /* PileListVCCreatorTests.swift */; };
 		56358B8B2041C33700D9BFF4 /* PileListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B8A2041C33700D9BFF4 /* PileListViewControllerTests.swift */; };
 		56358B8F20426EBA00D9BFF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56358B9120426EBA00D9BFF4 /* Localizable.strings */; };
 		56358B94204270F800D9BFF4 /* TextLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358B93204270F800D9BFF4 /* TextLocalization.swift */; };
@@ -138,17 +138,17 @@
 		56357C9820300BCA006561E4 /* PileItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileItemRepository.swift; sourceTree = "<group>"; };
 		56358B6820416E9C00D9BFF4 /* UIControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControllerPresenter.swift; sourceTree = "<group>"; };
 		56358B6B2041744100D9BFF4 /* ControllerPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerPresenterSpy.swift; sourceTree = "<group>"; };
-		56358B6D2041797300D9BFF4 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
-		56358B7120417BC300D9BFF4 /* ViewControllerFactorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactorySpy.swift; sourceTree = "<group>"; };
+		56358B6D2041797300D9BFF4 /* ViewControllerCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCreator.swift; sourceTree = "<group>"; };
+		56358B7120417BC300D9BFF4 /* ViewControllerCreatorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCreatorSpy.swift; sourceTree = "<group>"; };
 		56358B732041834800D9BFF4 /* UIControllerPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControllerPresentable.swift; sourceTree = "<group>"; };
 		56358B752041850900D9BFF4 /* UIControllerPresentableSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControllerPresentableSpy.swift; sourceTree = "<group>"; };
 		56358B772041A96600D9BFF4 /* PileList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PileList.storyboard; sourceTree = "<group>"; };
 		56358B792041AB6000D9BFF4 /* UIControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControllerFactory.swift; sourceTree = "<group>"; };
-		56358B7D2041AF6700D9BFF4 /* PileListVCFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PileListVCFactory.swift; sourceTree = "<group>"; };
+		56358B7D2041AF6700D9BFF4 /* PileListVCCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PileListVCCreator.swift; sourceTree = "<group>"; };
 		56358B7F2041B1BB00D9BFF4 /* UIControllerFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControllerFactoryTests.swift; sourceTree = "<group>"; };
 		56358B832041B30F00D9BFF4 /* UIStoryboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+.swift"; sourceTree = "<group>"; };
 		56358B852041B35400D9BFF4 /* UIStoryboard+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Tests.swift"; sourceTree = "<group>"; };
-		56358B882041C00500D9BFF4 /* PileListVCFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListVCFactoryTests.swift; sourceTree = "<group>"; };
+		56358B882041C00500D9BFF4 /* PileListVCCreatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListVCCreatorTests.swift; sourceTree = "<group>"; };
 		56358B8A2041C33700D9BFF4 /* PileListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListViewControllerTests.swift; sourceTree = "<group>"; };
 		56358B9020426EBA00D9BFF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		56358B9220426EDD00D9BFF4 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -291,7 +291,7 @@
 			children = (
 				56358B6820416E9C00D9BFF4 /* UIControllerPresenter.swift */,
 				56358B732041834800D9BFF4 /* UIControllerPresentable.swift */,
-				56358B6D2041797300D9BFF4 /* ViewControllerFactory.swift */,
+				56358B6D2041797300D9BFF4 /* ViewControllerCreator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -301,7 +301,7 @@
 			children = (
 				56358B6B2041744100D9BFF4 /* ControllerPresenterSpy.swift */,
 				56358B752041850900D9BFF4 /* UIControllerPresentableSpy.swift */,
-				56358B7120417BC300D9BFF4 /* ViewControllerFactorySpy.swift */,
+				56358B7120417BC300D9BFF4 /* ViewControllerCreatorSpy.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -327,7 +327,7 @@
 		56358B872041BFDF00D9BFF4 /* PileList */ = {
 			isa = PBXGroup;
 			children = (
-				56358B882041C00500D9BFF4 /* PileListVCFactoryTests.swift */,
+				56358B882041C00500D9BFF4 /* PileListVCCreatorTests.swift */,
 				56358B9720427CEF00D9BFF4 /* PileListEventReceiverTests.swift */,
 				56358B8A2041C33700D9BFF4 /* PileListViewControllerTests.swift */,
 				568991AA204C21F700776431 /* PileListEmptyViewControllerTests.swift */,
@@ -477,7 +477,7 @@
 		56C446352041424E00D5D9B2 /* PileList */ = {
 			isa = PBXGroup;
 			children = (
-				56358B7D2041AF6700D9BFF4 /* PileListVCFactory.swift */,
+				56358B7D2041AF6700D9BFF4 /* PileListVCCreator.swift */,
 				56358B9520427CD500D9BFF4 /* PileListEventReceiver.swift */,
 				56C446362041426B00D5D9B2 /* PileListViewController.swift */,
 				568991A8204C21D000776431 /* PileListEmptyViewController.swift */,
@@ -761,7 +761,7 @@
 			files = (
 				568991A9204C21D000776431 /* PileListEmptyViewController.swift in Sources */,
 				56881DB220399450001BEBAD /* AppDelegate.swift in Sources */,
-				56358B7E2041AF6700D9BFF4 /* PileListVCFactory.swift in Sources */,
+				56358B7E2041AF6700D9BFF4 /* PileListVCCreator.swift in Sources */,
 				56358B94204270F800D9BFF4 /* TextLocalization.swift in Sources */,
 				56358B9620427CD500D9BFF4 /* PileListEventReceiver.swift in Sources */,
 				56358B842041B30F00D9BFF4 /* UIStoryboard+.swift in Sources */,
@@ -784,7 +784,7 @@
 				56358B9D2042809100D9BFF4 /* CardSide.swift in Sources */,
 				56CA59A6204C810400440185 /* Shuffler.swift in Sources */,
 				56881E052039B785001BEBAD /* PileListScreen.swift in Sources */,
-				56358B6E2041797300D9BFF4 /* ViewControllerFactory.swift in Sources */,
+				56358B6E2041797300D9BFF4 /* ViewControllerCreator.swift in Sources */,
 				5675D2562042B0660019A0CD /* SpinnerAnimator.swift in Sources */,
 				5675D25E2042CFC20019A0CD /* PilesEmptyToggle.swift in Sources */,
 				56358B9A20427F5C00D9BFF4 /* PileItemRepository.swift in Sources */,
@@ -798,7 +798,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56358B7220417BC300D9BFF4 /* ViewControllerFactorySpy.swift in Sources */,
+				56358B7220417BC300D9BFF4 /* ViewControllerCreatorSpy.swift in Sources */,
 				56358B762041850900D9BFF4 /* UIControllerPresentableSpy.swift in Sources */,
 				56358BA3204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift in Sources */,
 				5675D2572042B07A0019A0CD /* SpinnerAnimatorTests.swift in Sources */,
@@ -813,7 +813,7 @@
 			files = (
 				568991AB204C21F700776431 /* PileListEmptyViewControllerTests.swift in Sources */,
 				56358B862041B35400D9BFF4 /* UIStoryboard+Tests.swift in Sources */,
-				56358B892041C00500D9BFF4 /* PileListVCFactoryTests.swift in Sources */,
+				56358B892041C00500D9BFF4 /* PileListVCCreatorTests.swift in Sources */,
 				568991B0204C241100776431 /* TestTextLocalization.swift in Sources */,
 				56358B8B2041C33700D9BFF4 /* PileListViewControllerTests.swift in Sources */,
 				56358B802041B1BB00D9BFF4 /* UIControllerFactoryTests.swift in Sources */,

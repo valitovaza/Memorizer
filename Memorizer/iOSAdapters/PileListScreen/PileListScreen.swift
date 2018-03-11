@@ -1,15 +1,23 @@
 import UIKit
 
-class PileListScreen {
+public protocol Presenter {
+    func present()
+}
+public protocol PresenterCreator {
+    func create(on parent: UIViewController) -> Presenter
+}
+public class PileListScreen {
     private weak var controllerPresenter: UIViewController?
-    private let viewControllerFactory: ViewControllerFactory
-    init(_ controllerPresenter: UIViewController,
-         _ viewControllerFactory: ViewControllerFactory) {
+    private let viewControllerCreator: ViewControllerCreator
+    public init(_ controllerPresenter: UIViewController,
+                _ viewControllerCreator: ViewControllerCreator) {
         self.controllerPresenter = controllerPresenter
-        self.viewControllerFactory = viewControllerFactory
+        self.viewControllerCreator = viewControllerCreator
     }
-    func present() {
-        let childViewController = viewControllerFactory.create()
+}
+extension PileListScreen: Presenter {
+    public func present() {
+        let childViewController = viewControllerCreator.create()
         controllerPresenter?.addChildViewController(childViewController)
         addViewAndLayout(childViewController, controllerPresenter)
         childViewController.didMove(toParentViewController: controllerPresenter)

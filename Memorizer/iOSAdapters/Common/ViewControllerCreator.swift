@@ -1,5 +1,5 @@
 import UIKit
 
-public protocol ViewControllerFactory {
+public protocol ViewControllerCreator {
     func create() -> UIViewController
 }
