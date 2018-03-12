@@ -34,3 +34,15 @@ extension PileListViewController: ActivityIndicatorPresenter {
         activityIndicator.startAnimating()
     }
 }
+extension PileListViewController: ListEmptySwitcher {
+    func presentPileList() {
+        emptyView.isHidden = true
+        contentView.isHidden = false
+        activityIndicator.stopAnimating()
+    }
+    func presentEmpty() {
+        contentView.isHidden = true
+        emptyView.isHidden = false
+        activityIndicator.stopAnimating()
+    }
+}

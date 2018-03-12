@@ -8,7 +8,7 @@ public class PilesEmptyToggle {
     }
 }
 extension PilesEmptyToggle: PilesCountChangersListener {
-    public func onPilesFetched(_ pileHolders: [PileItem]) {
+    public func onPilesFetched(_ pileItems: [PileItem]) {
         checkCount()
     }
     public func onPileRemoved(at index: Int) {

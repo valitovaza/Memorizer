@@ -40,8 +40,6 @@
 		56358B9E204280A200D9BFF4 /* CardPile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18EA1FEFB99600A750E5 /* CardPile.swift */; };
 		56358BA3204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA2204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift */; };
 		56358BA5204299F500D9BFF4 /* PilesInMemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA4204299F500D9BFF4 /* PilesInMemoryRepository.swift */; };
-		5675D2562042B0660019A0CD /* SpinnerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */; };
-		5675D2572042B07A0019A0CD /* SpinnerAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA62042AF1200D9BFF4 /* SpinnerAnimatorTests.swift */; };
 		5675D2592042C0710019A0CD /* PilesEmptyToggleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D2582042C0710019A0CD /* PilesEmptyToggleTests.swift */; };
 		5675D25B2042C0A70019A0CD /* PilesEmptyToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */; };
 		5675D25E2042CFC20019A0CD /* PilesEmptyToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */; };
@@ -78,6 +76,13 @@
 		56CA59A6204C810400440185 /* Shuffler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991B7204C69E300776431 /* Shuffler.swift */; };
 		56CA59A7204C810800440185 /* Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991B5204C69C800776431 /* Shuffle.swift */; };
 		56F6A834204E9A1100164707 /* PileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F6A833204E9A1100164707 /* PileItem.swift */; };
+		56F9199A20569E1F00C7B56E /* SpinnerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */; };
+		56F9199B20569E1F00C7B56E /* EmptySwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F919962056996A00C7B56E /* EmptySwitcher.swift */; };
+		56F9199C20569E2F00C7B56E /* SpinnerAnimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA62042AF1200D9BFF4 /* SpinnerAnimatorTests.swift */; };
+		56F9199D20569E2F00C7B56E /* EmptySwitcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F919982056997A00C7B56E /* EmptySwitcherTests.swift */; };
+		56F9199F2056A30700C7B56E /* PilesRepositoryListenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F9199E2056A30700C7B56E /* PilesRepositoryListenerTests.swift */; };
+		56F919A32056A4F500C7B56E /* PilesRepositoryListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F919A02056A33F00C7B56E /* PilesRepositoryListener.swift */; };
+		56F919A42056AE4200C7B56E /* PilesRepositoryListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F919A02056A33F00C7B56E /* PilesRepositoryListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +200,10 @@
 		56C4464020414FE400D5D9B2 /* PileRepositorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileRepositorySpy.swift; sourceTree = "<group>"; };
 		56CA59A4204C7FE900440185 /* CardSidePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSidePresenter.swift; sourceTree = "<group>"; };
 		56F6A833204E9A1100164707 /* PileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileItem.swift; sourceTree = "<group>"; };
+		56F919962056996A00C7B56E /* EmptySwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySwitcher.swift; sourceTree = "<group>"; };
+		56F919982056997A00C7B56E /* EmptySwitcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySwitcherTests.swift; sourceTree = "<group>"; };
+		56F9199E2056A30700C7B56E /* PilesRepositoryListenerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesRepositoryListenerTests.swift; sourceTree = "<group>"; };
+		56F919A02056A33F00C7B56E /* PilesRepositoryListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesRepositoryListener.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,6 +431,7 @@
 			children = (
 				56881E042039B785001BEBAD /* PileListScreen.swift */,
 				5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */,
+				56F919962056996A00C7B56E /* EmptySwitcher.swift */,
 				56358BA4204299F500D9BFF4 /* PilesInMemoryRepository.swift */,
 			);
 			path = PileListScreen;
@@ -432,6 +442,7 @@
 			children = (
 				56881E022039B70C001BEBAD /* PileListScreenTests.swift */,
 				56358BA62042AF1200D9BFF4 /* SpinnerAnimatorTests.swift */,
+				56F919982056997A00C7B56E /* EmptySwitcherTests.swift */,
 				56358BA2204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift */,
 			);
 			path = PileListScreen;
@@ -458,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				56357C9820300BCA006561E4 /* PileItemRepository.swift */,
+				56F919A02056A33F00C7B56E /* PilesRepositoryListener.swift */,
 				567BE62F2055281D004F5B53 /* PileListLoader.swift */,
 				5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */,
 				56B81A7620383AFD009D8B1D /* PileListScreens.swift */,
@@ -470,6 +482,7 @@
 			children = (
 				56357C9020300380006561E4 /* PileListLoaderTests.swift */,
 				5675D2582042C0710019A0CD /* PilesEmptyToggleTests.swift */,
+				56F9199E2056A30700C7B56E /* PilesRepositoryListenerTests.swift */,
 			);
 			path = PileList;
 			sourceTree = "<group>";
@@ -744,7 +757,9 @@
 				5675D2592042C0710019A0CD /* PilesEmptyToggleTests.swift in Sources */,
 				562D18F11FEFCD1500A750E5 /* ShufflerTests.swift in Sources */,
 				56F6A834204E9A1100164707 /* PileItem.swift in Sources */,
+				56F9199F2056A30700C7B56E /* PilesRepositoryListenerTests.swift in Sources */,
 				567BE62A2053FD89004F5B53 /* CurrentDateProviderTests.swift in Sources */,
+				56F919A32056A4F500C7B56E /* PilesRepositoryListener.swift in Sources */,
 				56357C9920300BCA006561E4 /* PileItemRepository.swift in Sources */,
 				5675D25B2042C0A70019A0CD /* PilesEmptyToggle.swift in Sources */,
 				567BE6302055281E004F5B53 /* PileListLoader.swift in Sources */,
@@ -780,12 +795,14 @@
 				56358B6920416E9C00D9BFF4 /* UIControllerPresenter.swift in Sources */,
 				567BE633205546D4004F5B53 /* PileListLoader.swift in Sources */,
 				56CA59A7204C810800440185 /* Shuffle.swift in Sources */,
+				56F919A42056AE4200C7B56E /* PilesRepositoryListener.swift in Sources */,
 				56358B9B20427F6700D9BFF4 /* PileListScreens.swift in Sources */,
 				56358B9D2042809100D9BFF4 /* CardSide.swift in Sources */,
 				56CA59A6204C810400440185 /* Shuffler.swift in Sources */,
+				56F9199B20569E1F00C7B56E /* EmptySwitcher.swift in Sources */,
 				56881E052039B785001BEBAD /* PileListScreen.swift in Sources */,
 				56358B6E2041797300D9BFF4 /* ViewControllerCreator.swift in Sources */,
-				5675D2562042B0660019A0CD /* SpinnerAnimator.swift in Sources */,
+				56F9199A20569E1F00C7B56E /* SpinnerAnimator.swift in Sources */,
 				5675D25E2042CFC20019A0CD /* PilesEmptyToggle.swift in Sources */,
 				56358B9A20427F5C00D9BFF4 /* PileItemRepository.swift in Sources */,
 				567BE63120553F16004F5B53 /* PileItem.swift in Sources */,
@@ -800,8 +817,9 @@
 			files = (
 				56358B7220417BC300D9BFF4 /* ViewControllerCreatorSpy.swift in Sources */,
 				56358B762041850900D9BFF4 /* UIControllerPresentableSpy.swift in Sources */,
+				56F9199C20569E2F00C7B56E /* SpinnerAnimatorTests.swift in Sources */,
+				56F9199D20569E2F00C7B56E /* EmptySwitcherTests.swift in Sources */,
 				56358BA3204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift in Sources */,
-				5675D2572042B07A0019A0CD /* SpinnerAnimatorTests.swift in Sources */,
 				56358B6C2041744100D9BFF4 /* ControllerPresenterSpy.swift in Sources */,
 				56881E032039B70C001BEBAD /* PileListScreenTests.swift in Sources */,
 			);

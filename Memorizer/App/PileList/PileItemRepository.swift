@@ -7,7 +7,7 @@ public protocol PileItemsCountHolder {
 }
 public protocol PileItemRepositoryDelegate: PilesCountChangersListener, PileItemChangeListener {}
 public protocol PilesCountChangersListener {
-    func onPilesFetched(_ pileHolders: [PileItem])
+    func onPilesFetched(_ pileItems: [PileItem])
     func onPileRemoved(at index: Int)
     func onPileAdded(pile: PileItem, at index: Int)
 }

@@ -57,10 +57,6 @@ class PileListViewControllerTests: LocalizerTests {
         XCTAssertTrue(sut.activityIndicator.isAnimating)
     }
     
-    private func loadViews() {
-        _=sut.view
-    }
-    
     func test_onLoad_titleL10n_en() {
         L10n.localizeFunc = L10n.enTr
         sut.viewDidLoad()
@@ -71,6 +67,52 @@ class PileListViewControllerTests: LocalizerTests {
         L10n.localizeFunc = L10n.ruTr
         sut.viewDidLoad()
         XCTAssertEqual(sut.navigationItem.title, L10n.memorizer)
+    }
+    
+    func test_presentPileList_hidesEmptyView() {
+        loadViews()
+        sut.emptyView.isHidden = false
+        sut.presentPileList()
+        XCTAssertTrue(sut.emptyView.isHidden)
+    }
+    
+    func test_presentPileList_showsContentView() {
+        loadViews()
+        sut.contentView.isHidden = true
+        sut.presentPileList()
+        XCTAssertFalse(sut.contentView.isHidden)
+    }
+    
+    func test_presentPileList_stopsActivityIndicator() {
+        loadViews()
+        sut.activityIndicator.startAnimating()
+        sut.presentPileList()
+        XCTAssertFalse(sut.activityIndicator.isAnimating)
+    }
+    
+    func test_presentEmpty_hidesContentView() {
+        loadViews()
+        sut.contentView.isHidden = false
+        sut.presentEmpty()
+        XCTAssertTrue(sut.contentView.isHidden)
+    }
+    
+    func test_presentEmpty_showsEmptyView() {
+        loadViews()
+        sut.emptyView.isHidden = true
+        sut.presentEmpty()
+        XCTAssertFalse(sut.emptyView.isHidden)
+    }
+    
+    func test_presentEmpty_stopsActivityIndicator() {
+        loadViews()
+        sut.activityIndicator.startAnimating()
+        sut.presentEmpty()
+        XCTAssertFalse(sut.activityIndicator.isAnimating)
+    }
+    
+    private func loadViews() {
+        _=sut.view
     }
 }
 extension PileListViewControllerTests {
