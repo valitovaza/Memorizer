@@ -1,15 +1,15 @@
 import XCTest
 @testable import iOSAdapters
 
-class PilesInMemoryRepositoryTests: XCTestCase {
+class PilesRepositoryTests: XCTestCase {
     
-    private var sut: PilesInMemoryRepository!
+    private var sut: PilesRepository!
     private var delegate: DelegateSpy!
     
     override func setUp() {
         super.setUp()
         delegate = DelegateSpy()
-        sut = PilesInMemoryRepository()
+        sut = PilesRepository()
         sut.delegate = delegate
     }
     
@@ -24,7 +24,7 @@ class PilesInMemoryRepositoryTests: XCTestCase {
         XCTAssertEqual(delegate.onPilesFetchedCallCount, 1)
     }
 }
-extension PilesInMemoryRepositoryTests {
+extension PilesRepositoryTests {
     class DelegateSpy: PileItemRepositoryDelegate {
         var onPilesFetchedCallCount = 0
         func onPilesFetched(_ pileHolders: [PileItem]) {

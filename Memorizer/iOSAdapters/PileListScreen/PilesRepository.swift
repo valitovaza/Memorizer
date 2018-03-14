@@ -1,8 +1,8 @@
-public class PilesInMemoryRepository {
+public class PilesRepository {
     public var delegate: PileItemRepositoryDelegate?
     public init() {}
 }
-extension PilesInMemoryRepository: PileItemRepository {
+extension PilesRepository: PileItemRepository {
     public var count: Int {
         return 0
     }

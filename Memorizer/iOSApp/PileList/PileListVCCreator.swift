@@ -15,7 +15,7 @@ class PileListVCCreator: ViewControllerCreator {
     private func createEventHandler(_ activityIndicatorPresenter: ActivityIndicatorPresenter,
                                     _ listEmptySwitcher: ListEmptySwitcher) -> PileListEventReceiver {
         let spinnerAnimator = SpinnerAnimator(activityIndicatorPresenter)
-        let repository = PilesInMemoryRepository()
+        let repository = PilesRepository()
         let emptySwitcher = EmptySwitcher(listEmptySwitcher)
         let repositoryListener = PilesRepositoryListener()
         repositoryListener.countListeners = [PilesEmptyToggle(repository, emptySwitcher)]

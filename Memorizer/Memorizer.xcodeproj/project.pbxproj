@@ -38,8 +38,8 @@
 		56358B9C2042808A00D9BFF4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18E01FEEE32300A750E5 /* Card.swift */; };
 		56358B9D2042809100D9BFF4 /* CardSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18E61FEFABC900A750E5 /* CardSide.swift */; };
 		56358B9E204280A200D9BFF4 /* CardPile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18EA1FEFB99600A750E5 /* CardPile.swift */; };
-		56358BA3204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA2204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift */; };
-		56358BA5204299F500D9BFF4 /* PilesInMemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA4204299F500D9BFF4 /* PilesInMemoryRepository.swift */; };
+		56358BA3204299C200D9BFF4 /* PilesRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA2204299C200D9BFF4 /* PilesRepositoryTests.swift */; };
+		56358BA5204299F500D9BFF4 /* PilesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA4204299F500D9BFF4 /* PilesRepository.swift */; };
 		5675D2592042C0710019A0CD /* PilesEmptyToggleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D2582042C0710019A0CD /* PilesEmptyToggleTests.swift */; };
 		5675D25B2042C0A70019A0CD /* PilesEmptyToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */; };
 		5675D25E2042CFC20019A0CD /* PilesEmptyToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */; };
@@ -160,8 +160,8 @@
 		56358B93204270F800D9BFF4 /* TextLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLocalization.swift; sourceTree = "<group>"; };
 		56358B9520427CD500D9BFF4 /* PileListEventReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListEventReceiver.swift; sourceTree = "<group>"; };
 		56358B9720427CEF00D9BFF4 /* PileListEventReceiverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListEventReceiverTests.swift; sourceTree = "<group>"; };
-		56358BA2204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesInMemoryRepositoryTests.swift; sourceTree = "<group>"; };
-		56358BA4204299F500D9BFF4 /* PilesInMemoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesInMemoryRepository.swift; sourceTree = "<group>"; };
+		56358BA2204299C200D9BFF4 /* PilesRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesRepositoryTests.swift; sourceTree = "<group>"; };
+		56358BA4204299F500D9BFF4 /* PilesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesRepository.swift; sourceTree = "<group>"; };
 		56358BA62042AF1200D9BFF4 /* SpinnerAnimatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerAnimatorTests.swift; sourceTree = "<group>"; };
 		5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerAnimator.swift; sourceTree = "<group>"; };
 		5675D2582042C0710019A0CD /* PilesEmptyToggleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesEmptyToggleTests.swift; sourceTree = "<group>"; };
@@ -432,7 +432,7 @@
 				56881E042039B785001BEBAD /* PileListScreen.swift */,
 				5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */,
 				56F919962056996A00C7B56E /* EmptySwitcher.swift */,
-				56358BA4204299F500D9BFF4 /* PilesInMemoryRepository.swift */,
+				56358BA4204299F500D9BFF4 /* PilesRepository.swift */,
 			);
 			path = PileListScreen;
 			sourceTree = "<group>";
@@ -443,7 +443,7 @@
 				56881E022039B70C001BEBAD /* PileListScreenTests.swift */,
 				56358BA62042AF1200D9BFF4 /* SpinnerAnimatorTests.swift */,
 				56F919982056997A00C7B56E /* EmptySwitcherTests.swift */,
-				56358BA2204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift */,
+				56358BA2204299C200D9BFF4 /* PilesRepositoryTests.swift */,
 			);
 			path = PileListScreen;
 			sourceTree = "<group>";
@@ -791,7 +791,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56358B742041834800D9BFF4 /* UIControllerPresentable.swift in Sources */,
-				56358BA5204299F500D9BFF4 /* PilesInMemoryRepository.swift in Sources */,
+				56358BA5204299F500D9BFF4 /* PilesRepository.swift in Sources */,
 				56358B6920416E9C00D9BFF4 /* UIControllerPresenter.swift in Sources */,
 				567BE633205546D4004F5B53 /* PileListLoader.swift in Sources */,
 				56CA59A7204C810800440185 /* Shuffle.swift in Sources */,
@@ -819,7 +819,7 @@
 				56358B762041850900D9BFF4 /* UIControllerPresentableSpy.swift in Sources */,
 				56F9199C20569E2F00C7B56E /* SpinnerAnimatorTests.swift in Sources */,
 				56F9199D20569E2F00C7B56E /* EmptySwitcherTests.swift in Sources */,
-				56358BA3204299C200D9BFF4 /* PilesInMemoryRepositoryTests.swift in Sources */,
+				56358BA3204299C200D9BFF4 /* PilesRepositoryTests.swift in Sources */,
 				56358B6C2041744100D9BFF4 /* ControllerPresenterSpy.swift in Sources */,
 				56881E032039B70C001BEBAD /* PileListScreenTests.swift in Sources */,
 			);
