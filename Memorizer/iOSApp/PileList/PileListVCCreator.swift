@@ -19,9 +19,11 @@ class PileListVCCreator: ViewControllerCreator {
         let emptySwitcher = EmptySwitcher(listEmptySwitcher)
         let repositoryListener = PilesRepositoryListener()
         repositoryListener.countListeners = [PilesEmptyToggle(repository, emptySwitcher)]
+        let dataSource = PilesDataSource()
+        repositoryListener.delegates = [dataSource]
         repository.delegate = repositoryListener
         let pileListLoader = PileListLoader(spinnerAnimator, repository)
-        let eventReceiver = PileListEventReceiver(pileListLoader)
+        let eventReceiver = PileListEventReceiver(pileListLoader, dataSource)
         return eventReceiver
     }
 }

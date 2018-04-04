@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,7 +36,7 @@
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qmu-6Z-grn">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <connections>
-                                    <segue destination="As5-V1-H6D" kind="embed" id="nK6-Eo-56w"/>
+                                    <segue destination="fFX-yD-IIF" kind="embed" id="4ru-pQ-YHJ"/>
                                 </connections>
                             </containerView>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyX-AQ-MsS">
@@ -102,6 +102,7 @@
                             <constraint firstItem="nM4-Hr-J9F" firstAttribute="centerX" secondItem="aoY-M3-BOb" secondAttribute="centerX" id="31t-xF-X8e"/>
                             <constraint firstItem="nM4-Hr-J9F" firstAttribute="centerY" secondItem="aoY-M3-BOb" secondAttribute="centerY" id="n6F-HH-uut"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="8fp-wh-fE0"/>
                     </view>
                     <connections>
                         <outlet property="emptyLabel" destination="nM4-Hr-J9F" id="zd6-S0-SLj"/>
@@ -111,19 +112,34 @@
             </objects>
             <point key="canvasLocation" x="-34" y="949"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="7hj-n3-jHZ">
+        <!--Piles Table View Controller-->
+        <scene sceneID="ZsP-xk-WS1">
             <objects>
-                <viewController id="As5-V1-H6D" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lcz-wU-IW2">
+                <tableViewController storyboardIdentifier="PilesTableViewController" id="fFX-yD-IIF" customClass="PilesTableViewController" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="P0c-UD-qim">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93333333330000001" green="0.34509803919999998" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IJq-39-fWo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PileCell" id="onB-yz-nnA" customClass="PileCell" customModule="iOSApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onB-yz-nnA" id="MQD-aN-Tb9">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" red="0.93333333330000001" green="0.34509803919999998" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fFX-yD-IIF" id="gG4-hl-dEj"/>
+                            <outlet property="delegate" destination="fFX-yD-IIF" id="pne-ux-AYQ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="00y-BM-uDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="798" y="949"/>
+            <point key="canvasLocation" x="828" y="949"/>
         </scene>
     </scenes>
 </document>

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560A2C132070DFE900CA9D6A /* PilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A2C122070DFE900CA9D6A /* PilesTableViewController.swift */; };
+		560A2C142070E0C900CA9D6A /* PilesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569EB9FF205D1397006A7B78 /* PilesDataSource.swift */; };
+		560A2C152070E14900CA9D6A /* Revisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BE6212053F54A004F5B53 /* Revisable.swift */; };
+		560A2C162070E15A00CA9D6A /* CurrentDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BE61B2053D684004F5B53 /* CurrentDateProvider.swift */; };
+		560A2C172070E17700CA9D6A /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569EBA01205EB4B0006A7B78 /* Date+.swift */; };
+		560A2C192070E1B500CA9D6A /* PileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A2C182070E1B500CA9D6A /* PileCell.swift */; };
 		562D18DF1FEEE2FD00A750E5 /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18DE1FEEE2FD00A750E5 /* CardTests.swift */; };
 		562D18E11FEEE32300A750E5 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18E01FEEE32300A750E5 /* Card.swift */; };
 		562D18E31FEF932400A750E5 /* CardPileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18E21FEF932400A750E5 /* CardPileTests.swift */; };
@@ -69,6 +75,11 @@
 		568991B0204C241100776431 /* TestTextLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991AF204C241100776431 /* TestTextLocalization.swift */; };
 		568991B6204C69C800776431 /* Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991B5204C69C800776431 /* Shuffle.swift */; };
 		568991B8204C69E300776431 /* Shuffler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991B7204C69E300776431 /* Shuffler.swift */; };
+		569EB9FE205D1361006A7B78 /* PilesDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569EB9FD205D1361006A7B78 /* PilesDataSourceTests.swift */; };
+		569EBA00205D1397006A7B78 /* PilesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569EB9FF205D1397006A7B78 /* PilesDataSource.swift */; };
+		569EBA02205EB4B0006A7B78 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569EBA01205EB4B0006A7B78 /* Date+.swift */; };
+		569EBA04205EB51B006A7B78 /* TestDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569EBA03205EB51B006A7B78 /* TestDateExtension.swift */; };
+		56A120562066853100B9B55E /* PilesDataSourceDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A120552066853100B9B55E /* PilesDataSourceDelegateSpy.swift */; };
 		56B81A7720383AFD009D8B1D /* PileListScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B81A7620383AFD009D8B1D /* PileListScreens.swift */; };
 		56C446372041426B00D5D9B2 /* PileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C446362041426B00D5D9B2 /* PileListViewController.swift */; };
 		56C4464120414FE400D5D9B2 /* PileRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4464020414FE400D5D9B2 /* PileRepositorySpy.swift */; };
@@ -131,6 +142,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		560A2C122070DFE900CA9D6A /* PilesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesTableViewController.swift; sourceTree = "<group>"; };
+		560A2C182070E1B500CA9D6A /* PileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileCell.swift; sourceTree = "<group>"; };
 		562D18D51FEEE23000A750E5 /* MemorizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemorizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		562D18DA1FEEE23000A750E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		562D18DE1FEEE2FD00A750E5 /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
@@ -195,6 +208,11 @@
 		568991AF204C241100776431 /* TestTextLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTextLocalization.swift; sourceTree = "<group>"; };
 		568991B5204C69C800776431 /* Shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shuffle.swift; sourceTree = "<group>"; };
 		568991B7204C69E300776431 /* Shuffler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shuffler.swift; sourceTree = "<group>"; };
+		569EB9FD205D1361006A7B78 /* PilesDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesDataSourceTests.swift; sourceTree = "<group>"; };
+		569EB9FF205D1397006A7B78 /* PilesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesDataSource.swift; sourceTree = "<group>"; };
+		569EBA01205EB4B0006A7B78 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		569EBA03205EB51B006A7B78 /* TestDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDateExtension.swift; sourceTree = "<group>"; };
+		56A120552066853100B9B55E /* PilesDataSourceDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesDataSourceDelegateSpy.swift; sourceTree = "<group>"; };
 		56B81A7620383AFD009D8B1D /* PileListScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListScreens.swift; sourceTree = "<group>"; };
 		56C446362041426B00D5D9B2 /* PileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListViewController.swift; sourceTree = "<group>"; };
 		56C4464020414FE400D5D9B2 /* PileRepositorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileRepositorySpy.swift; sourceTree = "<group>"; };
@@ -357,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				567BE61B2053D684004F5B53 /* CurrentDateProvider.swift */,
+				569EBA01205EB4B0006A7B78 /* Date+.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -461,6 +480,7 @@
 			children = (
 				567BE6292053FD89004F5B53 /* CurrentDateProviderTests.swift */,
 				56C4464020414FE400D5D9B2 /* PileRepositorySpy.swift */,
+				569EBA03205EB51B006A7B78 /* TestDateExtension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -469,6 +489,7 @@
 			isa = PBXGroup;
 			children = (
 				56357C9820300BCA006561E4 /* PileItemRepository.swift */,
+				569EB9FF205D1397006A7B78 /* PilesDataSource.swift */,
 				56F919A02056A33F00C7B56E /* PilesRepositoryListener.swift */,
 				567BE62F2055281D004F5B53 /* PileListLoader.swift */,
 				5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */,
@@ -483,6 +504,8 @@
 				56357C9020300380006561E4 /* PileListLoaderTests.swift */,
 				5675D2582042C0710019A0CD /* PilesEmptyToggleTests.swift */,
 				56F9199E2056A30700C7B56E /* PilesRepositoryListenerTests.swift */,
+				569EB9FD205D1361006A7B78 /* PilesDataSourceTests.swift */,
+				56A120552066853100B9B55E /* PilesDataSourceDelegateSpy.swift */,
 			);
 			path = PileList;
 			sourceTree = "<group>";
@@ -494,6 +517,8 @@
 				56358B9520427CD500D9BFF4 /* PileListEventReceiver.swift */,
 				56C446362041426B00D5D9B2 /* PileListViewController.swift */,
 				568991A8204C21D000776431 /* PileListEmptyViewController.swift */,
+				560A2C122070DFE900CA9D6A /* PilesTableViewController.swift */,
+				560A2C182070E1B500CA9D6A /* PileCell.swift */,
 				56358B772041A96600D9BFF4 /* PileList.storyboard */,
 			);
 			path = PileList;
@@ -645,7 +670,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				TargetAttributes = {
 					562D18D41FEEE23000A750E5 = {
 						CreatedOnToolsVersion = 9.2;
@@ -749,6 +774,7 @@
 				562D18E31FEF932400A750E5 /* CardPileTests.swift in Sources */,
 				562D18EB1FEFB99600A750E5 /* CardPile.swift in Sources */,
 				56B81A7720383AFD009D8B1D /* PileListScreens.swift in Sources */,
+				569EBA02205EB4B0006A7B78 /* Date+.swift in Sources */,
 				567BE6242053F5CA004F5B53 /* RevisableTests.swift in Sources */,
 				567BE61C2053D684004F5B53 /* CurrentDateProvider.swift in Sources */,
 				568991B6204C69C800776431 /* Shuffle.swift in Sources */,
@@ -761,10 +787,14 @@
 				567BE62A2053FD89004F5B53 /* CurrentDateProviderTests.swift in Sources */,
 				56F919A32056A4F500C7B56E /* PilesRepositoryListener.swift in Sources */,
 				56357C9920300BCA006561E4 /* PileItemRepository.swift in Sources */,
+				56A120562066853100B9B55E /* PilesDataSourceDelegateSpy.swift in Sources */,
+				569EBA00205D1397006A7B78 /* PilesDataSource.swift in Sources */,
 				5675D25B2042C0A70019A0CD /* PilesEmptyToggle.swift in Sources */,
 				567BE6302055281E004F5B53 /* PileListLoader.swift in Sources */,
 				56357C9120300380006561E4 /* PileListLoaderTests.swift in Sources */,
+				569EB9FE205D1361006A7B78 /* PilesDataSourceTests.swift in Sources */,
 				567BE6192053D50E004F5B53 /* PileStub.swift in Sources */,
+				569EBA04205EB51B006A7B78 /* TestDateExtension.swift in Sources */,
 				567BE6222053F54A004F5B53 /* Revisable.swift in Sources */,
 				562D18E71FEFABC900A750E5 /* CardSide.swift in Sources */,
 			);
@@ -776,7 +806,9 @@
 			files = (
 				568991A9204C21D000776431 /* PileListEmptyViewController.swift in Sources */,
 				56881DB220399450001BEBAD /* AppDelegate.swift in Sources */,
+				560A2C192070E1B500CA9D6A /* PileCell.swift in Sources */,
 				56358B7E2041AF6700D9BFF4 /* PileListVCCreator.swift in Sources */,
+				560A2C132070DFE900CA9D6A /* PilesTableViewController.swift in Sources */,
 				56358B94204270F800D9BFF4 /* TextLocalization.swift in Sources */,
 				56358B9620427CD500D9BFF4 /* PileListEventReceiver.swift in Sources */,
 				56358B842041B30F00D9BFF4 /* UIStoryboard+.swift in Sources */,
@@ -801,13 +833,17 @@
 				56CA59A6204C810400440185 /* Shuffler.swift in Sources */,
 				56F9199B20569E1F00C7B56E /* EmptySwitcher.swift in Sources */,
 				56881E052039B785001BEBAD /* PileListScreen.swift in Sources */,
+				560A2C172070E17700CA9D6A /* Date+.swift in Sources */,
 				56358B6E2041797300D9BFF4 /* ViewControllerCreator.swift in Sources */,
 				56F9199A20569E1F00C7B56E /* SpinnerAnimator.swift in Sources */,
 				5675D25E2042CFC20019A0CD /* PilesEmptyToggle.swift in Sources */,
 				56358B9A20427F5C00D9BFF4 /* PileItemRepository.swift in Sources */,
 				567BE63120553F16004F5B53 /* PileItem.swift in Sources */,
+				560A2C142070E0C900CA9D6A /* PilesDataSource.swift in Sources */,
 				56358B9E204280A200D9BFF4 /* CardPile.swift in Sources */,
 				56358B9C2042808A00D9BFF4 /* Card.swift in Sources */,
+				560A2C152070E14900CA9D6A /* Revisable.swift in Sources */,
+				560A2C162070E15A00CA9D6A /* CurrentDateProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,6 +934,33 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
@@ -905,6 +968,31 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 			};
 			name = Release;
 		};
@@ -1186,7 +1274,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1260,7 +1348,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;

@@ -1,14 +1,15 @@
 import Foundation
 
 protocol Revisable: CurrentDateConsumer {
-    var createdData: Date { get }
+    var createdDate: Date { get }
     var revisedCount: Int { get }
     var revisedDate: Date? { get }
 }
 
 extension Revisable {
     static var intervals: [TimeInterval] {
-        return [3_600,
+        return [0,
+                3_600,
                 86_400,
                 172_800,
                 259_200,
@@ -20,7 +21,7 @@ extension Revisable {
     var needToRevise: Bool {
         let index = min(max(revisedCount, 0), Self.intervals.count - 1)
         return currentDateProvider.currentDate
-            .timeIntervalSince(revisedDate ?? createdData) >= Self.intervals[index]
+            .timeIntervalSince(revisedDate ?? createdDate) >= Self.intervals[index]
     }
 }
 

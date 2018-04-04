@@ -2,8 +2,8 @@ import XCTest
 
 class RevisableTests: XCTestCase {
     
-    func test_noReviseIfCreateDateIsEqualToCurrentTime() {
-        XCTAssertFalse(revisable(withCreateDateAddition: 0).needToRevise)
+    func test_reviseIfCreateDateIsEqualToCurrentTime() {
+        XCTAssertTrue(revisable(withCreateDateAddition: 0).needToRevise)
     }
     
     func test_noReviseIfCreateDateIsGreaterThanCurrentTime() {
@@ -24,7 +24,7 @@ class RevisableTests: XCTestCase {
     
     func test_noReviseIfTimeIntervalSinceRevisedDateIsLessThanReviseInterval() {
         XCTAssertFalse(revisable(withCreateDateAddition: -TestRevisable.intervals[0],
-                                 revisedDateAddition: 0).needToRevise)
+                                 revisedDateAddition: 10).needToRevise)
     }
     
     func test_reviseIfTimeIntervalSinceReviseDateIsGreaterOrEqThanReviseInterval() {
@@ -40,7 +40,7 @@ class RevisableTests: XCTestCase {
     }
     
     func test_negativeRevisedCountActsLike_0_ReviseCount() {
-        XCTAssertFalse(revisable(withCreateDateAddition: 0,
+        XCTAssertFalse(revisable(withCreateDateAddition: 10,
                                  revisedCount: -1).needToRevise)
     }
     
@@ -48,14 +48,15 @@ class RevisableTests: XCTestCase {
         let secInHour: TimeInterval = 60 * 60
         let secInDay = 24 * secInHour
         let secInMonth = 30 * secInDay
-        XCTAssertEqual(TestRevisable.intervals[0], secInHour)
-        XCTAssertEqual(TestRevisable.intervals[1], secInDay)
-        XCTAssertEqual(TestRevisable.intervals[2], 2 * secInDay)
-        XCTAssertEqual(TestRevisable.intervals[3], 3 * secInDay)
-        XCTAssertEqual(TestRevisable.intervals[4], 4 * secInDay)
-        XCTAssertEqual(TestRevisable.intervals[5], secInMonth)
-        XCTAssertEqual(TestRevisable.intervals[6], 2 * secInMonth)
-        XCTAssertEqual(TestRevisable.intervals[7], 4 * secInMonth)
+        XCTAssertEqual(TestRevisable.intervals[0], 0)
+        XCTAssertEqual(TestRevisable.intervals[1], secInHour)
+        XCTAssertEqual(TestRevisable.intervals[2], secInDay)
+        XCTAssertEqual(TestRevisable.intervals[3], 2 * secInDay)
+        XCTAssertEqual(TestRevisable.intervals[4], 3 * secInDay)
+        XCTAssertEqual(TestRevisable.intervals[5], 4 * secInDay)
+        XCTAssertEqual(TestRevisable.intervals[6], secInMonth)
+        XCTAssertEqual(TestRevisable.intervals[7], 2 * secInMonth)
+        XCTAssertEqual(TestRevisable.intervals[8], 4 * secInMonth)
     }
     
     func test_invalidBigRevisedCountActsLike_MaxInterval_ReviseCount() {
@@ -66,7 +67,7 @@ class RevisableTests: XCTestCase {
         revisedDateAddition: -TestRevisable.intervals[6]).needToRevise)
         XCTAssertTrue(revisable(withCreateDateAddition: -TestRevisable.intervals[0],
                                 revisedCount: 1_000_000,
-        revisedDateAddition: -TestRevisable.intervals[7]).needToRevise)
+        revisedDateAddition: -TestRevisable.intervals.last!).needToRevise)
     }
     
     func test_intervalNumberNotEnoughForReviseIfReviseCountIsMoreThanThisNumber() {
@@ -93,11 +94,11 @@ class RevisableTests: XCTestCase {
     private func createRevisableAndSetFakeCurrentDate(withCreateDateAddition cSec: TimeInterval, revisedCount: Int, revisedDateAddition rSec: TimeInterval? = nil) -> Revisable {
         let currentDate = Date()
         FakeCurrentDateProvider.fakeCurrentDate = currentDate
-        return constructRevisable(createdData: currentDate.addingTimeInterval(cSec), revisedCount: revisedCount, revisedDate: rSec == nil ? nil : currentDate.addingTimeInterval(rSec!))
+        return constructRevisable(createdDate: currentDate.addingTimeInterval(cSec), revisedCount: revisedCount, revisedDate: rSec == nil ? nil : currentDate.addingTimeInterval(rSec!))
     }
-    private func constructRevisable(createdData: Date, revisedCount: Int,
+    private func constructRevisable(createdDate: Date, revisedCount: Int,
                                     revisedDate: Date? = nil) -> Revisable {
-        return TestRevisable(createdData: createdData,
+        return TestRevisable(createdDate: createdDate,
                              revisedCount: revisedCount,
                              revisedDate: revisedDate)
     }
@@ -125,7 +126,7 @@ private class FakeCurrentDateProvider: CurrentDateProvider {
     }
 }
 private struct TestRevisable {
-    let createdData: Date
+    let createdDate: Date
     let revisedCount: Int
     let revisedDate: Date?
 }

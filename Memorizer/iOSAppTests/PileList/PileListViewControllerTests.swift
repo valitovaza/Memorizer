@@ -42,13 +42,14 @@ class PileListViewControllerTests: LocalizerTests {
     func test_createPile_sendEvent() {
         sut.createPile(UIButton())
         XCTAssertEqual(eventHandler.handleEventCallCount, 1)
-        XCTAssertEqual(eventHandler.savedEvent, .onCreate)
+        XCTAssertEqual(eventHandler.savedEvents, [.onCreate])
     }
     
     func test_onLoad_sendEvent() {
         loadViews()
-        XCTAssertEqual(eventHandler.handleEventCallCount, 1)
-        XCTAssertEqual(eventHandler.savedEvent, .onLoad)
+        XCTAssertEqual(eventHandler.handleEventCallCount, 2)
+        XCTAssertEqual(eventHandler.savedEvents.count, 2)
+        XCTAssertEqual(eventHandler.savedEvents.last, .onLoad)
     }
     
     func test_animateActivityIndicator_animatesIt() {
@@ -118,10 +119,16 @@ class PileListViewControllerTests: LocalizerTests {
 extension PileListViewControllerTests {
     class EventHandlerSpy: PileListEventHandler {
         var handleEventCallCount = 0
-        var savedEvent: PileListViewController.Event?
+        var savedEvents: [PileListViewController.Event] = []
         func handle(event: PileListViewController.Event) {
             handleEventCallCount += 1
-            savedEvent = event
+            savedEvents.append(event)
         }
+    }
+}
+extension PileListViewController.Event: Equatable {
+    public static func ==(lhs: PileListViewController.Event,
+                          rhs: PileListViewController.Event) -> Bool {
+        return String(describing: lhs) == String(describing: rhs)
     }
 }

@@ -7,6 +7,7 @@ protocol PileListEventHandler {
 class PileListViewController: UIViewController {
     enum Event {
         case onLoad
+        case onPrepareSegue(PilesDataSourceHolder & PilesDataSourceDelegate)
         case onCreate
     }
     
@@ -27,6 +28,11 @@ class PileListViewController: UIViewController {
     }
     private func localize() {
         navigationItem.title = L10n.memorizer
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let dsHolder = segue.destination as? (PilesDataSourceHolder & PilesDataSourceDelegate) else { return }
+        eventHandler?.handle(event: .onPrepareSegue(dsHolder))
     }
 }
 extension PileListViewController: ActivityIndicatorPresenter {
