@@ -8,6 +8,10 @@ extension CreateCardEventReceiver: CreateCardEventHandler {
             router.closeCreateCard()
         case .onSave:
             router.closeCreateCard()
+        case .onFirstTextChanged(_):
+            break
+        case .onSecondTextChanged(_):
+            break
         }
     }
 }

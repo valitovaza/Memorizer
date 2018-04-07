@@ -3,6 +3,7 @@ enum L10n {
     static var localizeFunc: (String, String, CVarArg...)->(String) = tr
     static var memorizer: String { return localize("Localizable", "memorizer") }
     static var emptyPileList: String { return localize("Localizable", "empty_pile_list") }
+    static var createСard: String { return localize("Localizable", "create_card") }
     
     private static func localize(_ table: String, _ key: String, _ args: CVarArg...) -> String {
         return localizeFunc(table, key, args)

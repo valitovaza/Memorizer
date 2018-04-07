@@ -1,5 +1,9 @@
 import UIKit
 
+protocol CardViewDelegate: class {
+    func firstTextChanged(_ text: String)
+    func secondTextChanged(_ text: String)
+}
 class CardView: UIView {
     
     @IBOutlet weak var firstSide: UIView!
@@ -9,6 +13,7 @@ class CardView: UIView {
     @IBOutlet weak var secondTextView: UITextView!
     @IBOutlet weak var secondTextHeight: NSLayoutConstraint!
     
+    var delegate: CardViewDelegate?
     private let cRadius: CGFloat = 10.0
     private let turnDuration: TimeInterval = 0.5
     
@@ -23,8 +28,16 @@ class CardView: UIView {
     }
     private func onAwakeFromNib() {
         secondSide.isHidden = true
+        addShadow()
         configureRadiuses()
         configureTextHeights()
+    }
+    private func addShadow() {
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize.zero
+        layer.shadowRadius = 1
     }
     private func configureRadiuses() {
         firstSide.layer.cornerRadius = cRadius
@@ -36,6 +49,9 @@ class CardView: UIView {
     }
     
     @IBAction func turnAction(_ sender: Any) {
+        turn()
+    }
+    private func turn() {
         let needOpenKeyboardAfterAnimation = currentTextView.isFirstResponder
         closeKeyboardIfNeed(needOpenKeyboardAfterAnimation)
         turnAnimation(currentSide, flippedSide) {
@@ -85,8 +101,10 @@ class CardView: UIView {
 extension CardView: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         if textView == firstTextView {
+            delegate?.firstTextChanged(textView.text)
             configureFirstTextViewHeight()
         }else{
+            delegate?.secondTextChanged(textView.text)
             configureSecondTextViewHeight()
         }
     }
@@ -98,5 +116,14 @@ extension CardView: UITextViewDelegate {
     }
     private func configureSecondTextViewHeight() {
         configureHeight(of: secondTextView, constraint: secondTextHeight)
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange,
+                  replacementText text: String) -> Bool {
+        if text == "\n" {
+            turn()
+            return false
+        }
+        return true
     }
 }

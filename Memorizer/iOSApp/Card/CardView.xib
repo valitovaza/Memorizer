@@ -21,14 +21,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hw-BG-qD2">
                             <rect key="frame" x="0.0" y="0.0" width="405" height="161"/>
                             <subviews>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" text="Cat" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P1G-W4-Nzq">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P1G-W4-Nzq">
                                     <rect key="frame" x="20" y="55.5" width="365" height="50"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" priority="900" constant="50" id="fNq-bJ-GI9"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
                                     <connections>
                                         <outlet property="delegate" destination="iN0-l3-epB" id="rTX-mE-YNX"/>
                                     </connections>
@@ -72,14 +72,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzk-cU-1T8">
                             <rect key="frame" x="0.0" y="0.0" width="405" height="167"/>
                             <subviews>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" text="Cat" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Y7v-N1-n6V">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Y7v-N1-n6V">
                                     <rect key="frame" x="20" y="58.5" width="365" height="50"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" priority="900" constant="50" id="Z98-JQ-KpC"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
                                     <connections>
                                         <outlet property="delegate" destination="iN0-l3-epB" id="UoP-4c-LlX"/>
                                     </connections>
