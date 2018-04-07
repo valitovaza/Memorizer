@@ -2,12 +2,14 @@ public class PilesRepositoryListener {
     public init() {}
     public var countListeners: [PilesCountChangersListener] = []
     public var changeListeners: [PileItemChangeListener] = []
+    public var fetchedListeners: [PilesFetchedListener] = []
     public var delegates: [PileItemRepositoryDelegate] = []
 }
 extension PilesRepositoryListener: PileItemRepositoryDelegate {
     public func onPilesFetched(_ pileItems: [PileItem]) {
         countListeners.forEach({$0.onPilesFetched(pileItems)})
         delegates.forEach({$0.onPilesFetched(pileItems)})
+        fetchedListeners.forEach({$0.onPilesFetched(pileItems)})
     }
     
     public func onPileRemoved(at index: Int) {

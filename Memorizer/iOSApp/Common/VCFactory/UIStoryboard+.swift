@@ -4,6 +4,8 @@ extension UIStoryboard {
     enum Storyboard: String {
         case Main
         case PileList
+        case PileDetails
+        case Card
         var filename: String {
             return rawValue
         }

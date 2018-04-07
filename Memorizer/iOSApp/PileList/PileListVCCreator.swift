@@ -15,15 +15,14 @@ class PileListVCCreator: ViewControllerCreator {
     private func createEventHandler(_ activityIndicatorPresenter: ActivityIndicatorPresenter,
                                     _ listEmptySwitcher: ListEmptySwitcher) -> PileListEventReceiver {
         let spinnerAnimator = SpinnerAnimator(activityIndicatorPresenter)
-        let repository = PilesRepository()
         let emptySwitcher = EmptySwitcher(listEmptySwitcher)
-        let repositoryListener = PilesRepositoryListener()
-        repositoryListener.countListeners = [PilesEmptyToggle(repository, emptySwitcher)]
-        let dataSource = PilesDataSource()
-        repositoryListener.delegates = [dataSource]
-        repository.delegate = repositoryListener
+        let repository = DependencyResolver.getPileItemRepository()
+        let toggler = PilesEmptyToggle(repository, emptySwitcher)
+        let listener = DependencyResolver.getPilesRepositoryListener()
+        listener.countListeners = [toggler]
         let pileListLoader = PileListLoader(spinnerAnimator, repository)
-        let eventReceiver = PileListEventReceiver(pileListLoader, dataSource)
+        let eventReceiver = PileListEventReceiver(pileListLoader, DependencyResolver.getPileListDataSource())
+        eventReceiver.pilesRepositoryListener = listener
         return eventReceiver
     }
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="p18-tU-do1">
+            <objects>
+                <navigationController storyboardIdentifier="CreateCardViewControllerNav" id="FMn-3p-lYy" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eeh-01-cPe">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Nbl-8i-fh6" kind="relationship" relationship="rootViewController" id="2Kz-kG-jyB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HfL-3Q-ZSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-430" y="168"/>
+        </scene>
+        <!--Create card-->
+        <scene sceneID="Z5X-ic-Xt6">
+            <objects>
+                <viewController storyboardIdentifier="CreateCardViewController" id="Nbl-8i-fh6" customClass="CreateCardViewController" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iYP-sy-8Lq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="kIf-KT-xVy"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create card" id="Yh1-Er-56y">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9xR-6o-BUO">
+                            <connections>
+                                <action selector="cancelAction:" destination="Nbl-8i-fh6" id="bhJ-9A-4gL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="gpc-f8-aV6">
+                            <connections>
+                                <action selector="saveAction:" destination="Nbl-8i-fh6" id="Ef8-RZ-aUw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zVN-TL-F4V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="362" y="168"/>
+        </scene>
+    </scenes>
+</document>

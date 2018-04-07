@@ -9,7 +9,6 @@ extension PilesRepository: PileItemRepository {
     }
     public func fetchPiles() {
         delegate?.onPilesFetched([])
-        //self.delegate?.onPilesFetched(self.piles)
     }
     public func delete(at index: Int) {
         

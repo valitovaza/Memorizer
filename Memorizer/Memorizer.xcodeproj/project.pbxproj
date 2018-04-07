@@ -46,9 +46,23 @@
 		56358B9E204280A200D9BFF4 /* CardPile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18EA1FEFB99600A750E5 /* CardPile.swift */; };
 		56358BA3204299C200D9BFF4 /* PilesRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA2204299C200D9BFF4 /* PilesRepositoryTests.swift */; };
 		56358BA5204299F500D9BFF4 /* PilesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA4204299F500D9BFF4 /* PilesRepository.swift */; };
+		5644A8492078A8DE00401AE5 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5644A8482078A8DE00401AE5 /* CardView.xib */; };
+		5644A84B2078A8F400401AE5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644A84A2078A8F400401AE5 /* CardView.swift */; };
+		564DF0D420789D1600AAFA3F /* Card.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 564DF0D320789D1600AAFA3F /* Card.storyboard */; };
+		564DF0D620789D7F00AAFA3F /* CreateCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564DF0D520789D7F00AAFA3F /* CreateCardViewController.swift */; };
+		564DF0D82078A40700AAFA3F /* CreateCardEventReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564DF0D72078A40700AAFA3F /* CreateCardEventReceiver.swift */; };
+		5657CCEF2074FCBF00F090DC /* TableReloaderAtFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657CCEE2074FCBF00F090DC /* TableReloaderAtFetch.swift */; };
+		5657CCF22075018A00F090DC /* PileDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5657CCF12075018A00F090DC /* PileDetails.storyboard */; };
+		5657CCF42075025800F090DC /* PileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657CCF32075025800F090DC /* PileDetailsViewController.swift */; };
+		5657CCF620750D9200F090DC /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657CCF520750D9200F090DC /* CardsTableViewController.swift */; };
+		5657CCF820750DCF00F090DC /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657CCF720750DCF00F090DC /* CardTableViewCell.swift */; };
+		5657CCFA20750EC800F090DC /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657CCF920750EC800F090DC /* AppRouter.swift */; };
 		5675D2592042C0710019A0CD /* PilesEmptyToggleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D2582042C0710019A0CD /* PilesEmptyToggleTests.swift */; };
 		5675D25B2042C0A70019A0CD /* PilesEmptyToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */; };
 		5675D25E2042CFC20019A0CD /* PilesEmptyToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */; };
+		567BD3D320763F720007344F /* PileDetailsEventReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BD3D220763F720007344F /* PileDetailsEventReceiver.swift */; };
+		567BD3D5207645190007344F /* DependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BD3D4207645190007344F /* DependencyResolver.swift */; };
+		567BD3D82076978C0007344F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BD3D72076978C0007344F /* UIViewController+.swift */; };
 		567BE6192053D50E004F5B53 /* PileStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BE6182053D50E004F5B53 /* PileStub.swift */; };
 		567BE61C2053D684004F5B53 /* CurrentDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BE61B2053D684004F5B53 /* CurrentDateProvider.swift */; };
 		567BE6222053F54A004F5B53 /* Revisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BE6212053F54A004F5B53 /* Revisable.swift */; };
@@ -176,9 +190,23 @@
 		56358BA2204299C200D9BFF4 /* PilesRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesRepositoryTests.swift; sourceTree = "<group>"; };
 		56358BA4204299F500D9BFF4 /* PilesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesRepository.swift; sourceTree = "<group>"; };
 		56358BA62042AF1200D9BFF4 /* SpinnerAnimatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerAnimatorTests.swift; sourceTree = "<group>"; };
+		5644A8482078A8DE00401AE5 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		5644A84A2078A8F400401AE5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		564DF0D320789D1600AAFA3F /* Card.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Card.storyboard; sourceTree = "<group>"; };
+		564DF0D520789D7F00AAFA3F /* CreateCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCardViewController.swift; sourceTree = "<group>"; };
+		564DF0D72078A40700AAFA3F /* CreateCardEventReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCardEventReceiver.swift; sourceTree = "<group>"; };
+		5657CCEE2074FCBF00F090DC /* TableReloaderAtFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableReloaderAtFetch.swift; sourceTree = "<group>"; };
+		5657CCF12075018A00F090DC /* PileDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PileDetails.storyboard; sourceTree = "<group>"; };
+		5657CCF32075025800F090DC /* PileDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileDetailsViewController.swift; sourceTree = "<group>"; };
+		5657CCF520750D9200F090DC /* CardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewController.swift; sourceTree = "<group>"; };
+		5657CCF720750DCF00F090DC /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		5657CCF920750EC800F090DC /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerAnimator.swift; sourceTree = "<group>"; };
 		5675D2582042C0710019A0CD /* PilesEmptyToggleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesEmptyToggleTests.swift; sourceTree = "<group>"; };
 		5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesEmptyToggle.swift; sourceTree = "<group>"; };
+		567BD3D220763F720007344F /* PileDetailsEventReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileDetailsEventReceiver.swift; sourceTree = "<group>"; };
+		567BD3D4207645190007344F /* DependencyResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyResolver.swift; sourceTree = "<group>"; };
+		567BD3D72076978C0007344F /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		567BE6182053D50E004F5B53 /* PileStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileStub.swift; sourceTree = "<group>"; };
 		567BE61B2053D684004F5B53 /* CurrentDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDateProvider.swift; sourceTree = "<group>"; };
 		567BE6212053F54A004F5B53 /* Revisable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revisable.swift; sourceTree = "<group>"; };
@@ -371,6 +399,38 @@
 			path = Texts;
 			sourceTree = "<group>";
 		};
+		564DF0D220789CF300AAFA3F /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				564DF0D520789D7F00AAFA3F /* CreateCardViewController.swift */,
+				564DF0D72078A40700AAFA3F /* CreateCardEventReceiver.swift */,
+				5644A84A2078A8F400401AE5 /* CardView.swift */,
+				5644A8482078A8DE00401AE5 /* CardView.xib */,
+				564DF0D320789D1600AAFA3F /* Card.storyboard */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		5657CCF02075016700F090DC /* PileDetails */ = {
+			isa = PBXGroup;
+			children = (
+				5657CCF32075025800F090DC /* PileDetailsViewController.swift */,
+				567BD3D220763F720007344F /* PileDetailsEventReceiver.swift */,
+				5657CCF520750D9200F090DC /* CardsTableViewController.swift */,
+				5657CCF720750DCF00F090DC /* CardTableViewCell.swift */,
+				5657CCF12075018A00F090DC /* PileDetails.storyboard */,
+			);
+			path = PileDetails;
+			sourceTree = "<group>";
+		};
+		567BD3D6207697760007344F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				567BD3D72076978C0007344F /* UIViewController+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		567BE61A2053D5EE004F5B53 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +445,8 @@
 			children = (
 				56881DF620399E1B001BEBAD /* Common */,
 				56C446352041424E00D5D9B2 /* PileList */,
+				5657CCF02075016700F090DC /* PileDetails */,
+				564DF0D220789CF300AAFA3F /* Card */,
 				56881DB820399450001BEBAD /* Assets.xcassets */,
 				56881DBA20399450001BEBAD /* LaunchScreen.storyboard */,
 				56881DBD20399450001BEBAD /* Info.plist */,
@@ -427,8 +489,11 @@
 			isa = PBXGroup;
 			children = (
 				56881DB120399450001BEBAD /* AppDelegate.swift */,
+				5657CCF920750EC800F090DC /* AppRouter.swift */,
+				567BD3D4207645190007344F /* DependencyResolver.swift */,
 				56881DF420399DCE001BEBAD /* MainViewController.swift */,
 				56881DB520399450001BEBAD /* Main.storyboard */,
+				567BD3D6207697760007344F /* Extensions */,
 				56358B8C20426DF500D9BFF4 /* Texts */,
 				56358B812041B28300D9BFF4 /* VCFactory */,
 			);
@@ -452,6 +517,7 @@
 				5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */,
 				56F919962056996A00C7B56E /* EmptySwitcher.swift */,
 				56358BA4204299F500D9BFF4 /* PilesRepository.swift */,
+				5657CCEE2074FCBF00F090DC /* TableReloaderAtFetch.swift */,
 			);
 			path = PileListScreen;
 			sourceTree = "<group>";
@@ -514,8 +580,8 @@
 			isa = PBXGroup;
 			children = (
 				56358B7D2041AF6700D9BFF4 /* PileListVCCreator.swift */,
-				56358B9520427CD500D9BFF4 /* PileListEventReceiver.swift */,
 				56C446362041426B00D5D9B2 /* PileListViewController.swift */,
+				56358B9520427CD500D9BFF4 /* PileListEventReceiver.swift */,
 				568991A8204C21D000776431 /* PileListEmptyViewController.swift */,
 				560A2C122070DFE900CA9D6A /* PilesTableViewController.swift */,
 				560A2C182070E1B500CA9D6A /* PileCell.swift */,
@@ -733,8 +799,11 @@
 			files = (
 				56358B8F20426EBA00D9BFF4 /* Localizable.strings in Resources */,
 				56358B782041A96600D9BFF4 /* PileList.storyboard in Resources */,
+				5644A8492078A8DE00401AE5 /* CardView.xib in Resources */,
 				56881DBC20399450001BEBAD /* LaunchScreen.storyboard in Resources */,
+				5657CCF22075018A00F090DC /* PileDetails.storyboard in Resources */,
 				56881DB920399450001BEBAD /* Assets.xcassets in Resources */,
+				564DF0D420789D1600AAFA3F /* Card.storyboard in Resources */,
 				56881DB720399450001BEBAD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -804,17 +873,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				567BD3D320763F720007344F /* PileDetailsEventReceiver.swift in Sources */,
 				568991A9204C21D000776431 /* PileListEmptyViewController.swift in Sources */,
+				5657CCF42075025800F090DC /* PileDetailsViewController.swift in Sources */,
 				56881DB220399450001BEBAD /* AppDelegate.swift in Sources */,
+				564DF0D620789D7F00AAFA3F /* CreateCardViewController.swift in Sources */,
 				560A2C192070E1B500CA9D6A /* PileCell.swift in Sources */,
 				56358B7E2041AF6700D9BFF4 /* PileListVCCreator.swift in Sources */,
+				5644A84B2078A8F400401AE5 /* CardView.swift in Sources */,
 				560A2C132070DFE900CA9D6A /* PilesTableViewController.swift in Sources */,
 				56358B94204270F800D9BFF4 /* TextLocalization.swift in Sources */,
 				56358B9620427CD500D9BFF4 /* PileListEventReceiver.swift in Sources */,
+				5657CCFA20750EC800F090DC /* AppRouter.swift in Sources */,
 				56358B842041B30F00D9BFF4 /* UIStoryboard+.swift in Sources */,
 				56358B7A2041AB6000D9BFF4 /* UIControllerFactory.swift in Sources */,
 				56C446372041426B00D5D9B2 /* PileListViewController.swift in Sources */,
+				5657CCF620750D9200F090DC /* CardsTableViewController.swift in Sources */,
+				567BD3D82076978C0007344F /* UIViewController+.swift in Sources */,
+				567BD3D5207645190007344F /* DependencyResolver.swift in Sources */,
+				564DF0D82078A40700AAFA3F /* CreateCardEventReceiver.swift in Sources */,
 				56881DF520399DCE001BEBAD /* MainViewController.swift in Sources */,
+				5657CCF820750DCF00F090DC /* CardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,6 +914,7 @@
 				56881E052039B785001BEBAD /* PileListScreen.swift in Sources */,
 				560A2C172070E17700CA9D6A /* Date+.swift in Sources */,
 				56358B6E2041797300D9BFF4 /* ViewControllerCreator.swift in Sources */,
+				5657CCEF2074FCBF00F090DC /* TableReloaderAtFetch.swift in Sources */,
 				56F9199A20569E1F00C7B56E /* SpinnerAnimator.swift in Sources */,
 				5675D25E2042CFC20019A0CD /* PilesEmptyToggle.swift in Sources */,
 				56358B9A20427F5C00D9BFF4 /* PileItemRepository.swift in Sources */,

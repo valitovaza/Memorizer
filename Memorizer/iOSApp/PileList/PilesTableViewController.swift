@@ -45,3 +45,8 @@ extension PilesTableViewController: PilesDataSourceDelegate {
         tableView.deleteSections(IndexSet(integer: index), with: .automatic)
     }
 }
+extension PilesTableViewController: TableReloader {
+    func reloadTable() {
+        tableView.reloadData()
+    }
+}

@@ -4,10 +4,14 @@ import iOSAdapters
 protocol PileListEventHandler {
     func handle(event: PileListViewController.Event)
 }
+protocol PilesDataSourceHolder {
+    var dataSource: PileListDataSource! { get set }
+}
+typealias PileTableHolder = PilesDataSourceHolder & PilesDataSourceDelegate & TableReloader
 class PileListViewController: UIViewController {
     enum Event {
         case onLoad
-        case onPrepareSegue(PilesDataSourceHolder & PilesDataSourceDelegate)
+        case onPrepareSegue(PileTableHolder)
         case onCreate
     }
     
@@ -31,7 +35,7 @@ class PileListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let dsHolder = segue.destination as? (PilesDataSourceHolder & PilesDataSourceDelegate) else { return }
+        guard let dsHolder = segue.destination as? PileTableHolder else { return }
         eventHandler?.handle(event: .onPrepareSegue(dsHolder))
     }
 }
