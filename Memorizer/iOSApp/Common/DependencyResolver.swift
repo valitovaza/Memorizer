@@ -58,6 +58,6 @@ extension AppDependencyProvider: DependencyProvider {
     }
     
     var createCardEventHandler: CreateCardEventHandler {
-        return CreateCardEventReceiver()
+        return CreateCardEventReceiver<StringCardHolder>()
     }
 }

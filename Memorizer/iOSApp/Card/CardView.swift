@@ -13,7 +13,7 @@ class CardView: UIView {
     @IBOutlet weak var secondTextView: UITextView!
     @IBOutlet weak var secondTextHeight: NSLayoutConstraint!
     
-    var delegate: CardViewDelegate?
+    weak var delegate: CardViewDelegate?
     private let cRadius: CGFloat = 10.0
     private let turnDuration: TimeInterval = 0.5
     

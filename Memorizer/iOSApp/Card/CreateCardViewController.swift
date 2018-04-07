@@ -1,10 +1,12 @@
 import UIKit
+import iOSAdapters
 
 protocol CreateCardEventHandler {
     func handle(event: CreateCardViewController.Event)
 }
 class CreateCardViewController: UIViewController {
     enum Event {
+        case onLoad(SaveCardPresenter)
         case onCancel
         case onSave
         case onFirstTextChanged(String)
@@ -23,6 +25,7 @@ class CreateCardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventHandler?.handle(event: .onLoad(self))
         localize()
         onDidLoad()
     }
@@ -30,7 +33,7 @@ class CreateCardViewController: UIViewController {
         navigationItem.title = L10n.createСard
     }
     private func onDidLoad() {
-        navigationItem.rightBarButtonItem?.isEnabled = false
+        disableSaveButton()
         addCardView()
         cardView.openKeyboard()
     }
@@ -47,6 +50,7 @@ class CreateCardViewController: UIViewController {
                                                                constant: margin),
             cardView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topMargin),
             cardView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5)])
+        cardView.delegate = self
     }
 }
 extension CreateCardViewController: CardViewDelegate {
@@ -55,5 +59,13 @@ extension CreateCardViewController: CardViewDelegate {
     }
     func secondTextChanged(_ text: String) {
         eventHandler?.handle(event: .onSecondTextChanged(text))
+    }
+}
+extension CreateCardViewController: SaveCardPresenter {
+    func enableSaveButton() {
+        navigationItem.rightBarButtonItem?.isEnabled = true
+    }
+    func disableSaveButton() {
+        navigationItem.rightBarButtonItem?.isEnabled = false
     }
 }

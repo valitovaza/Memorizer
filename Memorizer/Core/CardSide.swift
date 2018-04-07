@@ -1,4 +1,4 @@
-protocol CardSide {
+public protocol CardSide {
 }
 extension Int: CardSide {}
 extension String: CardSide {}
