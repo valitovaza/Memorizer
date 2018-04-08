@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -117,6 +118,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addCardBottom" destination="qXu-ar-gPS" id="Xy9-S5-xWM"/>
+                        <outlet property="addCardButton" destination="Jpc-3w-WwE" id="Etu-z4-i2j"/>
                         <outlet property="nameField" destination="SoC-hm-cHJ" id="H3L-pe-ipo"/>
                     </connections>
                 </viewController>
@@ -133,13 +135,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardTableViewCell" id="gG7-C2-r9n" customClass="CardTableViewCell" customModule="iOSApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardTableViewCell" rowHeight="78" id="gG7-C2-r9n" customClass="CardTableViewCell" customModule="iOSApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gG7-C2-r9n" id="ZJg-zf-Dds">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="77.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3e-4f-qDH">
+                                            <rect key="frame" x="16" y="11" width="343" height="24"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0J-1Y-dqL">
+                                            <rect key="frame" x="16" y="43" width="343" height="24"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="W0J-1Y-dqL" firstAttribute="top" secondItem="O3e-4f-qDH" secondAttribute="bottom" constant="8" symbolic="YES" id="20Y-IB-vWc"/>
+                                        <constraint firstItem="O3e-4f-qDH" firstAttribute="leading" secondItem="ZJg-zf-Dds" secondAttribute="leadingMargin" id="5md-t6-sdL"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="W0J-1Y-dqL" secondAttribute="bottom" id="Yuv-Z8-Qid"/>
+                                        <constraint firstItem="W0J-1Y-dqL" firstAttribute="trailing" secondItem="ZJg-zf-Dds" secondAttribute="trailingMargin" id="jpm-lT-t80"/>
+                                        <constraint firstItem="W0J-1Y-dqL" firstAttribute="leading" secondItem="ZJg-zf-Dds" secondAttribute="leadingMargin" id="mE9-Xe-NZN"/>
+                                        <constraint firstItem="O3e-4f-qDH" firstAttribute="trailing" secondItem="ZJg-zf-Dds" secondAttribute="trailingMargin" id="sOs-d8-GWN"/>
+                                        <constraint firstItem="O3e-4f-qDH" firstAttribute="top" secondItem="ZJg-zf-Dds" secondAttribute="topMargin" id="tYF-fy-nkS"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="backTitle" destination="W0J-1Y-dqL" id="QHn-0S-aPq"/>
+                                    <outlet property="frontTitle" destination="O3e-4f-qDH" id="ogk-kF-47r"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -150,7 +179,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6j6-Ka-Fam" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="967" y="230"/>
+            <point key="canvasLocation" x="965.60000000000002" y="229.83508245877064"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rpq-w4-BrG">

@@ -6,7 +6,9 @@ protocol DependencyProvider {
     var pilesRepositoryListener: PilesRepositoryListener { get }
     
     var pileDetailsEventHandler: PileDetailsEventHandler { get }
-    var createCardEventHandler: CreateCardEventHandler { get }
+    
+    var cardDetailsEventHandler: CardDetailsEventHandler { get }
+    func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader) -> PileDataHolder
 }
 class DependencyResolver {
     private static var dependencyProvider: DependencyProvider!
@@ -29,14 +31,18 @@ class DependencyResolver {
         return dependencyProvider.pileDetailsEventHandler
     }
     
-    static func getCreateCardEventHandler() -> CreateCardEventHandler {
-        return dependencyProvider.createCardEventHandler
+    static func getCardDetailsEventHandler() -> CardDetailsEventHandler {
+        return dependencyProvider.cardDetailsEventHandler
+    }
+    static func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader) -> PileDataHolder {
+        return dependencyProvider.makePileDataHolder(view, reloader)
     }
 }
 class AppDependencyProvider {
     private let pilesDataSource = PilesDataSource()
     private let pRepository = PilesRepository()
     private let pRepositoryListener = PilesRepositoryListener()
+    private weak var lastPileDataHolder: PileDataHolder?
     init() {
         pRepository.delegate = pRepositoryListener
         pRepositoryListener.delegates = [pilesDataSource]
@@ -57,7 +63,15 @@ extension AppDependencyProvider: DependencyProvider {
         return PileDetailsEventReceiver()
     }
     
-    var createCardEventHandler: CreateCardEventHandler {
-        return CreateCardEventReceiver<StringCardHolder>()
+    var cardDetailsEventHandler: CardDetailsEventHandler {
+        let eventReceiver = CardDetailsEventReceiver<StringCardHolder>()
+        eventReceiver.cardsTableDataChanger = lastPileDataHolder
+        eventReceiver.dataSource = lastPileDataHolder
+        return eventReceiver
+    }
+    func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader) -> PileDataHolder {
+        let lastPileDataHolder = PileDataHolder(view, reloader)
+        self.lastPileDataHolder = lastPileDataHolder
+        return lastPileDataHolder
     }
 }

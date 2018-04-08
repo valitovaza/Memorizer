@@ -4,6 +4,9 @@ enum L10n {
     static var memorizer: String { return localize("Localizable", "memorizer") }
     static var emptyPileList: String { return localize("Localizable", "empty_pile_list") }
     static var createСard: String { return localize("Localizable", "create_card") }
+    static var addCard: String { return localize("Localizable", "add_card") }
+    static var pileName: String { return localize("Localizable", "pile_name") }
+    static var createPile: String { return localize("Localizable", "create_pile") }
     
     private static func localize(_ table: String, _ key: String, _ args: CVarArg...) -> String {
         return localizeFunc(table, key, args)

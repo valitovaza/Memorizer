@@ -12,7 +12,7 @@
         <!--Navigation Controller-->
         <scene sceneID="p18-tU-do1">
             <objects>
-                <navigationController storyboardIdentifier="CreateCardViewControllerNav" id="FMn-3p-lYy" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CardDetailsViewControllerNav" id="FMn-3p-lYy" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eeh-01-cPe">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -28,7 +28,7 @@
         <!--Create card-->
         <scene sceneID="Z5X-ic-Xt6">
             <objects>
-                <viewController storyboardIdentifier="CreateCardViewController" id="Nbl-8i-fh6" customClass="CreateCardViewController" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardDetailsViewController" id="Nbl-8i-fh6" customClass="CardDetailsViewController" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iYP-sy-8Lq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

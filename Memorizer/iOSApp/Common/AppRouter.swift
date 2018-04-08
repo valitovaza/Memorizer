@@ -32,6 +32,7 @@ protocol PileDetailsRouter {
 }
 protocol CreateCardRouter {
     func closeCreateCard()
+    func closeCreateCardAndCreatePile()
 }
 
 import UIKit
@@ -57,9 +58,9 @@ extension AppRouter: RoutersProvider {
 extension AppRouter: PileListRouter {
     func openCreatePile() {
         guard let pileDetailsNav = makePilesDetailsNav() else { return }
-        guard let cardNav = makeCreateCardNav() else { return }
         presentOverWithoutAnimation(pileDetailsNav) {
             self.modalStack.append(pileDetailsNav)
+            guard let cardNav = self.makeCreateCardNav() else { return }
             pileDetailsNav.present(cardNav, animated: true, completion: {
                 self.modalStack.append(cardNav)
                 pileDetailsNav.view.alpha = 1.0
@@ -74,9 +75,9 @@ extension AppRouter: PileListRouter {
         return nav
     }
     private func makeCreateCardNav() -> UINavigationController? {
-        let nav = UIControllerFactory.instantiateNavigation(.Card, with: CreateCardViewController.self)
-        guard let card = nav.viewControllers.first as? CreateCardViewController else { return nil }
-        card.eventHandler = DependencyResolver.getCreateCardEventHandler()
+        let nav = UIControllerFactory.instantiateNavigation(.Card, with: CardDetailsViewController.self)
+        guard let card = nav.viewControllers.first as? CardDetailsViewController else { return nil }
+        card.eventHandler = DependencyResolver.getCardDetailsEventHandler()
         return nav
     }
     private func presentOverWithoutAnimation(_ viewController: UIViewController,
@@ -100,6 +101,10 @@ extension AppRouter: PileDetailsRouter {
         modalStack.removeLast()
     }
     func openCreateCard() {
+        guard let cardNav = self.makeCreateCardNav() else { return }
+        let parent = modalStack.last ?? startViewController
+        parent.present(cardNav, animated: true, completion: nil)
+        modalStack.append(cardNav)
     }
     func openCardDetails(at index: Int) {
     }
@@ -107,5 +112,23 @@ extension AppRouter: PileDetailsRouter {
 extension AppRouter: CreateCardRouter {
     func closeCreateCard() {
         closeModal()
+    }
+    func closeCreateCardAndCreatePile() {
+        if modalStack.count > 1 {
+            closeLastTwoModals()
+        }else{
+            closeModal()
+        }
+    }
+    private func closeLastTwoModals() {
+        let createCard = modalStack.last!
+        modalStack.removeLast()
+        let createPile = modalStack.last!
+        modalStack.removeLast()
+        createCard.view.endEditing(true)
+        createPile.view.alpha = 0.0
+        createCard.dismiss(animated: true) {
+            createPile.dismiss(animated: false, completion: nil)
+        }
     }
 }

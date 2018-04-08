@@ -1,3 +1,6 @@
 "memorizer" = "Memorizer";
 "empty_pile_list" = "У вас нет карточек для повторений";
 "create_card" = "Создать карточку";
+"add_card" = "Добавить карточку";
+"pile_name" = "Имя стопки";
+"create_pile" = "Создать стопку";

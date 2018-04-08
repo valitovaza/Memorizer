@@ -10,11 +10,11 @@ protocol Pile {
 
 typealias CardInfo = (card: Card, isExamined: Bool)
 
-struct CardPile {
+public struct CardPile {
     
     var shuffler: Shuffler = ArrayShuffler()
     
-    var cards: [Card] {
+    public var cards: [Card] {
         return cardInfos.map({$0.0})
     }
     

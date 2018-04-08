@@ -1,16 +1,22 @@
 import UIKit
+import iOSAdapters
 
 protocol PileDetailsEventHandler {
     func handle(event: PileDetailsViewController.Event)
 }
 class PileDetailsViewController: UIViewController {
     enum Event {
+        case onPrepareSegue(UITableReloader, CardsDataSourceHolder)
+        case onLoad(PileDetailsPresenter)
+        case onTitleChanged(String)
+        case onAddCard
         case onCancel
         case onSave
     }
     
     var eventHandler: PileDetailsEventHandler?
     
+    @IBOutlet weak var addCardButton: UIButton!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var addCardBottom: NSLayoutConstraint!
     
@@ -21,24 +27,26 @@ class PileDetailsViewController: UIViewController {
         eventHandler?.handle(event: .onSave)
     }
     @IBAction func addCardAction(_ sender: Any) {
-        
+        eventHandler?.handle(event: .onAddCard)
     }
     @IBAction func textChangedAction(_ sender: Any) {
-        checkSaveButton()
-    }
-    private func checkSaveButton() {
-        navigationItem.rightBarButtonItem?.isEnabled = isSaveEnabled
-    }
-    private var isSaveEnabled: Bool {
-        return !(nameField.text?.isEmpty ?? true)
+        guard let text = nameField.text else { return }
+        eventHandler?.handle(event: .onTitleChanged(text))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventHandler?.handle(event: .onLoad(self))
+        localize()
         onLoad()
     }
+    private func localize() {
+        navigationItem.title = L10n.createPile
+        addCardButton.setTitle(L10n.addCard, for: .normal)
+        nameField.placeholder = L10n.pileName
+    }
     private func onLoad() {
-        checkSaveButton()
+        disableSaveButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +78,9 @@ class PileDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let lHolder = segue.destination as? CardsTableListenerHolder else { return }
         lHolder.tableListener = self
+        guard let reloader = segue.destination as? UITableReloader,
+            let dsHolder = segue.destination as? CardsDataSourceHolder else { return }
+        eventHandler?.handle(event: .onPrepareSegue(reloader, dsHolder))
     }
 }
 extension PileDetailsViewController: CardsTableEventListener {
@@ -84,5 +95,16 @@ extension PileDetailsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         closeKeyboard()
         return false
+    }
+}
+extension PileDetailsViewController: PileDetailsPresenter {
+    func updateTitle(_ title: String) {
+        nameField.text = title
+    }
+    func enableSaveButton() {
+        navigationItem.rightBarButtonItem?.isEnabled = true
+    }
+    func disableSaveButton() {
+        navigationItem.rightBarButtonItem?.isEnabled = false
     }
 }

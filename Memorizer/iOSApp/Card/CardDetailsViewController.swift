@@ -1,10 +1,10 @@
 import UIKit
 import iOSAdapters
 
-protocol CreateCardEventHandler {
-    func handle(event: CreateCardViewController.Event)
+protocol CardDetailsEventHandler {
+    func handle(event: CardDetailsViewController.Event)
 }
-class CreateCardViewController: UIViewController {
+class CardDetailsViewController: UIViewController {
     enum Event {
         case onLoad(SaveCardPresenter)
         case onCancel
@@ -13,7 +13,7 @@ class CreateCardViewController: UIViewController {
         case onSecondTextChanged(String)
     }
     
-    var eventHandler: CreateCardEventHandler?
+    var eventHandler: CardDetailsEventHandler?
     private var cardView: CardView!
     
     @IBAction func cancelAction(_ sender: Any) {
@@ -53,7 +53,7 @@ class CreateCardViewController: UIViewController {
         cardView.delegate = self
     }
 }
-extension CreateCardViewController: CardViewDelegate {
+extension CardDetailsViewController: CardViewDelegate {
     func firstTextChanged(_ text: String) {
         eventHandler?.handle(event: .onFirstTextChanged(text))
     }
@@ -61,7 +61,7 @@ extension CreateCardViewController: CardViewDelegate {
         eventHandler?.handle(event: .onSecondTextChanged(text))
     }
 }
-extension CreateCardViewController: SaveCardPresenter {
+extension CardDetailsViewController: SaveCardPresenter {
     func enableSaveButton() {
         navigationItem.rightBarButtonItem?.isEnabled = true
     }
