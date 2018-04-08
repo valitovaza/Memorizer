@@ -6,6 +6,8 @@ protocol PileListEventHandler {
 }
 protocol PilesDataSourceHolder {
     var dataSource: PileListDataSource! { get set }
+    var cleanerInTable: PileItemCleanerInTable! { get set }
+    var router: PileListRouter! { get set }
 }
 typealias PileTableHolder = PilesDataSourceHolder & PilesDataSourceDelegate & TableReloader
 class PileListViewController: UIViewController {

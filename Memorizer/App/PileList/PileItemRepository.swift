@@ -1,9 +1,12 @@
 public protocol PileItemRepository: PileItemsCountHolder {
     func fetchPiles()
-    func delete(at index: Int)
 }
 public protocol PileItemsCountHolder {
     var count: Int { get }
+}
+public protocol PilesRepositoryChanger {
+    func add(pileItem: PileItem)
+    func change(pileItem: PileItem, at index: Int)
 }
 public protocol PileItemRepositoryDelegate: PilesCountChangersListener, PileItemChangeListener {}
 public protocol PilesCountChangersListener: PilesFetchedListener {
@@ -15,4 +18,7 @@ public protocol PilesFetchedListener {
 }
 public protocol PileItemChangeListener {
     func onPileChanged(pile: PileItem, at index: Int)
+}
+public protocol RepositoryIndexFinder {
+    func repositoryIndexFor(section: Int, row: Int) -> Int?
 }

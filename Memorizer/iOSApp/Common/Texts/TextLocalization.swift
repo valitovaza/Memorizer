@@ -9,6 +9,13 @@ enum L10n {
     static var createPile: String { return localize("Localizable", "create_pile") }
     static var editСard: String { return localize("Localizable", "edit_card") }
     static var editPile: String { return localize("Localizable", "edit_pile") }
+    static var pilesToRepeat: String { return localize("Localizable", "piles_to_repeat") }
+    static var delete: String { return localize("Localizable", "delete") }
+    static var edit: String { return localize("Localizable", "edit") }
+    static var combine: String { return localize("Localizable", "combine") }
+    static var deleteAlert: String { return localize("Localizable", "delete_alert") }
+    static var cancel: String { return localize("Localizable", "cancel") }
+    static var deleteCardAlert: String { return localize("Localizable", "delete_card_alert") }
     
     private static func localize(_ table: String, _ key: String, _ args: CVarArg...) -> String {
         return localizeFunc(table, key, args)

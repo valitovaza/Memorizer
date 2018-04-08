@@ -6,3 +6,10 @@
 "pile_name" = "Pile name";
 "create_pile" = "Create pile";
 "edit_pile" = "Edit pile";
+"piles_to_repeat" = "Piles to repeat";
+"delete" = "Delete";
+"edit" = "Edit";
+"combine" = "Combine";
+"delete_alert" = "Do you really want to delete this pile?";
+"cancel" = "Cancel";
+"delete_card_alert" = "Do you really want to delete this card?";

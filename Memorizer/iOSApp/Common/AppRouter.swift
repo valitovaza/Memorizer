@@ -23,7 +23,7 @@ class RouterFactory {
 
 protocol PileListRouter {
     func openCreatePile()
-    func openPileDetails(at index: Int)
+    func openPileDetails(at section: Int, row: Int)
 }
 protocol PileDetailsRouter {
     func closePileDetails()
@@ -68,10 +68,13 @@ extension AppRouter: PileListRouter {
         }
     }
     private func makePilesDetailsNav() -> UINavigationController? {
+        return makePileDetailsInNav(DependencyResolver.getPileDetailsEventHandler())
+    }
+    private func makePileDetailsInNav(_ eventHandler: PileDetailsEventHandler) -> UINavigationController? {
         let nav = UIControllerFactory.instantiateNavigation(.PileDetails,
                                                             with: PileDetailsViewController.self)
         guard let details = nav.viewControllers.first as? PileDetailsViewController else { return nil }
-        details.eventHandler = DependencyResolver.getPileDetailsEventHandler()
+        details.eventHandler = eventHandler
         return nav
     }
     private func makeCardDetailsNav() -> UINavigationController? {
@@ -91,8 +94,13 @@ extension AppRouter: PileListRouter {
             completion()
         }
     }
-    func openPileDetails(at index: Int) {
-        
+    func openPileDetails(at section: Int, row: Int) {
+        guard let pileDetailsNav = makeEditPilesDetailsNav(at: section, row: row) else { return }
+        present(modal: pileDetailsNav)
+    }
+    private func makeEditPilesDetailsNav(at section: Int, row: Int) -> UINavigationController? {
+        return makePileDetailsInNav(DependencyResolver.getEditPileDetailsEventHandler(section: section,
+                                                                                      row: row))
     }
     private func present(modal: UIViewController) {
         let parent = modalStack.last ?? startViewController

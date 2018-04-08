@@ -19,10 +19,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="405" height="211"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hw-BG-qD2">
-                            <rect key="frame" x="0.0" y="0.0" width="405" height="161"/>
+                            <rect key="frame" x="0.0" y="0.0" width="405" height="167"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P1G-W4-Nzq">
-                                    <rect key="frame" x="20" y="55.5" width="365" height="50"/>
+                                    <rect key="frame" x="20" y="58.5" width="365" height="50"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" priority="900" constant="50" id="fNq-bJ-GI9"/>
@@ -44,7 +44,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxj-eo-akM">
-                            <rect key="frame" x="353" y="161" width="44" height="44"/>
+                            <rect key="frame" x="361" y="167" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="3DP-TI-z1v"/>
                                 <constraint firstAttribute="height" constant="44" id="5ss-Xl-zOZ"/>
@@ -61,9 +61,9 @@
                         <constraint firstAttribute="trailing" secondItem="0hw-BG-qD2" secondAttribute="trailing" id="970-1z-z6h"/>
                         <constraint firstItem="0hw-BG-qD2" firstAttribute="leading" secondItem="A0o-1N-Yqm" secondAttribute="leading" id="Sy7-H2-U80"/>
                         <constraint firstItem="uxj-eo-akM" firstAttribute="top" secondItem="0hw-BG-qD2" secondAttribute="bottom" id="Xr5-bk-IYb"/>
-                        <constraint firstAttribute="bottom" secondItem="uxj-eo-akM" secondAttribute="bottom" constant="6" id="d7j-4v-LmC"/>
+                        <constraint firstAttribute="bottom" secondItem="uxj-eo-akM" secondAttribute="bottom" id="d7j-4v-LmC"/>
                         <constraint firstItem="0hw-BG-qD2" firstAttribute="top" secondItem="A0o-1N-Yqm" secondAttribute="top" id="jSj-tv-DDY"/>
-                        <constraint firstAttribute="trailing" secondItem="uxj-eo-akM" secondAttribute="trailing" constant="8" id="tG1-nm-iT1"/>
+                        <constraint firstAttribute="trailing" secondItem="uxj-eo-akM" secondAttribute="trailing" id="tG1-nm-iT1"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAo-tz-Qxv">
@@ -78,7 +78,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" priority="900" constant="50" id="Z98-JQ-KpC"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
                                     <connections>
                                         <outlet property="delegate" destination="iN0-l3-epB" id="UoP-4c-LlX"/>

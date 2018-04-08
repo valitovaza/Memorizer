@@ -1,4 +1,4 @@
-protocol Pile {
+public protocol Pile {
     var isExamined: Bool { get }
     mutating func add(_ card: Card)
     mutating func remove(at index: Int)
@@ -22,30 +22,30 @@ public struct CardPile {
     private let forgottenIndex = 3
 }
 extension CardPile: Pile {
-    var isExamined: Bool {
+    public var isExamined: Bool {
         return cardInfos.filter({!$0.isExamined}).isEmpty
     }
-    mutating func add(_ card: Card) {
+    public mutating func add(_ card: Card) {
         cardInfos.insert((card, false), at: 0)
     }
-    mutating func remove(at index: Int) {
+    public mutating func remove(at index: Int) {
         guard isCardsValidIndex(index) else { return }
         cardInfos.remove(at: index)
     }
-    mutating func shuffle() {
+    public mutating func shuffle() {
         cardInfos = shuffler.shuffle(cardInfos)
     }
-    mutating func markTopCardRemembered() {
+    public mutating func markTopCardRemembered() {
         guard cardInfos.count > 0 else { return }
         setTopExamined(true)
         cardInfos.append(cardInfos.remove(at: 0))
     }
-    mutating func markTopCardForgotten() {
+    public mutating func markTopCardForgotten() {
         guard cardInfos.count > 0 else { return }
         setTopExamined(false)
         insertForgotten(cardInfos.removeFirst())
     }
-    mutating func prepareForExam() {
+    public mutating func prepareForExam() {
         guard cardInfos.count > 0 else { return }
         for index in 0..<cardInfos.count {
             cardInfos[index] = (cardInfos[index].card, false)

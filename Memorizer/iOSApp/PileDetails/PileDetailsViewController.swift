@@ -6,7 +6,7 @@ protocol PileDetailsEventHandler {
 }
 protocol PileDetailsConfigurable {
     func configureCreateView()
-    func configureEditView()
+    func configureEditView(pileTitle: String)
 }
 
 typealias PileDetailsVC = PileDetailsPresenter & PileDetailsConfigurable
@@ -46,14 +46,10 @@ class PileDetailsViewController: UIViewController {
         super.viewDidLoad()
         eventHandler?.handle(event: .onLoad(self))
         localize()
-        onLoad()
     }
     private func localize() {
         addCardButton.setTitle(L10n.addCard, for: .normal)
         nameField.placeholder = L10n.pileName
-    }
-    private func onLoad() {
-        disableSaveButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,9 +116,11 @@ extension PileDetailsViewController: PileDetailsPresenter {
 }
 extension PileDetailsViewController: PileDetailsConfigurable {
     func configureCreateView() {
+        disableSaveButton()
         navigationItem.title = L10n.createPile
     }
-    func configureEditView() {
+    func configureEditView(pileTitle: String) {
         navigationItem.title = L10n.editPile
+        nameField.text = pileTitle
     }
 }

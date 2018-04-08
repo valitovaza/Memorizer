@@ -39,7 +39,19 @@ class CardsTableViewController: UITableViewController, CardsTableListenerHolder,
     }
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        dataCleaner?.removePile(at: indexPath.row)
+        openDeleteAlert(at: indexPath)
+    }
+    private func openDeleteAlert(at index: IndexPath) {
+        let alert = UIAlertController(title: L10n.deleteCardAlert,
+                                      message: nil,
+                                      preferredStyle: UIAlertControllerStyle.alert)
+        let deleteAction = UIAlertAction(title: L10n.delete, style: UIAlertActionStyle.destructive)
+        { action -> Void in
+            self.dataCleaner?.removePile(at: index.row)
+        }
+        alert.addAction(deleteAction)
+        alert.addAction(UIAlertAction(title: L10n.cancel, style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         tableListener?.scrollOccur()

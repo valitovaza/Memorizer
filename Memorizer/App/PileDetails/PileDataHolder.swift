@@ -1,3 +1,5 @@
+import Foundation
+
 public protocol CardPileTitleChanger {
     func change(title: String)
 }
@@ -23,12 +25,34 @@ public protocol CardsTableReloader {
 public class PileDataHolder {
     private var title = ""
     private var cards: [Card] = []
+    private var editingPileItem: PileItem?
     
     private let view: SavePileView
     private let reloader: CardsTableReloader
     public init(_ view: SavePileView, _ reloader: CardsTableReloader) {
         self.view = view
         self.reloader = reloader
+    }
+    public init(_ view: SavePileView, _ reloader: CardsTableReloader, _ pileItem: PileItem) {
+        self.view = view
+        self.reloader = reloader
+        self.title = pileItem.title
+        if let cardPile = pileItem.pile as? CardPile {
+            self.cards = cardPile.cards.reversed()
+        }
+        self.editingPileItem = pileItem
+    }
+    
+    public var pileItem: PileItem {
+        var pile = CardPile()
+        cards.forEach({pile.add($0)})
+        if let editingPileItem = editingPileItem {
+            return PileItem(title: title, pile: pile, createdDate: editingPileItem.createdDate,
+                            revisedCount: editingPileItem.revisedCount,
+                            revisedDate: editingPileItem.revisedDate)
+        }else{
+            return PileItem(title: title, pile: pile, createdDate: Date(), revisedCount: 0, revisedDate: nil)
+        }
     }
 }
 extension PileDataHolder: CardsTableDataChanger {

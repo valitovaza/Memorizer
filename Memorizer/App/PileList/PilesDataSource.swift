@@ -377,6 +377,13 @@ extension PilesDataSource: PileItemRepositoryDelegate {
         }
     }
 }
+extension PilesDataSource: RepositoryIndexFinder {
+    public func repositoryIndexFor(section: Int, row: Int) -> Int? {
+        guard data.count > section else { return nil }
+        guard data[section].piles.count > row else { return nil }
+        return data[section].piles[row].index
+    }
+}
 extension PileItem {
     func lessDateThan(compare to: PileItem) -> Bool {
         let date = revisedDate ?? createdDate

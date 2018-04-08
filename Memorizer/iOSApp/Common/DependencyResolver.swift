@@ -3,13 +3,17 @@ import iOSAdapters
 protocol DependencyProvider {
     var pilesRepository: PileItemRepository { get }
     var pileListDataSource: PileListDataSource { get }
+    var pileItemCleanerInTable: PileItemCleanerInTable { get }
     var pilesRepositoryListener: PilesRepositoryListener { get }
     
     var pileDetailsEventHandler: PileDetailsEventHandler { get }
+    func getEditPileDetailsEventHandler(section: Int, row: Int) -> PileDetailsEventHandler
     
     var cardDetailsEventHandler: CardDetailsEventHandler { get }
     func getEditCardDetailsEventHandler(_ index: Int) -> CardDetailsEventHandler
     func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader) -> PileDataHolder
+    func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader,
+                            _ pileItem: PileItem) -> PileDataHolder
 }
 class DependencyResolver {
     private static var dependencyProvider: DependencyProvider!
@@ -24,12 +28,18 @@ class DependencyResolver {
     static func getPileListDataSource() -> PileListDataSource {
         return dependencyProvider.pileListDataSource
     }
+    static func getPileItemCleanerInTable() -> PileItemCleanerInTable {
+        return dependencyProvider.pileItemCleanerInTable
+    }
     static func getPilesRepositoryListener() -> PilesRepositoryListener {
         return dependencyProvider.pilesRepositoryListener
     }
     
     static func getPileDetailsEventHandler() -> PileDetailsEventHandler {
         return dependencyProvider.pileDetailsEventHandler
+    }
+    static func getEditPileDetailsEventHandler(section: Int, row: Int) -> PileDetailsEventHandler {
+        return dependencyProvider.getEditPileDetailsEventHandler(section: section, row: row)
     }
     
     static func getCardDetailsEventHandler() -> CardDetailsEventHandler {
@@ -41,6 +51,10 @@ class DependencyResolver {
     static func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader) -> PileDataHolder {
         return dependencyProvider.makePileDataHolder(view, reloader)
     }
+    static func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader,
+                                   _ pileItem: PileItem) -> PileDataHolder {
+        return dependencyProvider.makePileDataHolder(view, reloader, pileItem)
+    }
 }
 class AppDependencyProvider {
     private let pilesDataSource = PilesDataSource()
@@ -49,6 +63,7 @@ class AppDependencyProvider {
     private weak var lastPileDataHolder: PileDataHolder?
     init() {
         pRepository.delegate = pRepositoryListener
+        pRepository.indexResolver = pilesDataSource
         pRepositoryListener.delegates = [pilesDataSource]
     }
 }
@@ -59,12 +74,24 @@ extension AppDependencyProvider: DependencyProvider {
     var pileListDataSource: PileListDataSource {
         return pilesDataSource
     }
+    var pileItemCleanerInTable: PileItemCleanerInTable {
+        return pRepository
+    }
     var pilesRepositoryListener: PilesRepositoryListener {
         return pRepositoryListener
     }
     
     var pileDetailsEventHandler: PileDetailsEventHandler {
-        return PileDetailsEventReceiver()
+        let eventReceiver = PileDetailsEventReceiver()
+        eventReceiver.repository = pRepository
+        return eventReceiver
+    }
+    func getEditPileDetailsEventHandler(section: Int, row: Int) -> PileDetailsEventHandler {
+        let eventReceiver = PileDetailsEventReceiver()
+        eventReceiver.repository = pRepository
+        eventReceiver.type = .edit(pilesDataSource.repositoryIndexFor(section: section, row: row)!)
+        eventReceiver.pileFinderByIndex = pRepository
+        return eventReceiver
     }
     
     var cardDetailsEventHandler: CardDetailsEventHandler {
@@ -83,6 +110,12 @@ extension AppDependencyProvider: DependencyProvider {
     }
     func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader) -> PileDataHolder {
         let lastPileDataHolder = PileDataHolder(view, reloader)
+        self.lastPileDataHolder = lastPileDataHolder
+        return lastPileDataHolder
+    }
+    func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader,
+                            _ pileItem: PileItem) -> PileDataHolder {
+        let lastPileDataHolder = PileDataHolder(view, reloader, pileItem)
         self.lastPileDataHolder = lastPileDataHolder
         return lastPileDataHolder
     }

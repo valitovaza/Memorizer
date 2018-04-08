@@ -1,9 +1,9 @@
 import Foundation
 
 public struct PileItem {
-    let title: String
-    let pile: Pile
-    let createdDate: Date
+    public let title: String
+    public let pile: Pile
+    public let createdDate: Date
     let revisedCount: Int
     let revisedDate: Date?
 }

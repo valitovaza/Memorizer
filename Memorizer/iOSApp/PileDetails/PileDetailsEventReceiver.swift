@@ -7,6 +7,8 @@ enum PileDetailsType {
 class PileDetailsEventReceiver {
     var router: PileDetailsRouter = RouterFactory.getPileDetailsRouter()
     var type: PileDetailsType = .create
+    var repository: PilesRepositoryChanger!
+    var pileFinderByIndex: PileItemByIndexProvider!
     private var tableReloader: UITableReloader!
     private var cardsDataSourceHolder: CardsDataSourceHolder!
     private var cardPileHolder: PileDataHolder!
@@ -33,12 +35,20 @@ extension PileDetailsEventReceiver: PileDetailsEventHandler {
         case .onCancel:
             router.closePileDetails()
         case .onSave:
-            break
+            onSave()
         }
     }
     private func createCardPileHolder(_ presenter: PileDetailsPresenter) {
-        cardPileHolder = DependencyResolver.makePileDataHolder(SavePileViewImpl(presenter),
-                                                               CardsTableReloaderImpl(tableReloader))
+        switch type {
+        case .create:
+            cardPileHolder = DependencyResolver.makePileDataHolder(SavePileViewImpl(presenter),
+                                                                   CardsTableReloaderImpl(tableReloader))
+        case .edit(let index):
+            let pileItem = pileFinderByIndex.getPileItem(for: index)
+            cardPileHolder = DependencyResolver.makePileDataHolder(SavePileViewImpl(presenter),
+                                                                   CardsTableReloaderImpl(tableReloader),
+                                                                   pileItem)
+        }
         cardsDataSourceHolder.dataSource = cardPileHolder
         cardsDataSourceHolder.dataCleaner = cardPileHolder
     }
@@ -46,8 +56,18 @@ extension PileDetailsEventReceiver: PileDetailsEventHandler {
         switch type {
         case .create:
             view.configureCreateView()
-        case .edit(_):
-            view.configureEditView()
+        case .edit(let index):
+            let pileItem = pileFinderByIndex.getPileItem(for: index)
+            view.configureEditView(pileTitle: pileItem.title)
         }
+    }
+    private func onSave() {
+        switch type {
+        case .create:
+            repository.add(pileItem: cardPileHolder.pileItem)
+        case .edit(let index):
+            repository.change(pileItem: cardPileHolder.pileItem, at: index)
+        }
+        router.closePileDetails()
     }
 }

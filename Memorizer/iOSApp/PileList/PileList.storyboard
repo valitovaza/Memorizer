@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -121,14 +122,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PileCell" id="onB-yz-nnA" customClass="PileCell" customModule="iOSApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PileCell" rowHeight="69" id="onB-yz-nnA" customClass="PileCell" customModule="iOSApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="onB-yz-nnA" id="MQD-aN-Tb9">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" red="0.93333333330000001" green="0.34509803919999998" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="[Cat]..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChY-O5-mjq">
+                                            <rect key="frame" x="16" y="11" width="343" height="20.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Nov 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZW-pX-T5Z">
+                                            <rect key="frame" x="16" y="39.5" width="343" height="18.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ChY-O5-mjq" firstAttribute="trailing" secondItem="MQD-aN-Tb9" secondAttribute="trailingMargin" id="5iK-TF-Atz"/>
+                                        <constraint firstItem="ChY-O5-mjq" firstAttribute="top" secondItem="MQD-aN-Tb9" secondAttribute="topMargin" id="6Nd-Rw-Sn6"/>
+                                        <constraint firstItem="KZW-pX-T5Z" firstAttribute="top" secondItem="ChY-O5-mjq" secondAttribute="bottom" constant="8" symbolic="YES" id="EVT-cc-5C2"/>
+                                        <constraint firstItem="KZW-pX-T5Z" firstAttribute="trailing" secondItem="MQD-aN-Tb9" secondAttribute="trailingMargin" id="Ta9-yT-G6a"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="KZW-pX-T5Z" secondAttribute="bottom" id="UDa-zZ-nzg"/>
+                                        <constraint firstItem="KZW-pX-T5Z" firstAttribute="leading" secondItem="MQD-aN-Tb9" secondAttribute="leadingMargin" id="dqT-me-nJ0"/>
+                                        <constraint firstItem="ChY-O5-mjq" firstAttribute="leading" secondItem="MQD-aN-Tb9" secondAttribute="leadingMargin" id="exb-WA-8Uj"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="subtitleLabel" destination="KZW-pX-T5Z" id="oyW-1u-33m"/>
+                                    <outlet property="titleLabel" destination="ChY-O5-mjq" id="BQL-9z-xaD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -139,7 +166,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00y-BM-uDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828" y="949"/>
+            <point key="canvasLocation" x="828" y="948.57571214392806"/>
         </scene>
     </scenes>
 </document>

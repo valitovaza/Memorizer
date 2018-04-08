@@ -21,7 +21,9 @@ class PileListVCCreator: ViewControllerCreator {
         let listener = DependencyResolver.getPilesRepositoryListener()
         listener.countListeners = [toggler]
         let pileListLoader = PileListLoader(spinnerAnimator, repository)
-        let eventReceiver = PileListEventReceiver(pileListLoader, DependencyResolver.getPileListDataSource())
+        let eventReceiver = PileListEventReceiver(pileListLoader,
+                                                  DependencyResolver.getPileListDataSource(),
+                                                  DependencyResolver.getPileItemCleanerInTable())
         eventReceiver.pilesRepositoryListener = listener
         return eventReceiver
     }
