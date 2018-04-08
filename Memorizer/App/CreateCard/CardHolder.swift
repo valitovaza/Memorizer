@@ -15,6 +15,11 @@ public class StringCardHolder {
     public init(_ view: SaveCardView) {
         self.view = view
     }
+    public init(_ view: SaveCardView, front: String, back: String) {
+        self.view = view
+        self.front = front
+        self.back = back
+    }
 }
 extension StringCardHolder: CardHolder {
     public func frontChanged(_ cardSide: String) {

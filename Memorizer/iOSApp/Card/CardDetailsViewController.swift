@@ -4,9 +4,16 @@ import iOSAdapters
 protocol CardDetailsEventHandler {
     func handle(event: CardDetailsViewController.Event)
 }
+protocol CardDetailsConfigurable {
+    func configureCreateView()
+    func configureEditView(_ frontText: String, _ backText: String)
+}
+
+typealias CardDetailsVC = CardDetailsConfigurable & SaveCardPresenter
+
 class CardDetailsViewController: UIViewController {
     enum Event {
-        case onLoad(SaveCardPresenter)
+        case onLoad(CardDetailsVC)
         case onCancel
         case onSave
         case onFirstTextChanged(String)
@@ -25,15 +32,10 @@ class CardDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventHandler?.handle(event: .onLoad(self))
-        localize()
         onDidLoad()
-    }
-    private func localize() {
-        navigationItem.title = L10n.createСard
+        eventHandler?.handle(event: .onLoad(self))
     }
     private func onDidLoad() {
-        disableSaveButton()
         addCardView()
         cardView.openKeyboard()
     }
@@ -67,5 +69,16 @@ extension CardDetailsViewController: SaveCardPresenter {
     }
     func disableSaveButton() {
         navigationItem.rightBarButtonItem?.isEnabled = false
+    }
+}
+extension CardDetailsViewController: CardDetailsConfigurable {
+    func configureCreateView() {
+        navigationItem.title = L10n.createСard
+        disableSaveButton()
+    }
+    func configureEditView(_ frontText: String, _ backText: String) {
+        navigationItem.title = L10n.editСard
+        cardView.firstTextView.text = frontText
+        cardView.secondTextView.text = backText
     }
 }

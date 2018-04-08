@@ -1,6 +1,8 @@
 "memorizer" = "Memorizer";
 "empty_pile_list" = "You have no cards to revise";
 "create_card" = "Create card";
+"edit_card" = "Edit card";
 "add_card" = "Add card";
 "pile_name" = "Pile name";
 "create_pile" = "Create pile";
+"edit_pile" = "Edit pile";

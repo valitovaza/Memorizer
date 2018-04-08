@@ -7,6 +7,8 @@ enum L10n {
     static var addCard: String { return localize("Localizable", "add_card") }
     static var pileName: String { return localize("Localizable", "pile_name") }
     static var createPile: String { return localize("Localizable", "create_pile") }
+    static var editСard: String { return localize("Localizable", "edit_card") }
+    static var editPile: String { return localize("Localizable", "edit_pile") }
     
     private static func localize(_ table: String, _ key: String, _ args: CVarArg...) -> String {
         return localizeFunc(table, key, args)

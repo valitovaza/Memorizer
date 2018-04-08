@@ -4,12 +4,20 @@ import iOSAdapters
 protocol PileDetailsEventHandler {
     func handle(event: PileDetailsViewController.Event)
 }
+protocol PileDetailsConfigurable {
+    func configureCreateView()
+    func configureEditView()
+}
+
+typealias PileDetailsVC = PileDetailsPresenter & PileDetailsConfigurable
+
 class PileDetailsViewController: UIViewController {
     enum Event {
         case onPrepareSegue(UITableReloader, CardsDataSourceHolder)
-        case onLoad(PileDetailsPresenter)
+        case onLoad(PileDetailsVC)
         case onTitleChanged(String)
         case onAddCard
+        case onCellSecelted(Int)
         case onCancel
         case onSave
     }
@@ -41,7 +49,6 @@ class PileDetailsViewController: UIViewController {
         onLoad()
     }
     private func localize() {
-        navigationItem.title = L10n.createPile
         addCardButton.setTitle(L10n.addCard, for: .normal)
         nameField.placeholder = L10n.pileName
     }
@@ -84,6 +91,9 @@ class PileDetailsViewController: UIViewController {
     }
 }
 extension PileDetailsViewController: CardsTableEventListener {
+    func cellSelected(at index: Int) {
+        eventHandler?.handle(event: .onCellSecelted(index))
+    }
     func scrollOccur() {
         closeKeyboard()
     }
@@ -106,5 +116,13 @@ extension PileDetailsViewController: PileDetailsPresenter {
     }
     func disableSaveButton() {
         navigationItem.rightBarButtonItem?.isEnabled = false
+    }
+}
+extension PileDetailsViewController: PileDetailsConfigurable {
+    func configureCreateView() {
+        navigationItem.title = L10n.createPile
+    }
+    func configureEditView() {
+        navigationItem.title = L10n.editPile
     }
 }

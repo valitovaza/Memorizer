@@ -8,6 +8,7 @@ protocol DependencyProvider {
     var pileDetailsEventHandler: PileDetailsEventHandler { get }
     
     var cardDetailsEventHandler: CardDetailsEventHandler { get }
+    func getEditCardDetailsEventHandler(_ index: Int) -> CardDetailsEventHandler
     func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader) -> PileDataHolder
 }
 class DependencyResolver {
@@ -33,6 +34,9 @@ class DependencyResolver {
     
     static func getCardDetailsEventHandler() -> CardDetailsEventHandler {
         return dependencyProvider.cardDetailsEventHandler
+    }
+    static func getEditCardDetailsEventHandler(_ index: Int) -> CardDetailsEventHandler {
+        return dependencyProvider.getEditCardDetailsEventHandler(index)
     }
     static func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader) -> PileDataHolder {
         return dependencyProvider.makePileDataHolder(view, reloader)
@@ -64,9 +68,17 @@ extension AppDependencyProvider: DependencyProvider {
     }
     
     var cardDetailsEventHandler: CardDetailsEventHandler {
+        return cardDetailsEventReceiver
+    }
+    private var cardDetailsEventReceiver: CardDetailsEventReceiver<StringCardHolder> {
         let eventReceiver = CardDetailsEventReceiver<StringCardHolder>()
         eventReceiver.cardsTableDataChanger = lastPileDataHolder
         eventReceiver.dataSource = lastPileDataHolder
+        return eventReceiver
+    }
+    func getEditCardDetailsEventHandler(_ index: Int) -> CardDetailsEventHandler {
+        let eventReceiver = cardDetailsEventReceiver
+        eventReceiver.type = .edit(index)
         return eventReceiver
     }
     func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader) -> PileDataHolder {

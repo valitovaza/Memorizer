@@ -2,6 +2,7 @@ import UIKit
 import iOSAdapters
 
 protocol CardsTableEventListener: class {
+    func cellSelected(at index: Int)
     func scrollOccur()
 }
 protocol CardsTableListenerHolder: class {
@@ -20,6 +21,7 @@ class CardsTableViewController: UITableViewController, CardsTableListenerHolder,
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        tableListener?.cellSelected(at: indexPath.row)
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource?.cardsCount ?? 0

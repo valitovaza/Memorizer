@@ -60,7 +60,7 @@ extension AppRouter: PileListRouter {
         guard let pileDetailsNav = makePilesDetailsNav() else { return }
         presentOverWithoutAnimation(pileDetailsNav) {
             self.modalStack.append(pileDetailsNav)
-            guard let cardNav = self.makeCreateCardNav() else { return }
+            guard let cardNav = self.makeCardDetailsNav() else { return }
             pileDetailsNav.present(cardNav, animated: true, completion: {
                 self.modalStack.append(cardNav)
                 pileDetailsNav.view.alpha = 1.0
@@ -74,10 +74,13 @@ extension AppRouter: PileListRouter {
         details.eventHandler = DependencyResolver.getPileDetailsEventHandler()
         return nav
     }
-    private func makeCreateCardNav() -> UINavigationController? {
+    private func makeCardDetailsNav() -> UINavigationController? {
+        return makeCardDetailsInNav(DependencyResolver.getCardDetailsEventHandler())
+    }
+    private func makeCardDetailsInNav(_ eventHandler: CardDetailsEventHandler) -> UINavigationController? {
         let nav = UIControllerFactory.instantiateNavigation(.Card, with: CardDetailsViewController.self)
         guard let card = nav.viewControllers.first as? CardDetailsViewController else { return nil }
-        card.eventHandler = DependencyResolver.getCardDetailsEventHandler()
+        card.eventHandler = eventHandler
         return nav
     }
     private func presentOverWithoutAnimation(_ viewController: UIViewController,
@@ -89,6 +92,12 @@ extension AppRouter: PileListRouter {
         }
     }
     func openPileDetails(at index: Int) {
+        
+    }
+    private func present(modal: UIViewController) {
+        let parent = modalStack.last ?? startViewController
+        parent.present(modal, animated: true, completion: nil)
+        modalStack.append(modal)
     }
 }
 extension AppRouter: PileDetailsRouter {
@@ -101,12 +110,15 @@ extension AppRouter: PileDetailsRouter {
         modalStack.removeLast()
     }
     func openCreateCard() {
-        guard let cardNav = self.makeCreateCardNav() else { return }
-        let parent = modalStack.last ?? startViewController
-        parent.present(cardNav, animated: true, completion: nil)
-        modalStack.append(cardNav)
+        guard let cardNav = self.makeCardDetailsNav() else { return }
+        present(modal: cardNav)
     }
     func openCardDetails(at index: Int) {
+        guard let cardNav = self.makeEditCardDetailsNav(index) else { return }
+        present(modal: cardNav)
+    }
+    private func makeEditCardDetailsNav(_ index: Int) -> UINavigationController? {
+        return makeCardDetailsInNav(DependencyResolver.getEditCardDetailsEventHandler(index))
     }
 }
 extension AppRouter: CreateCardRouter {
