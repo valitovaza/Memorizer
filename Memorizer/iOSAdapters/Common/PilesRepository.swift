@@ -101,3 +101,13 @@ extension PilesRepository: PileItemCombiner {
         add(pileItem: combinedPileItem)
     }
 }
+public protocol WordsProvider {
+    func wordsFor(section: Int, row: Int) -> [(front: String, back: String)]
+}
+extension PilesRepository: WordsProvider {
+    public func wordsFor(section: Int, row: Int) -> [(front: String, back: String)] {
+        guard let pileCard = getPileCard(at: ItemPosition(section, row)) else { return [] }
+        return pileCard.cards
+            .compactMap({(front: $0.front, back: $0.back) as? (front: String, back: String)})
+    }
+}

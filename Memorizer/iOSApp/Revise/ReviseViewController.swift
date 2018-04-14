@@ -1,10 +1,23 @@
 import UIKit
 
+protocol ReviseEventHandler {
+    func handle(event: ReviseViewController.Event)
+}
+protocol ReviseWordsHolder {
+    func addRevise(words: [(front: String, back: String)])
+}
 class ReviseViewController: UIViewController {
+    enum Event {
+        case onLoad(ReviseWordsHolder)
+        case swipeRight
+        case swipeLeft
+    }
+    
+    var eventHandler: ReviseEventHandler?
+    
+    private let viewProvider = ReviseSwipeViewProvider()
     
     @IBOutlet weak var swipeView: SwipeView!
-    
-    private var swipeViews: [UIView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -12,6 +25,7 @@ class ReviseViewController: UIViewController {
     }
     private func onLoad() {
         localize()
+        eventHandler?.handle(event: .onLoad(viewProvider))
         configureSwipeView()
     }
     private func localize() {
@@ -19,31 +33,17 @@ class ReviseViewController: UIViewController {
     }
     private func configureSwipeView() {
         swipeView.delegate = self
-        swipeView.swipeViewProvider = self
-        
-        let view = UIView()
-        view.backgroundColor = .green
-        swipeViews.append(view)
-        
-        let view2 = UIView()
-        view2.backgroundColor = .red
-        swipeViews.append(view2)
-        
-        let view3 = UIView()
-        view3.backgroundColor = .black
-        swipeViews.append(view3)
-        
+        swipeView.swipeViewProvider = viewProvider
         swipeView.reload()
     }
 }
 extension ReviseViewController: SwipeViewDelegate {
     func swiped(to: SwipeDirection) {
-        
-    }
-}
-extension ReviseViewController: SwipeViewProvider {
-    func nextSwipeView() -> UIView? {
-        guard !swipeViews.isEmpty else { return nil }
-        return swipeViews.removeLast()
+        switch to {
+        case .left:
+            eventHandler?.handle(event: .swipeLeft)
+        case .right:
+            eventHandler?.handle(event: .swipeRight)
+        }
     }
 }

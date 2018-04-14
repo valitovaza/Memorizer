@@ -14,6 +14,8 @@ protocol DependencyProvider {
     func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader) -> PileDataHolder
     func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader,
                             _ pileItem: PileItem) -> PileDataHolder
+    
+    func makeReviseEventHandler(_ section: Int, _ row: Int) -> ReviseEventHandler
 }
 class DependencyResolver {
     private static var dependencyProvider: DependencyProvider!
@@ -54,6 +56,10 @@ class DependencyResolver {
     static func makePileDataHolder(_ view: SavePileView, _ reloader: CardsTableReloader,
                                    _ pileItem: PileItem) -> PileDataHolder {
         return dependencyProvider.makePileDataHolder(view, reloader, pileItem)
+    }
+    
+    static func makeReviseEventHandler(_ section: Int, _ row: Int) -> ReviseEventHandler {
+        return dependencyProvider.makeReviseEventHandler(section, row)
     }
 }
 class AppDependencyProvider {
@@ -118,5 +124,11 @@ extension AppDependencyProvider: DependencyProvider {
         let lastPileDataHolder = PileDataHolder(view, reloader, pileItem)
         self.lastPileDataHolder = lastPileDataHolder
         return lastPileDataHolder
+    }
+    
+    func makeReviseEventHandler(_ section: Int, _ row: Int) -> ReviseEventHandler {
+        let eventHandler = ReviseEventReceiver(section, row)
+        eventHandler.wordsProvider = pRepository
+        return eventHandler
     }
 }

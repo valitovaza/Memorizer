@@ -118,6 +118,8 @@
 		56E51C59208235800029641E /* Revise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E51C58208235800029641E /* Revise.storyboard */; };
 		56E51C5B208235B50029641E /* ReviseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E51C5A208235B50029641E /* ReviseViewController.swift */; };
 		56E51C5D20823C380029641E /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E51C5C20823C380029641E /* SwipeView.swift */; };
+		56E51C5F208257890029641E /* ReviseEventReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E51C5E208257890029641E /* ReviseEventReceiver.swift */; };
+		56E51C6120825B9E0029641E /* ReviseSwipeViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E51C6020825B9E0029641E /* ReviseSwipeViewProvider.swift */; };
 		56F6A834204E9A1100164707 /* PileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F6A833204E9A1100164707 /* PileItem.swift */; };
 		56F9199A20569E1F00C7B56E /* SpinnerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */; };
 		56F9199B20569E1F00C7B56E /* EmptySwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F919962056996A00C7B56E /* EmptySwitcher.swift */; };
@@ -278,6 +280,8 @@
 		56E51C58208235800029641E /* Revise.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Revise.storyboard; sourceTree = "<group>"; };
 		56E51C5A208235B50029641E /* ReviseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviseViewController.swift; sourceTree = "<group>"; };
 		56E51C5C20823C380029641E /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
+		56E51C5E208257890029641E /* ReviseEventReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviseEventReceiver.swift; sourceTree = "<group>"; };
+		56E51C6020825B9E0029641E /* ReviseSwipeViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviseSwipeViewProvider.swift; sourceTree = "<group>"; };
 		56F6A833204E9A1100164707 /* PileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileItem.swift; sourceTree = "<group>"; };
 		56F919962056996A00C7B56E /* EmptySwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySwitcher.swift; sourceTree = "<group>"; };
 		56F919982056997A00C7B56E /* EmptySwitcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySwitcherTests.swift; sourceTree = "<group>"; };
@@ -380,6 +384,7 @@
 				56358B6820416E9C00D9BFF4 /* UIControllerPresenter.swift */,
 				56358B732041834800D9BFF4 /* UIControllerPresentable.swift */,
 				56358B6D2041797300D9BFF4 /* ViewControllerCreator.swift */,
+				56358BA4204299F500D9BFF4 /* PilesRepository.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -598,7 +603,6 @@
 				56881E042039B785001BEBAD /* PileListScreen.swift */,
 				5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */,
 				56F919962056996A00C7B56E /* EmptySwitcher.swift */,
-				56358BA4204299F500D9BFF4 /* PilesRepository.swift */,
 				5657CCEE2074FCBF00F090DC /* TableReloaderAtFetch.swift */,
 			);
 			path = PileListScreen;
@@ -714,6 +718,8 @@
 			isa = PBXGroup;
 			children = (
 				56E51C5A208235B50029641E /* ReviseViewController.swift */,
+				56E51C6020825B9E0029641E /* ReviseSwipeViewProvider.swift */,
+				56E51C5E208257890029641E /* ReviseEventReceiver.swift */,
 				56E51C5C20823C380029641E /* SwipeView.swift */,
 				56E51C58208235800029641E /* Revise.storyboard */,
 			);
@@ -994,10 +1000,12 @@
 				56C446372041426B00D5D9B2 /* PileListViewController.swift in Sources */,
 				56E51C5B208235B50029641E /* ReviseViewController.swift in Sources */,
 				5644A8632079F0C000401AE5 /* UITableView+.swift in Sources */,
+				56E51C6120825B9E0029641E /* ReviseSwipeViewProvider.swift in Sources */,
 				56E51C562081FDC30029641E /* CombineWorker.swift in Sources */,
 				5657CCF620750D9200F090DC /* CardsTableViewController.swift in Sources */,
 				567BD3D82076978C0007344F /* UIViewController+.swift in Sources */,
 				567BD3D5207645190007344F /* DependencyResolver.swift in Sources */,
+				56E51C5F208257890029641E /* ReviseEventReceiver.swift in Sources */,
 				564DF0D82078A40700AAFA3F /* CardDetailsEventReceiver.swift in Sources */,
 				56881DF520399DCE001BEBAD /* MainViewController.swift in Sources */,
 				56E51C542081F40B0029641E /* PilesTableEventReceiver.swift in Sources */,

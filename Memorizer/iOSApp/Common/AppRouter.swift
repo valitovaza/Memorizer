@@ -110,6 +110,7 @@ extension AppRouter: PileListRouter {
     }
     func openPileToRevise(at section: Int, row: Int) {
         let reviseVc: ReviseViewController = UIControllerFactory.instantiate(.Revise)
+        reviseVc.eventHandler = DependencyResolver.makeReviseEventHandler(section, row)
         navigationController?.pushViewController(reviseVc, animated: true)
     }
     private var navigationController: UINavigationController? {

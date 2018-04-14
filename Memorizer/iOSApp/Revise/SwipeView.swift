@@ -7,8 +7,8 @@ protocol SwipeViewProvider: class {
     func nextSwipeView() -> UIView?
 }
 enum SwipeDirection {
-    case Right
-    case Left
+    case right
+    case left
 }
 class SwipeView: UIView, UIGestureRecognizerDelegate {
     
@@ -49,7 +49,6 @@ class SwipeView: UIView, UIGestureRecognizerDelegate {
     }
     private func createSwipeContainer() -> UIView {
         let view = UIView()
-        view.clipsToBounds = true
         view.isHidden = true
         return view
     }
@@ -150,7 +149,7 @@ class SwipeView: UIView, UIGestureRecognizerDelegate {
         isUserInteractionEnabled = true
     }
     private func getDirection(for content: UIView) -> SwipeDirection {
-        return content.frame.origin.x > 0 ? .Right : .Left
+        return content.frame.origin.x > 0 ? .right : .left
     }
     private func changeCurrentView() {
         revertCurrentAndBottomContainers()
