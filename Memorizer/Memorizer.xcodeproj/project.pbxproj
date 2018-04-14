@@ -113,6 +113,8 @@
 		56CA59A5204C7FE900440185 /* CardSidePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CA59A4204C7FE900440185 /* CardSidePresenter.swift */; };
 		56CA59A6204C810400440185 /* Shuffler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991B7204C69E300776431 /* Shuffler.swift */; };
 		56CA59A7204C810800440185 /* Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991B5204C69C800776431 /* Shuffle.swift */; };
+		56E51C542081F40B0029641E /* PilesTableEventReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E51C532081F40B0029641E /* PilesTableEventReceiver.swift */; };
+		56E51C562081FDC30029641E /* CombineWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E51C552081FDC30029641E /* CombineWorker.swift */; };
 		56F6A834204E9A1100164707 /* PileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F6A833204E9A1100164707 /* PileItem.swift */; };
 		56F9199A20569E1F00C7B56E /* SpinnerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */; };
 		56F9199B20569E1F00C7B56E /* EmptySwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F919962056996A00C7B56E /* EmptySwitcher.swift */; };
@@ -268,6 +270,8 @@
 		56C446362041426B00D5D9B2 /* PileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListViewController.swift; sourceTree = "<group>"; };
 		56C4464020414FE400D5D9B2 /* PileRepositorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileRepositorySpy.swift; sourceTree = "<group>"; };
 		56CA59A4204C7FE900440185 /* CardSidePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSidePresenter.swift; sourceTree = "<group>"; };
+		56E51C532081F40B0029641E /* PilesTableEventReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesTableEventReceiver.swift; sourceTree = "<group>"; };
+		56E51C552081FDC30029641E /* CombineWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineWorker.swift; sourceTree = "<group>"; };
 		56F6A833204E9A1100164707 /* PileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileItem.swift; sourceTree = "<group>"; };
 		56F919962056996A00C7B56E /* EmptySwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySwitcher.swift; sourceTree = "<group>"; };
 		56F919982056997A00C7B56E /* EmptySwitcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySwitcherTests.swift; sourceTree = "<group>"; };
@@ -655,6 +659,8 @@
 				56358B9520427CD500D9BFF4 /* PileListEventReceiver.swift */,
 				568991A8204C21D000776431 /* PileListEmptyViewController.swift */,
 				560A2C122070DFE900CA9D6A /* PilesTableViewController.swift */,
+				56E51C532081F40B0029641E /* PilesTableEventReceiver.swift */,
+				56E51C552081FDC30029641E /* CombineWorker.swift */,
 				560A2C182070E1B500CA9D6A /* PileCell.swift */,
 				56358B772041A96600D9BFF4 /* PileList.storyboard */,
 			);
@@ -968,11 +974,13 @@
 				56358B7A2041AB6000D9BFF4 /* UIControllerFactory.swift in Sources */,
 				56C446372041426B00D5D9B2 /* PileListViewController.swift in Sources */,
 				5644A8632079F0C000401AE5 /* UITableView+.swift in Sources */,
+				56E51C562081FDC30029641E /* CombineWorker.swift in Sources */,
 				5657CCF620750D9200F090DC /* CardsTableViewController.swift in Sources */,
 				567BD3D82076978C0007344F /* UIViewController+.swift in Sources */,
 				567BD3D5207645190007344F /* DependencyResolver.swift in Sources */,
 				564DF0D82078A40700AAFA3F /* CardDetailsEventReceiver.swift in Sources */,
 				56881DF520399DCE001BEBAD /* MainViewController.swift in Sources */,
+				56E51C542081F40B0029641E /* PilesTableEventReceiver.swift in Sources */,
 				5657CCF820750DCF00F090DC /* CardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

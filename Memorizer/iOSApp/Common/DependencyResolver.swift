@@ -3,7 +3,7 @@ import iOSAdapters
 protocol DependencyProvider {
     var pilesRepository: PileItemRepository { get }
     var pileListDataSource: PileListDataSource { get }
-    var pileItemCleanerInTable: PileItemCleanerInTable { get }
+    var pileItemContainer: PileItemContainer { get }
     var pilesRepositoryListener: PilesRepositoryListener { get }
     
     var pileDetailsEventHandler: PileDetailsEventHandler { get }
@@ -28,8 +28,8 @@ class DependencyResolver {
     static func getPileListDataSource() -> PileListDataSource {
         return dependencyProvider.pileListDataSource
     }
-    static func getPileItemCleanerInTable() -> PileItemCleanerInTable {
-        return dependencyProvider.pileItemCleanerInTable
+    static func getPileItemContainer() -> PileItemContainer {
+        return dependencyProvider.pileItemContainer
     }
     static func getPilesRepositoryListener() -> PilesRepositoryListener {
         return dependencyProvider.pilesRepositoryListener
@@ -74,7 +74,7 @@ extension AppDependencyProvider: DependencyProvider {
     var pileListDataSource: PileListDataSource {
         return pilesDataSource
     }
-    var pileItemCleanerInTable: PileItemCleanerInTable {
+    var pileItemContainer: PileItemContainer {
         return pRepository
     }
     var pilesRepositoryListener: PilesRepositoryListener {

@@ -8,7 +8,7 @@ public protocol PileListDataSource {
 public struct ItemPosition {
     public let section: Int
     public let row: Int
-    init(_ section: Int, _ row: Int) {
+    public init(_ section: Int, _ row: Int) {
         self.section = section
         self.row = row
     }

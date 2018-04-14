@@ -1,17 +1,19 @@
 import iOSAdapters
 
+typealias PileItemContainer = PileItemCleanerInTable & PileItemCombiner
 class PileListEventReceiver {
     private let pilesLoader: PilesLoader
     private var pilesDataSource: PileListDataSource
-    private var pileItemCleanerInTable: PileItemCleanerInTable
-    var pilesRepositoryListener: PilesRepositoryListener?
+    private var pileItemContainer: PileItemContainer
+    private var combineWorker: CombineWorker?
     var router: PileListRouter = RouterFactory.getPileListRouter()
+    var pilesRepositoryListener: PilesRepositoryListener?
     init(_ pilesLoader: PilesLoader,
          _ pilesDataSource: PileListDataSource,
-         _ pileItemCleanerInTable: PileItemCleanerInTable) {
+         _ pileItemContainer: PileItemContainer) {
         self.pilesLoader = pilesLoader
         self.pilesDataSource = pilesDataSource
-        self.pileItemCleanerInTable = pileItemCleanerInTable
+        self.pileItemContainer = pileItemContainer
     }
 }
 extension PileListEventReceiver: PileListEventHandler {
@@ -19,14 +21,19 @@ extension PileListEventReceiver: PileListEventHandler {
         switch event {
         case .onLoad:
             pilesLoader.onLoad()
-        case .onPrepareSegue(var dataSourceHolder):
+        case .onPrepareSegue(var dataSourceHolder, let doneView):
             dataSourceHolder.dataSource = pilesDataSource
-            dataSourceHolder.cleanerInTable = pileItemCleanerInTable
-            dataSourceHolder.router = router
+            let combineWorker = CombineWorker(doneView, dataSourceHolder, pileItemContainer)
+            dataSourceHolder.eventHandler = PilesTableEventReceiver(pileItemContainer, combineWorker)
             pilesDataSource.delegate = dataSourceHolder
             pilesRepositoryListener?.fetchedListeners = [TableReloaderAtFetch(dataSourceHolder)]
+            self.combineWorker = combineWorker
         case .onCreate:
             router.openCreatePile()
+        case .doneTableSelection:
+            combineWorker?.combine()
+        case .cancelTableSelection:
+            combineWorker?.cancel()
         }
     }
 }

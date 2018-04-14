@@ -6,15 +6,16 @@ protocol PileListEventHandler {
 }
 protocol PilesDataSourceHolder {
     var dataSource: PileListDataSource! { get set }
-    var cleanerInTable: PileItemCleanerInTable! { get set }
-    var router: PileListRouter! { get set }
+    var eventHandler: PilesTableEventHandler? { get set }
 }
-typealias PileTableHolder = PilesDataSourceHolder & PilesDataSourceDelegate & TableReloader
+typealias PileTableHolder = PilesDataSourceHolder & PilesDataSourceDelegate & TableReloader & PilesTableView
 class PileListViewController: UIViewController {
     enum Event {
         case onLoad
-        case onPrepareSegue(PileTableHolder)
+        case onPrepareSegue(PileTableHolder, DoneButtonView)
         case onCreate
+        case cancelTableSelection
+        case doneTableSelection
     }
     
     var eventHandler: PileListEventHandler?
@@ -25,6 +26,13 @@ class PileListViewController: UIViewController {
     
     @IBAction func createPile(_ sender: Any) {
         eventHandler?.handle(event: .onCreate)
+    }
+    
+    @objc func doneAction() {
+        eventHandler?.handle(event: .doneTableSelection)
+    }
+    @objc func cancelAction() {
+        eventHandler?.handle(event: .cancelTableSelection)
     }
     
     override func viewDidLoad() {
@@ -38,7 +46,7 @@ class PileListViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let dsHolder = segue.destination as? PileTableHolder else { return }
-        eventHandler?.handle(event: .onPrepareSegue(dsHolder))
+        eventHandler?.handle(event: .onPrepareSegue(dsHolder, self))
     }
 }
 extension PileListViewController: ActivityIndicatorPresenter {
@@ -56,5 +64,24 @@ extension PileListViewController: ListEmptySwitcher {
         contentView.isHidden = true
         emptyView.isHidden = false
         activityIndicator.stopAnimating()
+    }
+}
+extension PileListViewController: DoneButtonView {
+    func showDoneButton() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                           target: self, action: #selector(cancelAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                                            target: self, action: #selector(doneAction))
+    }
+    func enableDoneButton() {
+        navigationItem.rightBarButtonItem?.isEnabled = true
+    }
+    func disableDoneButton() {
+        navigationItem.rightBarButtonItem?.isEnabled = false
+    }
+    func hideDoneButton() {
+        navigationItem.leftBarButtonItem = nil
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                            target: self, action: #selector(createPile(_:)))
     }
 }

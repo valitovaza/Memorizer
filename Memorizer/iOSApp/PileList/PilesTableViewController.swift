@@ -1,11 +1,22 @@
 import UIKit
 import iOSAdapters
 
+protocol PilesTableEventHandler {
+    func handle(event: PilesTableViewController.Event)
+}
 class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
     
+    enum Event {
+        case onDelete(section: Int, row: Int)
+        case openDetails(section: Int, row: Int)
+        case onCombine(section: Int, row: Int)
+        case selectedCountChanged(Int)
+    }
+    
     var dataSource: PileListDataSource!
-    var cleanerInTable: PileItemCleanerInTable!
-    var router: PileListRouter!
+    var eventHandler: PilesTableEventHandler?
+    private var state: PilesTableState = .normal
+    private var selectedIndexes: [IndexPath] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +29,22 @@ class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        selectIndexPathIfNeed(indexPath)
     }
+    private func selectIndexPathIfNeed(_ indexPath: IndexPath) {
+        guard case .combine = state else { return }
+        if let index = selectedIndexes.index(of: indexPath) {
+            selectedIndexes.remove(at: index)
+        }else{
+            selectedIndexes.append(indexPath)
+        }
+        eventHandler?.handle(event: .selectedCountChanged(selectedIndexes.count))
+        reloadWithAnimation()
+    }
+    private func reloadWithAnimation() {
+        tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .automatic)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.rowsCount(for: section)
     }
@@ -31,6 +57,25 @@ class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
         let item = dataSource.itemIn(section: indexPath.section, row: indexPath.row)
         cell.titleLabel.text = item.title
         cell.subtitleLabel.text = formatedTitle(item.createdDate)
+        configureState(of: cell, at: indexPath)
+    }
+    private func configureState(of cell: PileCell, at indexPath: IndexPath) {
+        switch state {
+        case .normal:
+            cell.selectImage.isHidden = true
+            cell.leadingConstraint.constant = 0
+        case .combine:
+            cell.selectImage.isHidden = false
+            configure(selectedImage: cell.selectImage, at: indexPath)
+            cell.leadingConstraint.constant = PileCell.openedConstraint
+        }
+    }
+    private func configure(selectedImage: UIImageView, at indexPath: IndexPath) {
+        if selectedIndexes.contains(indexPath) {
+            selectedImage.image = UIImage(named: "selectedCircle")
+        }else{
+            selectedImage.image = UIImage(named: "unselectedCircle")
+        }
     }
     private func formatedTitle(_ date: Date) -> String {
         let formatter = DateFormatter()
@@ -60,11 +105,11 @@ class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
             self.openDeleteAlert(at: index)
         }
         let editAction = UITableViewRowAction(style: .normal, title: L10n.edit) { action, index in
-            self.router.openPileDetails(at: index.section, row: index.row)
+            self.eventHandler?.handle(event: .openDetails(section: index.section, row: index.row))
         }
         editAction.backgroundColor = UIColor.blue
         let combineAction = UITableViewRowAction(style: .normal, title: L10n.combine) { action, index in
-            
+            self.eventHandler?.handle(event: .onCombine(section: index.section, row: index.row))
         }
         combineAction.backgroundColor = UIColor.brown
         return [combineAction, editAction, deleteAction]
@@ -75,7 +120,7 @@ class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
                                       preferredStyle: UIAlertControllerStyle.alert)
         let deleteAction = UIAlertAction(title: L10n.delete, style: UIAlertActionStyle.destructive)
         { action -> Void in
-            self.cleanerInTable.deleteIn(section: index.section, row: index.row)
+            self.eventHandler?.handle(event: .onDelete(section: index.section, row: index.row))
         }
         alert.addAction(deleteAction)
         alert.addAction(UIAlertAction(title: L10n.cancel, style: .cancel, handler: nil))
@@ -110,5 +155,23 @@ extension PilesTableViewController: PilesDataSourceDelegate {
 extension PilesTableViewController: TableReloader {
     func reloadTable() {
         tableView.reloadData()
+    }
+}
+extension PilesTableViewController: PilesTableView {
+    func setState(_ state: PilesTableState) {
+        self.state = state
+        changeTableState()
+    }
+    private func changeTableState() {
+        switch state {
+        case .combine(let selectedIndex):
+            selectedIndexes = [selectedIndex]
+        case .normal:
+            selectedIndexes = []
+        }
+        reloadWithAnimation()
+    }
+    func getSelectedIndexes() -> [IndexPath] {
+        return selectedIndexes
     }
 }

@@ -7,17 +7,20 @@ class PileListEventReceiverTests: XCTestCase {
     private var sut: PileListEventReceiver!
     private var pilesLoader: PilesLoaderSpy!
     private var dataSource: DataSourceSpy!
+    private var pileItemContainer: PileItemContainerSpy!
     
     override func setUp() {
         super.setUp()
         pilesLoader = PilesLoaderSpy()
         dataSource = DataSourceSpy()
-        sut = PileListEventReceiver(pilesLoader, dataSource)
+        pileItemContainer = PileItemContainerSpy()
+        sut = PileListEventReceiver(pilesLoader, dataSource, pileItemContainer)
     }
     
     override func tearDown() {
         pilesLoader = nil
         dataSource = nil
+        pileItemContainer = nil
         sut = nil
         super.tearDown()
     }
@@ -47,6 +50,14 @@ extension PileListEventReceiverTests {
         }
         func itemIn(section: Int, row: Int) -> PileItem {
             return PileItem(title: "", pile: CardPile(), createdDate: Date(), revisedCount: 0, revisedDate: nil)
+        }
+    }
+    class PileItemContainerSpy: PileItemContainer {
+        func deleteIn(section: Int, row: Int) {
+            
+        }
+        func combine(at positions: [ItemPosition]) {
+            
         }
     }
 }
