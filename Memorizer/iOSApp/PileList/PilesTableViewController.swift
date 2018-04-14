@@ -11,6 +11,7 @@ class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
         case openDetails(section: Int, row: Int)
         case onCombine(section: Int, row: Int)
         case selectedCountChanged(Int)
+        case onSelect(section: Int, row: Int)
     }
     
     var dataSource: PileListDataSource!
@@ -30,6 +31,7 @@ class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         selectIndexPathIfNeed(indexPath)
+        handleSelectEventIfNormalState(indexPath)
     }
     private func selectIndexPathIfNeed(_ indexPath: IndexPath) {
         guard case .combine = state else { return }
@@ -43,6 +45,10 @@ class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
     }
     private func reloadWithAnimation() {
         tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .automatic)
+    }
+    private func handleSelectEventIfNormalState(_ indexPath: IndexPath) {
+        guard case .normal = state else { return }
+        eventHandler?.handle(event: .onSelect(section: indexPath.section, row: indexPath.row))
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

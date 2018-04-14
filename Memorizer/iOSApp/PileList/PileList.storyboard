@@ -67,6 +67,7 @@
                         <viewLayoutGuide key="safeArea" id="ped-wD-XgR"/>
                     </view>
                     <navigationItem key="navigationItem" title="Memorizer" id="WgL-0Q-abi">
+                        <barButtonItem key="backBarButtonItem" title=" " id="JK4-er-0WX"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="w2Z-YD-vWG">
                             <connections>
                                 <action selector="createPile:" destination="C0r-pl-pdc" id="vtk-Mg-mFJ"/>

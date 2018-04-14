@@ -20,6 +20,8 @@ extension PilesTableEventReceiver: PilesTableEventHandler {
             pilesCombiner.setCombine(section: section, row: row)
         case .selectedCountChanged(let count):
             pilesCombiner.selectedCountChanged(count)
+        case .onSelect(section: let section, row: let row):
+            router.openPileToRevise(at: section, row: row)
         }
     }
 }

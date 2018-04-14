@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="eoS-Ss-p1R">
+            <objects>
+                <navigationController storyboardIdentifier="ReviseViewControllerNav" id="uPB-B2-Bd3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yKz-3b-Qtu">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="t7b-gE-p3v" kind="relationship" relationship="rootViewController" id="FHw-ds-ges"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gf8-cC-BcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-671" y="143"/>
+        </scene>
+        <!--Revise pile-->
+        <scene sceneID="cez-Rp-Mnn">
+            <objects>
+                <viewController storyboardIdentifier="ReviseViewController" id="t7b-gE-p3v" customClass="ReviseViewController" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aGf-RV-qi9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="723-TH-NZP" customClass="SwipeView" customModule="iOSApp" customModuleProvider="target">
+                                <rect key="frame" x="19" y="192" width="337.5" height="202.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="723-TH-NZP" secondAttribute="height" multiplier="15:9" id="eq4-tN-7FI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="723-TH-NZP" firstAttribute="centerX" secondItem="nHX-Ui-DcH" secondAttribute="centerX" id="OFi-E4-AlP"/>
+                            <constraint firstItem="723-TH-NZP" firstAttribute="centerY" secondItem="nHX-Ui-DcH" secondAttribute="centerY" multiplier="0.8" id="UoE-sL-RaX"/>
+                            <constraint firstItem="723-TH-NZP" firstAttribute="width" secondItem="aGf-RV-qi9" secondAttribute="width" multiplier="0.9" id="u1Q-V0-X0b"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nHX-Ui-DcH"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Revise pile" id="kzP-Nr-0fh"/>
+                    <connections>
+                        <outlet property="swipeView" destination="723-TH-NZP" id="z2t-wy-pa4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S4l-Vl-Cpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="106" y="144"/>
+        </scene>
+    </scenes>
+</document>

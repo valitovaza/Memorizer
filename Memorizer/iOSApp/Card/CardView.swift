@@ -15,7 +15,7 @@ class CardView: UIView {
     
     weak var delegate: CardViewDelegate?
     private let cRadius: CGFloat = 10.0
-    private let turnDuration: TimeInterval = 0.5
+    private let turnDuration: TimeInterval = 0.3
     
     static func loadFromXib() -> CardView {
         return Bundle.main.loadNibNamed(String(describing: CardView.self), owner: self,

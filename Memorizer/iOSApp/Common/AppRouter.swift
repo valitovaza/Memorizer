@@ -24,6 +24,7 @@ class RouterFactory {
 protocol PileListRouter {
     func openCreatePile()
     func openPileDetails(at section: Int, row: Int)
+    func openPileToRevise(at section: Int, row: Int)
 }
 protocol PileDetailsRouter {
     func closePileDetails()
@@ -106,6 +107,13 @@ extension AppRouter: PileListRouter {
         let parent = modalStack.last ?? startViewController
         parent.present(modal, animated: true, completion: nil)
         modalStack.append(modal)
+    }
+    func openPileToRevise(at section: Int, row: Int) {
+        let reviseVc: ReviseViewController = UIControllerFactory.instantiate(.Revise)
+        navigationController?.pushViewController(reviseVc, animated: true)
+    }
+    private var navigationController: UINavigationController? {
+        return startViewController.childViewControllers.compactMap({$0 as? UINavigationController}).first
     }
 }
 extension AppRouter: PileDetailsRouter {

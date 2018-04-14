@@ -115,6 +115,9 @@
 		56CA59A7204C810800440185 /* Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568991B5204C69C800776431 /* Shuffle.swift */; };
 		56E51C542081F40B0029641E /* PilesTableEventReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E51C532081F40B0029641E /* PilesTableEventReceiver.swift */; };
 		56E51C562081FDC30029641E /* CombineWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E51C552081FDC30029641E /* CombineWorker.swift */; };
+		56E51C59208235800029641E /* Revise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E51C58208235800029641E /* Revise.storyboard */; };
+		56E51C5B208235B50029641E /* ReviseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E51C5A208235B50029641E /* ReviseViewController.swift */; };
+		56E51C5D20823C380029641E /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E51C5C20823C380029641E /* SwipeView.swift */; };
 		56F6A834204E9A1100164707 /* PileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F6A833204E9A1100164707 /* PileItem.swift */; };
 		56F9199A20569E1F00C7B56E /* SpinnerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */; };
 		56F9199B20569E1F00C7B56E /* EmptySwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F919962056996A00C7B56E /* EmptySwitcher.swift */; };
@@ -272,6 +275,9 @@
 		56CA59A4204C7FE900440185 /* CardSidePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSidePresenter.swift; sourceTree = "<group>"; };
 		56E51C532081F40B0029641E /* PilesTableEventReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesTableEventReceiver.swift; sourceTree = "<group>"; };
 		56E51C552081FDC30029641E /* CombineWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineWorker.swift; sourceTree = "<group>"; };
+		56E51C58208235800029641E /* Revise.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Revise.storyboard; sourceTree = "<group>"; };
+		56E51C5A208235B50029641E /* ReviseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviseViewController.swift; sourceTree = "<group>"; };
+		56E51C5C20823C380029641E /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
 		56F6A833204E9A1100164707 /* PileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileItem.swift; sourceTree = "<group>"; };
 		56F919962056996A00C7B56E /* EmptySwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySwitcher.swift; sourceTree = "<group>"; };
 		56F919982056997A00C7B56E /* EmptySwitcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySwitcherTests.swift; sourceTree = "<group>"; };
@@ -519,6 +525,7 @@
 				56C446352041424E00D5D9B2 /* PileList */,
 				5657CCF02075016700F090DC /* PileDetails */,
 				564DF0D220789CF300AAFA3F /* Card */,
+				56E51C572082352A0029641E /* Revise */,
 				56881DB820399450001BEBAD /* Assets.xcassets */,
 				56881DBA20399450001BEBAD /* LaunchScreen.storyboard */,
 				56881DBD20399450001BEBAD /* Info.plist */,
@@ -703,6 +710,16 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		56E51C572082352A0029641E /* Revise */ = {
+			isa = PBXGroup;
+			children = (
+				56E51C5A208235B50029641E /* ReviseViewController.swift */,
+				56E51C5C20823C380029641E /* SwipeView.swift */,
+				56E51C58208235800029641E /* Revise.storyboard */,
+			);
+			path = Revise;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -884,6 +901,7 @@
 				56881DB920399450001BEBAD /* Assets.xcassets in Resources */,
 				564DF0D420789D1600AAFA3F /* Card.storyboard in Resources */,
 				56881DB720399450001BEBAD /* Main.storyboard in Resources */,
+				56E51C59208235800029641E /* Revise.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,6 +983,7 @@
 				560A2C192070E1B500CA9D6A /* PileCell.swift in Sources */,
 				56358B7E2041AF6700D9BFF4 /* PileListVCCreator.swift in Sources */,
 				5644A84B2078A8F400401AE5 /* CardView.swift in Sources */,
+				56E51C5D20823C380029641E /* SwipeView.swift in Sources */,
 				560A2C132070DFE900CA9D6A /* PilesTableViewController.swift in Sources */,
 				56358B94204270F800D9BFF4 /* TextLocalization.swift in Sources */,
 				56358B9620427CD500D9BFF4 /* PileListEventReceiver.swift in Sources */,
@@ -973,6 +992,7 @@
 				56358B842041B30F00D9BFF4 /* UIStoryboard+.swift in Sources */,
 				56358B7A2041AB6000D9BFF4 /* UIControllerFactory.swift in Sources */,
 				56C446372041426B00D5D9B2 /* PileListViewController.swift in Sources */,
+				56E51C5B208235B50029641E /* ReviseViewController.swift in Sources */,
 				5644A8632079F0C000401AE5 /* UITableView+.swift in Sources */,
 				56E51C562081FDC30029641E /* CombineWorker.swift in Sources */,
 				5657CCF620750D9200F090DC /* CardsTableViewController.swift in Sources */,
