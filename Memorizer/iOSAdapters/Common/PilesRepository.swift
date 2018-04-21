@@ -149,3 +149,13 @@ extension PilesRepository: PileReviser {
         cache.changePileItem(newItem, id: pileId)
     }
 }
+public protocol PilesReviseStateUpdater {
+    func updateReviseState()
+}
+extension PilesRepository: PilesReviseStateUpdater {
+    public func updateReviseState() {
+        if pileItems.count > 0 {
+            delegate?.onPilesFetched(pileItems)
+        }
+    }
+}

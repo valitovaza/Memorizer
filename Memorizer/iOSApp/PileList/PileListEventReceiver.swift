@@ -1,11 +1,12 @@
 import iOSAdapters
 
-typealias PileItemContainer = PileItemCleanerInTable & PileItemCombiner
+typealias PileItemContainer = PileItemCleanerInTable & PileItemCombiner & PilesReviseStateUpdater
 class PileListEventReceiver {
     private let pilesLoader: PilesLoader
     private var pilesDataSource: PileListDataSource
     private var pileItemContainer: PileItemContainer
     private var combineWorker: CombineWorker?
+    private let pilesReviseUpdater: PilesReviseUpdater
     var router: PileListRouter = RouterFactory.getPileListRouter()
     var pilesRepositoryListener: PilesRepositoryListener?
     init(_ pilesLoader: PilesLoader,
@@ -14,6 +15,7 @@ class PileListEventReceiver {
         self.pilesLoader = pilesLoader
         self.pilesDataSource = pilesDataSource
         self.pileItemContainer = pileItemContainer
+        pilesReviseUpdater = PilesReviseUpdater(pileItemContainer)
     }
 }
 extension PileListEventReceiver: PileListEventHandler {

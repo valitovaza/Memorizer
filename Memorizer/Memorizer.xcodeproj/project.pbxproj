@@ -82,6 +82,7 @@
 		5674CFDF208B445000A1CD40 /* CDPile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFDB208B445000A1CD40 /* CDPile+CoreDataClass.swift */; };
 		5674CFE0208B445000A1CD40 /* CDPile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFDC208B445000A1CD40 /* CDPile+CoreDataProperties.swift */; };
 		5674CFE3208B449F00A1CD40 /* CoreDataPileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFE2208B449E00A1CD40 /* CoreDataPileWorker.swift */; };
+		5674CFE5208B7E9900A1CD40 /* PilesReviseUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFE4208B7E9900A1CD40 /* PilesReviseUpdater.swift */; };
 		5675D2592042C0710019A0CD /* PilesEmptyToggleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D2582042C0710019A0CD /* PilesEmptyToggleTests.swift */; };
 		5675D25B2042C0A70019A0CD /* PilesEmptyToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */; };
 		5675D25E2042CFC20019A0CD /* PilesEmptyToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */; };
@@ -262,6 +263,7 @@
 		5674CFDB208B445000A1CD40 /* CDPile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDPile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5674CFDC208B445000A1CD40 /* CDPile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDPile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5674CFE2208B449E00A1CD40 /* CoreDataPileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPileWorker.swift; sourceTree = "<group>"; };
+		5674CFE4208B7E9900A1CD40 /* PilesReviseUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesReviseUpdater.swift; sourceTree = "<group>"; };
 		5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerAnimator.swift; sourceTree = "<group>"; };
 		5675D2582042C0710019A0CD /* PilesEmptyToggleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesEmptyToggleTests.swift; sourceTree = "<group>"; };
 		5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesEmptyToggle.swift; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 				56358B732041834800D9BFF4 /* UIControllerPresentable.swift */,
 				56358B6D2041797300D9BFF4 /* ViewControllerCreator.swift */,
 				56358BA4204299F500D9BFF4 /* PilesRepository.swift */,
+				5674CFE4208B7E9900A1CD40 /* PilesReviseUpdater.swift */,
 				5674CFC0208B3C6100A1CD40 /* ApplicationService.swift */,
 			);
 			path = Common;
@@ -1336,6 +1339,7 @@
 				56358B9D2042809100D9BFF4 /* CardSide.swift in Sources */,
 				56CA59A6204C810400440185 /* Shuffler.swift in Sources */,
 				56F9199B20569E1F00C7B56E /* EmptySwitcher.swift in Sources */,
+				5674CFE5208B7E9900A1CD40 /* PilesReviseUpdater.swift in Sources */,
 				56881E052039B785001BEBAD /* PileListScreen.swift in Sources */,
 				5644A85C2078F5C600401AE5 /* PileDetailsPresenter.swift in Sources */,
 				5644A8522078E27F00401AE5 /* String+.swift in Sources */,
