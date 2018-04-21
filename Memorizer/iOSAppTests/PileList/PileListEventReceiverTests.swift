@@ -53,6 +53,10 @@ extension PileListEventReceiverTests {
         }
     }
     class PileItemContainerSpy: PileItemContainer {
+        func updateReviseState() {
+            
+        }
+        
         func deleteIn(section: Int, row: Int) {
             
         }
