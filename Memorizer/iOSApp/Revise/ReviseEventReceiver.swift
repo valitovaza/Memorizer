@@ -1,6 +1,7 @@
 import iOSAdapters
 
 class ReviseEventReceiver {
+    var pileReviser: PileReviser?
     var wordReviser: WordReviser!
     
     private var wordsHolder: ReviseWordsHolder?
@@ -26,6 +27,8 @@ extension ReviseEventReceiver: ReviseEventHandler {
         case .swipeLeft(let reloader):
             wordReviser.swipeLeft()
             updateCards(reloader)
+        case .onPileRevised:
+            pileReviser?.revise(at: section, row: row)
         }
     }
     private func updateCards(_ reloader: CardViewReloader) {

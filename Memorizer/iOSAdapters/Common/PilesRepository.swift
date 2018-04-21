@@ -101,3 +101,22 @@ extension PilesRepository: PileItemCombiner {
         add(pileItem: combinedPileItem)
     }
 }
+public protocol PileReviser {
+    func revise(at section: Int, row: Int)
+}
+extension PilesRepository: PileReviser {
+    public func revise(at section: Int, row: Int) {
+        guard let index = indexResolver?.repositoryIndexFor(section: section, row: row) else { return }
+        let pileItem = getPileItem(for: index)
+        piles.remove(at: index)
+        delegate?.onPileRemoved(at: index)
+        
+        let newItem = PileItem(title: pileItem.title,
+                               pile: pileItem.pile,
+                               createdDate: pileItem.createdDate,
+                               revisedCount: pileItem.revisedCount + 1,
+                               revisedDate: Date())
+        piles.insert(newItem, at: index)
+        delegate?.onPileAdded(pile: newItem, at: index)
+    }
+}

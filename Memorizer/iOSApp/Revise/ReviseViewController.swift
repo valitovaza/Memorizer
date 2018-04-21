@@ -19,6 +19,7 @@ class ReviseViewController: UIViewController {
         case onLoad(ReviseWordsHolder, WordReviserView)
         case swipeRight(CardViewReloader)
         case swipeLeft(CardViewReloader)
+        case onPileRevised
     }
     
     var eventHandler: ReviseEventHandler?
@@ -57,7 +58,19 @@ extension ReviseViewController: SwipeViewDelegate {
 }
 extension ReviseViewController: WordReviserView {
     func pileRevised() {
-        
+        eventHandler?.handle(event: .onPileRevised)
+        presentRevisedAlert()
+    }
+    private func presentRevisedAlert() {
+        let alert = UIAlertController(title: L10n.pileRevised,
+                                      message: nil,
+                                      preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+        { action -> Void in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
     func turnPile(_ wordsData: WordsData) {
         if wordsData.words.count == 1 {

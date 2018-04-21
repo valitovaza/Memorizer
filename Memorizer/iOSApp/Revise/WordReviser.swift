@@ -12,6 +12,8 @@ protocol WordReviserView: class {
 }
 class WordReviserImpl {
     private var isReverted = false
+    private var revisedCount = 0
+    private var maxRevisedCount = 3
     private var pile: CardPile
     
     weak var view: WordReviserView?
@@ -35,6 +37,14 @@ extension WordReviserImpl: WordReviser {
     }
     private func checkIsPileRevised() {
         guard pile.isExamined else { return }
+        revisedCount += 1
+        if revisedCount < maxRevisedCount {
+            turnPile()
+        }else{
+            view?.pileRevised()
+        }
+    }
+    private func turnPile() {
         isReverted = !isReverted
         shuffleAndPrepareForExam()
         view?.turnPile(wordsData)

@@ -129,6 +129,7 @@ extension AppDependencyProvider: DependencyProvider {
     func makeReviseEventHandler(_ section: Int, _ row: Int) -> ReviseEventHandler {
         let eventHandler = ReviseEventReceiver(section, row)
         eventHandler.wordReviser = WordReviserImpl(pRepository.getPileCard(at: ItemPosition(section, row))!)
+        eventHandler.pileReviser = pRepository
         return eventHandler
     }
 }
