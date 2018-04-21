@@ -47,7 +47,7 @@ extension PilesRepositoryTests {
     class PileFetcherSpy: PilesCacheWorker {
         
         var fetchPilesCallCount = 0
-        func fetchPiles(_ completion: @escaping ([PileItem])->()) {
+        func fetchPiles(_ completion: @escaping ([IdentifyablePileItem])->()) {
             fetchPilesCallCount += 1
         }
         
