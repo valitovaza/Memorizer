@@ -18,6 +18,7 @@ enum L10n {
     static var deleteCardAlert: String { return localize("Localizable", "delete_card_alert") }
     static var revisePile: String { return localize("Localizable", "revise_pile") }
     static var pileRevised: String { return localize("Localizable", "pile_revised") }
+    static var localNotificationTitle: String { return localize("Localizable", "local_notification_title") }
     
     private static func localize(_ table: String, _ key: String, _ args: CVarArg...) -> String {
         return localizeFunc(table, key, args)

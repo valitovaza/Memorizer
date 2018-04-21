@@ -159,3 +159,8 @@ extension PilesRepository: PilesReviseStateUpdater {
         }
     }
 }
+extension PilesRepository: AllPilesProvider {
+    public var allPiles: [PileItem] {
+        return pileItems
+    }
+}

@@ -19,6 +19,7 @@ extension Revisable {
                 10_368_000]
     }
     var needToRevise: Bool {
+        guard revisedCount < Self.intervals.count - 1 else { return false }
         let index = min(max(revisedCount, 0), Self.intervals.count - 1)
         return currentDateProvider.currentDate
             .timeIntervalSince(revisedDate ?? createdDate) >= Self.intervals[index]

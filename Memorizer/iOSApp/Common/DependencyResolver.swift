@@ -70,7 +70,10 @@ class AppDependencyProvider {
     init() {
         pRepository.delegate = pRepositoryListener
         pRepository.indexResolver = pilesDataSource
-        pRepositoryListener.delegates = [pilesDataSource]
+        
+        let notificationScheduler = ReviseAlertScheduler(LocalAlertTextProvider())
+        let notificationPlanner = ReviseAlertPlanner(notificationScheduler, pRepository)
+        pRepositoryListener.delegates = [pilesDataSource, notificationPlanner]
     }
 }
 extension AppDependencyProvider: DependencyProvider {

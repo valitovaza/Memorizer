@@ -65,7 +65,7 @@ class RevisableTests: XCTestCase {
         XCTAssertFalse(revisable(withCreateDateAddition: -TestRevisable.intervals[0],
                                 revisedCount: 1_000_000,
         revisedDateAddition: -TestRevisable.intervals[6]).needToRevise)
-        XCTAssertTrue(revisable(withCreateDateAddition: -TestRevisable.intervals[0],
+        XCTAssertFalse(revisable(withCreateDateAddition: -TestRevisable.intervals[0],
                                 revisedCount: 1_000_000,
         revisedDateAddition: -TestRevisable.intervals.last!).needToRevise)
     }

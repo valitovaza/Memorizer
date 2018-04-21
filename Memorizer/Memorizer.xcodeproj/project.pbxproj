@@ -83,6 +83,10 @@
 		5674CFE0208B445000A1CD40 /* CDPile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFDC208B445000A1CD40 /* CDPile+CoreDataProperties.swift */; };
 		5674CFE3208B449F00A1CD40 /* CoreDataPileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFE2208B449E00A1CD40 /* CoreDataPileWorker.swift */; };
 		5674CFE5208B7E9900A1CD40 /* PilesReviseUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFE4208B7E9900A1CD40 /* PilesReviseUpdater.swift */; };
+		5674CFE7208B847000A1CD40 /* LocalNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFE6208B847000A1CD40 /* LocalNotificationService.swift */; };
+		5674CFEA208B8C5C00A1CD40 /* LocalNotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFE9208B8C5C00A1CD40 /* LocalNotificationScheduler.swift */; };
+		5674CFEC208B8F6F00A1CD40 /* LocalAlertTextProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFEB208B8F6F00A1CD40 /* LocalAlertTextProvider.swift */; };
+		5674CFEE208B99C200A1CD40 /* ReviseAlertPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFED208B99C200A1CD40 /* ReviseAlertPlanner.swift */; };
 		5675D2592042C0710019A0CD /* PilesEmptyToggleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D2582042C0710019A0CD /* PilesEmptyToggleTests.swift */; };
 		5675D25B2042C0A70019A0CD /* PilesEmptyToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */; };
 		5675D25E2042CFC20019A0CD /* PilesEmptyToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */; };
@@ -264,6 +268,10 @@
 		5674CFDC208B445000A1CD40 /* CDPile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDPile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5674CFE2208B449E00A1CD40 /* CoreDataPileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPileWorker.swift; sourceTree = "<group>"; };
 		5674CFE4208B7E9900A1CD40 /* PilesReviseUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesReviseUpdater.swift; sourceTree = "<group>"; };
+		5674CFE6208B847000A1CD40 /* LocalNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationService.swift; sourceTree = "<group>"; };
+		5674CFE9208B8C5C00A1CD40 /* LocalNotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationScheduler.swift; sourceTree = "<group>"; };
+		5674CFEB208B8F6F00A1CD40 /* LocalAlertTextProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAlertTextProvider.swift; sourceTree = "<group>"; };
+		5674CFED208B99C200A1CD40 /* ReviseAlertPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviseAlertPlanner.swift; sourceTree = "<group>"; };
 		5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerAnimator.swift; sourceTree = "<group>"; };
 		5675D2582042C0710019A0CD /* PilesEmptyToggleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesEmptyToggleTests.swift; sourceTree = "<group>"; };
 		5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesEmptyToggle.swift; sourceTree = "<group>"; };
@@ -581,6 +589,15 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		5674CFE8208B8C3600A1CD40 /* LocalNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				5674CFE9208B8C5C00A1CD40 /* LocalNotificationScheduler.swift */,
+				5674CFED208B99C200A1CD40 /* ReviseAlertPlanner.swift */,
+			);
+			path = LocalNotifications;
+			sourceTree = "<group>";
+		};
 		567BD3D6207697760007344F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +634,7 @@
 		56881DC720399978001BEBAD /* iOSAdapters */ = {
 			isa = PBXGroup;
 			children = (
+				5674CFE8208B8C3600A1CD40 /* LocalNotifications */,
 				5674CFC2208B40FC00A1CD40 /* Cache */,
 				56358B6720416E8E00D9BFF4 /* Common */,
 				56881E002039B484001BEBAD /* PileListScreen */,
@@ -652,6 +670,8 @@
 			isa = PBXGroup;
 			children = (
 				56881DB120399450001BEBAD /* AppDelegate.swift */,
+				5674CFEB208B8F6F00A1CD40 /* LocalAlertTextProvider.swift */,
+				5674CFE6208B847000A1CD40 /* LocalNotificationService.swift */,
 				5674CFBE208B3C0A00A1CD40 /* PluggableAppDelegate.swift */,
 				5657CCF920750EC800F090DC /* AppRouter.swift */,
 				567BD3D4207645190007344F /* DependencyResolver.swift */,
@@ -1306,12 +1326,14 @@
 				56C446372041426B00D5D9B2 /* PileListViewController.swift in Sources */,
 				56E51C5B208235B50029641E /* ReviseViewController.swift in Sources */,
 				5644A8632079F0C000401AE5 /* UITableView+.swift in Sources */,
+				5674CFE7208B847000A1CD40 /* LocalNotificationService.swift in Sources */,
 				56E51C6120825B9E0029641E /* ReviseSwipeViewProvider.swift in Sources */,
 				56E51C562081FDC30029641E /* CombineWorker.swift in Sources */,
 				5657CCF620750D9200F090DC /* CardsTableViewController.swift in Sources */,
 				567BD3D82076978C0007344F /* UIViewController+.swift in Sources */,
 				5674CFBF208B3C0B00A1CD40 /* PluggableAppDelegate.swift in Sources */,
 				567BD3D5207645190007344F /* DependencyResolver.swift in Sources */,
+				5674CFEC208B8F6F00A1CD40 /* LocalAlertTextProvider.swift in Sources */,
 				56E51C5F208257890029641E /* ReviseEventReceiver.swift in Sources */,
 				564DF0D82078A40700AAFA3F /* CardDetailsEventReceiver.swift in Sources */,
 				56881DF520399DCE001BEBAD /* MainViewController.swift in Sources */,
@@ -1357,6 +1379,8 @@
 				567BE63120553F16004F5B53 /* PileItem.swift in Sources */,
 				5674CFDD208B445000A1CD40 /* CDCard+CoreDataClass.swift in Sources */,
 				560A2C142070E0C900CA9D6A /* PilesDataSource.swift in Sources */,
+				5674CFEE208B99C200A1CD40 /* ReviseAlertPlanner.swift in Sources */,
+				5674CFEA208B8C5C00A1CD40 /* LocalNotificationScheduler.swift in Sources */,
 				56358B9E204280A200D9BFF4 /* CardPile.swift in Sources */,
 				5674CFE3208B449F00A1CD40 /* CoreDataPileWorker.swift in Sources */,
 				56358B9C2042808A00D9BFF4 /* Card.swift in Sources */,

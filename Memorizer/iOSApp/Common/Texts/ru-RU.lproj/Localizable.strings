@@ -15,3 +15,4 @@
 "delete_card_alert" = "Вы действительно хотите удалить карточку?";
 "revise_pile" = "Повторение";
 "pile_revised" = "Вы повторили стопку!";
+"local_notification_title" = "Пора повторить слова!";
