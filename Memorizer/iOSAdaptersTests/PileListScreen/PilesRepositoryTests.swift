@@ -5,23 +5,27 @@ class PilesRepositoryTests: XCTestCase {
     
     private var sut: PilesRepository!
     private var delegate: DelegateSpy!
+    private var fetcher: PileFetcherSpy!
     
     override func setUp() {
         super.setUp()
         delegate = DelegateSpy()
         sut = PilesRepository()
+        fetcher = PileFetcherSpy()
+        sut.cache = fetcher
         sut.delegate = delegate
     }
     
     override func tearDown() {
         delegate = nil
+        fetcher = nil
         sut = nil
         super.tearDown()
     }
     
-    func test_fetchPiles_onProfilefetched() {
+    func test_fetchPiles_fetchsWithFetcher() {
         sut.fetchPiles()
-        XCTAssertEqual(delegate.onPilesFetchedCallCount, 1)
+        XCTAssertEqual(fetcher.fetchPilesCallCount, 1)
     }
 }
 extension PilesRepositoryTests {
@@ -37,6 +41,23 @@ extension PilesRepositoryTests {
             
         }
         func onPileChanged(pile: PileItem, at index: Int) {
+            
+        }
+    }
+    class PileFetcherSpy: PilesCacheWorker {
+        
+        var fetchPilesCallCount = 0
+        func fetchPiles(_ completion: @escaping ([PileItem])->()) {
+            fetchPilesCallCount += 1
+        }
+        
+        func savePileItem(_ pile: PileItem) {
+            
+        }
+        func deletePileItem(_ id: Int64) {
+            
+        }
+        func changePileItem(_ pileItem: PileItem, id: Int64) {
             
         }
     }
