@@ -57,6 +57,7 @@ class RevisableTests: XCTestCase {
         XCTAssertEqual(TestRevisable.intervals[6], secInMonth)
         XCTAssertEqual(TestRevisable.intervals[7], 2 * secInMonth)
         XCTAssertEqual(TestRevisable.intervals[8], 4 * secInMonth)
+        XCTAssertEqual(TestRevisable.intervals[9], 8 * secInMonth)
     }
     
     func test_invalidBigRevisedCountActsLike_MaxInterval_ReviseCount() {

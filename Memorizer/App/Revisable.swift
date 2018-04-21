@@ -16,7 +16,8 @@ extension Revisable {
                 345_600,
                 2_592_000,
                 5_184_000,
-                10_368_000]
+                10_368_000,
+                20_736_000]
     }
     var needToRevise: Bool {
         guard revisedCount < Self.intervals.count - 1 else { return false }
