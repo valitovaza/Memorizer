@@ -3,14 +3,22 @@ import UIKit
 protocol ReviseEventHandler {
     func handle(event: ReviseViewController.Event)
 }
-protocol ReviseWordsHolder {
-    func addRevise(words: [(front: String, back: String)])
+struct WordsData {
+    let words: [(front: String, back: String)]
+    let isReverted: Bool
 }
+protocol ReviseWordsHolder {
+    func setRevise(wordsData: WordsData)
+}
+protocol CardViewReloader {
+    func reload()
+}
+extension SwipeView: CardViewReloader {}
 class ReviseViewController: UIViewController {
     enum Event {
-        case onLoad(ReviseWordsHolder)
-        case swipeRight
-        case swipeLeft
+        case onLoad(ReviseWordsHolder, WordReviserView)
+        case swipeRight(CardViewReloader)
+        case swipeLeft(CardViewReloader)
     }
     
     var eventHandler: ReviseEventHandler?
@@ -25,7 +33,7 @@ class ReviseViewController: UIViewController {
     }
     private func onLoad() {
         localize()
-        eventHandler?.handle(event: .onLoad(viewProvider))
+        eventHandler?.handle(event: .onLoad(viewProvider, self))
         configureSwipeView()
     }
     private func localize() {
@@ -41,9 +49,40 @@ extension ReviseViewController: SwipeViewDelegate {
     func swiped(to: SwipeDirection) {
         switch to {
         case .left:
-            eventHandler?.handle(event: .swipeLeft)
+            eventHandler?.handle(event: .swipeLeft(swipeView))
         case .right:
-            eventHandler?.handle(event: .swipeRight)
+            eventHandler?.handle(event: .swipeRight(swipeView))
+        }
+    }
+}
+extension ReviseViewController: WordReviserView {
+    func pileRevised() {
+        
+    }
+    func turnPile(_ wordsData: WordsData) {
+        if wordsData.words.count == 1 {
+            turnWithoutAnimation(wordsData)
+        }else{
+            turnWithAnimation(wordsData)
+        }
+    }
+    private func turnWithoutAnimation(_ wordsData: WordsData) {
+        self.viewProvider.reset()
+        self.viewProvider.setRevise(wordsData: wordsData)
+        self.swipeView.reload()
+    }
+    private func turnWithAnimation(_ wordsData: WordsData) {
+        view.isUserInteractionEnabled = false
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.swipeView.alpha = 0.0
+        }) { (_) in
+            self.viewProvider.reset()
+            self.viewProvider.setRevise(wordsData: wordsData)
+            self.swipeView.reload()
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.swipeView.alpha = 1.0
+                self.view.isUserInteractionEnabled = true
+            })
         }
     }
 }

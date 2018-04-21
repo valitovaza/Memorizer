@@ -70,6 +70,7 @@
 		5657CCF620750D9200F090DC /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657CCF520750D9200F090DC /* CardsTableViewController.swift */; };
 		5657CCF820750DCF00F090DC /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657CCF720750DCF00F090DC /* CardTableViewCell.swift */; };
 		5657CCFA20750EC800F090DC /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657CCF920750EC800F090DC /* AppRouter.swift */; };
+		5674CFBD208AE91B00A1CD40 /* WordReviser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFBC208AE91B00A1CD40 /* WordReviser.swift */; };
 		5675D2592042C0710019A0CD /* PilesEmptyToggleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D2582042C0710019A0CD /* PilesEmptyToggleTests.swift */; };
 		5675D25B2042C0A70019A0CD /* PilesEmptyToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */; };
 		5675D25E2042CFC20019A0CD /* PilesEmptyToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */; };
@@ -231,6 +232,7 @@
 		5657CCF520750D9200F090DC /* CardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewController.swift; sourceTree = "<group>"; };
 		5657CCF720750DCF00F090DC /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		5657CCF920750EC800F090DC /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		5674CFBC208AE91B00A1CD40 /* WordReviser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordReviser.swift; sourceTree = "<group>"; };
 		5675D2542042AFD80019A0CD /* SpinnerAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerAnimator.swift; sourceTree = "<group>"; };
 		5675D2582042C0710019A0CD /* PilesEmptyToggleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesEmptyToggleTests.swift; sourceTree = "<group>"; };
 		5675D25A2042C0A70019A0CD /* PilesEmptyToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesEmptyToggle.swift; sourceTree = "<group>"; };
@@ -720,6 +722,7 @@
 				56E51C5A208235B50029641E /* ReviseViewController.swift */,
 				56E51C6020825B9E0029641E /* ReviseSwipeViewProvider.swift */,
 				56E51C5E208257890029641E /* ReviseEventReceiver.swift */,
+				5674CFBC208AE91B00A1CD40 /* WordReviser.swift */,
 				56E51C5C20823C380029641E /* SwipeView.swift */,
 				56E51C58208235800029641E /* Revise.storyboard */,
 			);
@@ -987,6 +990,7 @@
 				56881DB220399450001BEBAD /* AppDelegate.swift in Sources */,
 				564DF0D620789D7F00AAFA3F /* CardDetailsViewController.swift in Sources */,
 				560A2C192070E1B500CA9D6A /* PileCell.swift in Sources */,
+				5674CFBD208AE91B00A1CD40 /* WordReviser.swift in Sources */,
 				56358B7E2041AF6700D9BFF4 /* PileListVCCreator.swift in Sources */,
 				5644A84B2078A8F400401AE5 /* CardView.swift in Sources */,
 				56E51C5D20823C380029641E /* SwipeView.swift in Sources */,

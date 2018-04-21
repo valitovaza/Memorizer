@@ -58,6 +58,14 @@ class CardView: UIView {
             self.openKeyboardIfNeed(needOpenKeyboardAfterAnimation)
         }
     }
+    func turnToFirstWithoutAnimation() {
+        firstSide.isHidden = false
+        secondSide.isHidden = true
+    }
+    func turnToSecondWithoutAnimation() {
+        firstSide.isHidden = true
+        secondSide.isHidden = false
+    }
     private func closeKeyboardIfNeed(_ needOpenKeyboardAfterAnimation: Bool) {
         if needOpenKeyboardAfterAnimation {
             UIView.performWithoutAnimation {

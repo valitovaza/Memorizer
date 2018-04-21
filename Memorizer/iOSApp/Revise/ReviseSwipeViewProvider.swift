@@ -3,6 +3,11 @@ import UIKit
 class ReviseSwipeViewProvider {
     
     private var words: [(front: String, back: String)] = []
+    private var isReverted = false
+    private var isInitialFill: Bool {
+        return setWordsCount <= 1
+    }
+    private var setWordsCount = 0
     
     private let firstSwipeView: CardView
     private let secondSwipeView: CardView
@@ -18,12 +23,16 @@ class ReviseSwipeViewProvider {
         cardView.secondTextView.isUserInteractionEnabled = false
         return cardView
     }
+    
+    func reset() {
+        setWordsCount = 0
+    }
 }
 extension ReviseSwipeViewProvider: SwipeViewProvider {
     func nextSwipeView() -> UIView? {
         guard !words.isEmpty else { return nil }
         
-        let word = words.removeLast()
+        let word = (!isInitialFill && words.count > 1) ? words.remove(at: 1) : words.removeFirst()
         let swipeView = currentSwipeView
         configure(cardView: swipeView, word)
         currentSwipeView = nexSwipeView
@@ -32,13 +41,20 @@ extension ReviseSwipeViewProvider: SwipeViewProvider {
     private func configure(cardView: CardView, _ word: (front: String, back: String)) {
         cardView.firstTextView.text = word.front
         cardView.secondTextView.text = word.back
+        if isReverted {
+            cardView.turnToSecondWithoutAnimation()
+        }else{
+            cardView.turnToFirstWithoutAnimation()
+        }
     }
     private var nexSwipeView: CardView {
         return currentSwipeView == firstSwipeView ? secondSwipeView : firstSwipeView
     }
 }
 extension ReviseSwipeViewProvider: ReviseWordsHolder {
-    func addRevise(words: [(front: String, back: String)]) {
-        self.words = words
+    func setRevise(wordsData: WordsData) {
+        words = wordsData.words
+        isReverted = wordsData.isReverted
+        setWordsCount += 1
     }
 }

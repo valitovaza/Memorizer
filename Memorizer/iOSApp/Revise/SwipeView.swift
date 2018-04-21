@@ -33,14 +33,23 @@ class SwipeView: UIView, UIGestureRecognizerDelegate {
         addPangesture()
     }
     private func addSwipeContainers() {
-        addSecondSwipeContainer()
         addFirstSwipeContainer()
-        currentSwipeContainer = firstSwipeContainer
+        addSecondSwipeContainer()
+        setFirstContainerAsCurrentSwipe()
+    }
+    private func addFirstSwipeContainer() {
+        firstSwipeContainer = createSwipeContainer()
+        add(childView: firstSwipeContainer, into: self)
+        enableAntialiasing(on: firstSwipeContainer)
     }
     private func addSecondSwipeContainer() {
         secondSwipeContainer = createSwipeContainer()
         add(childView: secondSwipeContainer, into: self)
         enableAntialiasing(on: secondSwipeContainer)
+    }
+    private func setFirstContainerAsCurrentSwipe() {
+        bringSubview(toFront: firstSwipeContainer)
+        currentSwipeContainer = firstSwipeContainer
     }
     private func enableAntialiasing(on content: UIView) {
         content.layer.shouldRasterize = true
@@ -51,11 +60,6 @@ class SwipeView: UIView, UIGestureRecognizerDelegate {
         let view = UIView()
         view.isHidden = true
         return view
-    }
-    private func addFirstSwipeContainer() {
-        firstSwipeContainer = createSwipeContainer()
-        add(childView: firstSwipeContainer, into: self)
-        enableAntialiasing(on: firstSwipeContainer)
     }
     private func add(childView: UIView, into parent: UIView) {
         childView.translatesAutoresizingMaskIntoConstraints = false
@@ -214,6 +218,7 @@ class SwipeView: UIView, UIGestureRecognizerDelegate {
     
     func reload() {
         removeChildsOfSwipeContainers()
+        setFirstContainerAsCurrentSwipe()
         addContentFromProvider()
     }
     private func removeChildsOfSwipeContainers() {

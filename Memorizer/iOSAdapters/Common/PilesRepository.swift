@@ -62,7 +62,7 @@ extension PilesRepository: PileItemCombiner {
         }
         return combineCards
     }
-    private func getPileCard(at position: ItemPosition) -> CardPile? {
+    public func getPileCard(at position: ItemPosition) -> CardPile? {
         guard let pileItem = getPileItem(at: position) else { return nil }
         return pileItem.pile as? CardPile
     }
@@ -99,15 +99,5 @@ extension PilesRepository: PileItemCombiner {
                                         revisedCount: 0,
                                         revisedDate: nil)
         add(pileItem: combinedPileItem)
-    }
-}
-public protocol WordsProvider {
-    func wordsFor(section: Int, row: Int) -> [(front: String, back: String)]
-}
-extension PilesRepository: WordsProvider {
-    public func wordsFor(section: Int, row: Int) -> [(front: String, back: String)] {
-        guard let pileCard = getPileCard(at: ItemPosition(section, row)) else { return [] }
-        return pileCard.cards
-            .compactMap({(front: $0.front, back: $0.back) as? (front: String, back: String)})
     }
 }
