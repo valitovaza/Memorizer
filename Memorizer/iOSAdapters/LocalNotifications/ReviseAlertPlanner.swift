@@ -24,7 +24,7 @@ extension ReviseAlertPlanner: PileItemRepositoryDelegate {
     }
     private func scheduleAtNearestReviseDate(_ items: [PileItem]) {
         let canBeRevisedItems = items.filter({!$0.revisedMaxTime})
-        guard canBeRevisedItems.count > 1 else { return }
+        guard canBeRevisedItems.count > 0 else { return }
         let sortedByIntervalTillAlert = canBeRevisedItems
             .sorted(by: {$0.intervalToRevise < $1.intervalToRevise})
         let alertDate = currentDateProvider.currentDate
