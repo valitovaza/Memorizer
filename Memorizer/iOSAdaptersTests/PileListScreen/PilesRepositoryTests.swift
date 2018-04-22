@@ -45,13 +45,13 @@ extension PilesRepositoryTests {
         }
     }
     class PileFetcherSpy: PilesCacheWorker {
-        
+    
         var fetchPilesCallCount = 0
         func fetchPiles(_ completion: @escaping ([IdentifyablePileItem])->()) {
             fetchPilesCallCount += 1
         }
         
-        func savePileItem(_ pile: PileItem) {
+        func addPileItem(_ pileItem: PileItem, _ completion: @escaping (Int64) -> ()) {
             
         }
         func deletePileItem(_ id: Int64) {

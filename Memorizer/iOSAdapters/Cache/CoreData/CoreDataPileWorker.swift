@@ -1,6 +1,6 @@
 protocol PilesCacheWorker {
     func fetchPiles(_ completion: @escaping ([IdentifyablePileItem])->())
-    func savePileItem(_ pile: PileItem)
+    func addPileItem(_ pileItem: PileItem, _ completion: @escaping (Int64)->())
     func deletePileItem(_ id: Int64)
     func changePileItem(_ pileItem: PileItem, id: Int64)
 }
@@ -38,12 +38,20 @@ class CoreDataPileWorker: PilesCacheWorker {
                         revisedCount: Int(cdPile.revisedCount),
                         revisedDate: cdPile.revisedDate as Date?)
     }
-    func savePileItem(_ pileItem: PileItem) {
+    func addPileItem(_ pileItem: PileItem, _ completion: @escaping (Int64)->()) {
         Cd.transact {
+            var addedId: Int64 = 0
+            defer {
+                DispatchQueue.main.async {
+                    completion(addedId)
+                }
+            }
             do {
                 let cdPile = try Cd.create(CDPile.self)
-                cdPile.id = try self.getNextIdForCDPile()
+                addedId = try self.getNextIdForCDPile()
+                cdPile.id = addedId
                 try self.fillInfo(cdPile, pileItem)
+                try Cd.commit()
             } catch let error {
                 print("\(error)")
             }
@@ -81,6 +89,7 @@ class CoreDataPileWorker: PilesCacheWorker {
                 for pile in pilesForDelete {
                     Cd.delete(pile)
                 }
+                try Cd.commit()
             } catch let error {
                 print("\(error)")
             }
@@ -92,6 +101,7 @@ class CoreDataPileWorker: PilesCacheWorker {
                 guard let pileToEdit = try Cd.objects(CDPile.self)
                     .filter(NSPredicate(format: "id == %lld", id)).fetchOne() else { return }
                 try self.fillInfo(pileToEdit, pileItem)
+                try Cd.commit()
             } catch let error {
                 print("\(error)")
             }

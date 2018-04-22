@@ -30,14 +30,14 @@ extension PilesRepository: PileItemRepository {
 }
 extension PilesRepository: PilesRepositoryChanger {
     public func add(pileItem: PileItem) {
-        let addIndex = piles.count
-        piles.append(IdentifyablePileItem(nextId(), pileItem))
-        delegate?.onPileAdded(pile: pileItem, at: addIndex)
-        cache.savePileItem(pileItem)
+        cache.addPileItem(pileItem) { (addedId) in
+            self.onPileAdded(addedId, pileItem)
+        }
     }
-    private func nextId() -> Int64 {
-        guard let last = piles.last else { return 0 }
-        return last.id + 1
+    private func onPileAdded(_ addedId: Int64, _ pileItem: PileItem) {
+        let addIndex = piles.count
+        piles.append(IdentifyablePileItem(addedId, pileItem))
+        delegate?.onPileAdded(pile: pileItem, at: addIndex)
     }
     public func change(pileItem: PileItem, at index: Int) {
         let pileId = piles[index].id
