@@ -45,31 +45,31 @@ class CardDetailsViewController: UIViewController {
         cardView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(cardView)
         let margin: CGFloat = 20.0
-        let topConstraint = cardView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topCardMargin(view.bounds.size))
+        let topConstraint = cardView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topCardMargin())
+        let width = isLandscapeOrientation ? view.bounds.size.height : view.bounds.size.width
         NSLayoutConstraint.activate([
             cardView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
                                               constant: margin),
             view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: cardView.trailingAnchor,
                                                                constant: margin),
             topConstraint,
-            cardView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5)])
+            cardView.heightAnchor.constraint(equalToConstant: width * 0.5)])
         cardView.delegate = self
         topCardViewConstraint = topConstraint
     }
-    private func topCardMargin(_ size: CGSize) -> CGFloat {
+    private func topCardMargin() -> CGFloat {
+        let size = view.bounds.size
         if isLandscapeOrientation {
-            return -size.height * 0.2
+            return -size.height * 0.1
         }else{
             return size.height * 0.07
         }
     }
     private var isLandscapeOrientation: Bool {
-        return UIDevice.current.orientation == .landscapeLeft
-            || UIDevice.current.orientation == .landscapeRight
+        return view.bounds.size.width > view.bounds.size.height
     }
-    override func viewWillTransition(to size: CGSize,
-                                     with coordinator: UIViewControllerTransitionCoordinator) {
-        topCardViewConstraint?.constant = topCardMargin(size)
+    override func viewDidLayoutSubviews() {
+        topCardViewConstraint?.constant = topCardMargin()
     }
 }
 extension CardDetailsViewController: CardViewDelegate {
