@@ -164,7 +164,6 @@
                                             <color key="backgroundColor" red="1" green="0.40593946257227864" blue="0.13052167199938169" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="80" id="6ep-RG-7sv"/>
-                                                <constraint firstAttribute="height" constant="68" id="dKQ-0B-zBg"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="Combine"/>

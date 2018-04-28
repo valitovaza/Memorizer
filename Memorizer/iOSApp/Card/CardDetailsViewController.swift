@@ -22,6 +22,7 @@ class CardDetailsViewController: UIViewController {
     
     var eventHandler: CardDetailsEventHandler?
     private var cardView: CardView!
+    private var topCardViewConstraint: NSLayoutConstraint?
     
     @IBAction func cancelAction(_ sender: Any) {
         eventHandler?.handle(event: .onCancel)
@@ -44,15 +45,31 @@ class CardDetailsViewController: UIViewController {
         cardView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(cardView)
         let margin: CGFloat = 20.0
-        let topMargin = view.bounds.height * 0.07
+        let topConstraint = cardView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topCardMargin(view.bounds.size))
         NSLayoutConstraint.activate([
             cardView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
                                               constant: margin),
             view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: cardView.trailingAnchor,
                                                                constant: margin),
-            cardView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topMargin),
+            topConstraint,
             cardView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5)])
         cardView.delegate = self
+        topCardViewConstraint = topConstraint
+    }
+    private func topCardMargin(_ size: CGSize) -> CGFloat {
+        if isLandscapeOrientation {
+            return -size.height * 0.2
+        }else{
+            return size.height * 0.07
+        }
+    }
+    private var isLandscapeOrientation: Bool {
+        return UIDevice.current.orientation == .landscapeLeft
+            || UIDevice.current.orientation == .landscapeRight
+    }
+    override func viewWillTransition(to size: CGSize,
+                                     with coordinator: UIViewControllerTransitionCoordinator) {
+        topCardViewConstraint?.constant = topCardMargin(size)
     }
 }
 extension CardDetailsViewController: CardViewDelegate {

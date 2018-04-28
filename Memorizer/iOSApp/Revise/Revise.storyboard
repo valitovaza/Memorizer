@@ -36,17 +36,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="723-TH-NZP" customClass="SwipeView" customModule="iOSApp" customModuleProvider="target">
-                                <rect key="frame" x="19" y="192" width="337.5" height="202.5"/>
+                                <rect key="frame" x="19" y="191" width="337.5" height="202.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="723-TH-NZP" secondAttribute="height" multiplier="15:9" id="eq4-tN-7FI"/>
+                                    <constraint firstAttribute="width" secondItem="723-TH-NZP" secondAttribute="height" multiplier="15:9" priority="900" id="eq4-tN-7FI"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="nHX-Ui-DcH" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="723-TH-NZP" secondAttribute="bottom" constant="40" id="Fmd-lK-3xc"/>
                             <constraint firstItem="723-TH-NZP" firstAttribute="centerX" secondItem="nHX-Ui-DcH" secondAttribute="centerX" id="OFi-E4-AlP"/>
-                            <constraint firstItem="723-TH-NZP" firstAttribute="centerY" secondItem="nHX-Ui-DcH" secondAttribute="centerY" multiplier="0.8" id="UoE-sL-RaX"/>
+                            <constraint firstItem="723-TH-NZP" firstAttribute="centerY" secondItem="nHX-Ui-DcH" secondAttribute="centerY" multiplier="0.8" priority="900" id="UoE-sL-RaX"/>
+                            <constraint firstItem="723-TH-NZP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nHX-Ui-DcH" secondAttribute="top" constant="40" id="f41-GU-VDi"/>
                             <constraint firstItem="723-TH-NZP" firstAttribute="width" secondItem="aGf-RV-qi9" secondAttribute="width" multiplier="0.9" id="u1Q-V0-X0b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nHX-Ui-DcH"/>
