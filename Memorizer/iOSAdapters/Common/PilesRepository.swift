@@ -135,6 +135,7 @@ extension PilesRepository: PileReviser {
     public func revise(at section: Int, row: Int) {
         guard let index = indexResolver?.repositoryIndexFor(section: section, row: row) else { return }
         let pileItem = getPileItem(for: index)
+        guard pileItem.needToRevise else { return }
         let pileId = piles[index].id
         piles.remove(at: index)
         delegate?.onPileRemoved(at: index)
