@@ -50,14 +50,16 @@ class RevisableTests: XCTestCase {
         let secInMonth = 30 * secInDay
         XCTAssertEqual(TestRevisable.intervals[0], 0)
         XCTAssertEqual(TestRevisable.intervals[1], secInHour)
-        XCTAssertEqual(TestRevisable.intervals[2], secInDay)
-        XCTAssertEqual(TestRevisable.intervals[3], 2 * secInDay)
-        XCTAssertEqual(TestRevisable.intervals[4], 3 * secInDay)
-        XCTAssertEqual(TestRevisable.intervals[5], 4 * secInDay)
-        XCTAssertEqual(TestRevisable.intervals[6], secInMonth)
-        XCTAssertEqual(TestRevisable.intervals[7], 2 * secInMonth)
-        XCTAssertEqual(TestRevisable.intervals[8], 4 * secInMonth)
-        XCTAssertEqual(TestRevisable.intervals[9], 8 * secInMonth)
+        XCTAssertEqual(TestRevisable.intervals[2], 8 * secInHour)
+        XCTAssertEqual(TestRevisable.intervals[3], secInDay)
+        XCTAssertEqual(TestRevisable.intervals[4], secInDay)
+        XCTAssertEqual(TestRevisable.intervals[5], secInDay)
+        XCTAssertEqual(TestRevisable.intervals[6], 7 * secInDay)
+        XCTAssertEqual(TestRevisable.intervals[7], 14 * secInDay)
+        XCTAssertEqual(TestRevisable.intervals[8], 28 * secInDay)
+        XCTAssertEqual(TestRevisable.intervals[9], 2 * secInMonth)
+        XCTAssertEqual(TestRevisable.intervals[10], 4 * secInMonth)
+        XCTAssertEqual(TestRevisable.intervals[11], 8 * secInMonth)
     }
     
     func test_invalidBigRevisedCountActsLike_MaxInterval_ReviseCount() {
