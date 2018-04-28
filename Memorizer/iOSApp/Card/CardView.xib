@@ -43,6 +43,12 @@
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="P1G-W4-Nzq" secondAttribute="bottom" constant="8" id="xEB-yK-ypK"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ekd-zc-pGd">
+                            <rect key="frame" x="0.0" y="0.0" width="405" height="211"/>
+                            <connections>
+                                <action selector="turnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ogR-mA-55N"/>
+                            </connections>
+                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxj-eo-akM">
                             <rect key="frame" x="361" y="167" width="44" height="44"/>
                             <constraints>
@@ -58,11 +64,15 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.91591849280000004" blue="0.89841611389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Ekd-zc-pGd" secondAttribute="trailing" id="3Ll-QI-hcr"/>
                         <constraint firstAttribute="trailing" secondItem="0hw-BG-qD2" secondAttribute="trailing" id="970-1z-z6h"/>
+                        <constraint firstAttribute="bottom" secondItem="Ekd-zc-pGd" secondAttribute="bottom" id="FnL-qA-IEy"/>
                         <constraint firstItem="0hw-BG-qD2" firstAttribute="leading" secondItem="A0o-1N-Yqm" secondAttribute="leading" id="Sy7-H2-U80"/>
                         <constraint firstItem="uxj-eo-akM" firstAttribute="top" secondItem="0hw-BG-qD2" secondAttribute="bottom" id="Xr5-bk-IYb"/>
                         <constraint firstAttribute="bottom" secondItem="uxj-eo-akM" secondAttribute="bottom" id="d7j-4v-LmC"/>
+                        <constraint firstItem="Ekd-zc-pGd" firstAttribute="top" secondItem="A0o-1N-Yqm" secondAttribute="top" id="fNe-AT-aue"/>
                         <constraint firstItem="0hw-BG-qD2" firstAttribute="top" secondItem="A0o-1N-Yqm" secondAttribute="top" id="jSj-tv-DDY"/>
+                        <constraint firstItem="Ekd-zc-pGd" firstAttribute="leading" secondItem="A0o-1N-Yqm" secondAttribute="leading" id="ruu-Lm-PaC"/>
                         <constraint firstAttribute="trailing" secondItem="uxj-eo-akM" secondAttribute="trailing" id="tG1-nm-iT1"/>
                     </constraints>
                 </view>
@@ -94,6 +104,12 @@
                                 <constraint firstItem="Y7v-N1-n6V" firstAttribute="leading" secondItem="uzk-cU-1T8" secondAttribute="leading" constant="20" symbolic="YES" id="tAe-H8-g19"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36n-tK-tIC">
+                            <rect key="frame" x="0.0" y="0.0" width="405" height="211"/>
+                            <connections>
+                                <action selector="turnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="CFd-UE-qIX"/>
+                            </connections>
+                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MpT-vH-2LU">
                             <rect key="frame" x="361" y="167" width="44" height="44"/>
                             <constraints>
@@ -112,9 +128,13 @@
                         <constraint firstAttribute="trailing" secondItem="uzk-cU-1T8" secondAttribute="trailing" id="5Aw-PA-140"/>
                         <constraint firstItem="uzk-cU-1T8" firstAttribute="leading" secondItem="tAo-tz-Qxv" secondAttribute="leading" id="5Hu-cX-f3J"/>
                         <constraint firstItem="MpT-vH-2LU" firstAttribute="top" secondItem="uzk-cU-1T8" secondAttribute="bottom" id="6Bt-yQ-y9M"/>
+                        <constraint firstAttribute="trailing" secondItem="36n-tK-tIC" secondAttribute="trailing" id="8KM-UR-zBG"/>
                         <constraint firstAttribute="bottom" secondItem="MpT-vH-2LU" secondAttribute="bottom" id="DOL-82-Eq6"/>
                         <constraint firstAttribute="trailing" secondItem="MpT-vH-2LU" secondAttribute="trailing" id="QaZ-oQ-0dn"/>
+                        <constraint firstItem="36n-tK-tIC" firstAttribute="leading" secondItem="tAo-tz-Qxv" secondAttribute="leading" id="bDG-bR-5Jc"/>
                         <constraint firstItem="uzk-cU-1T8" firstAttribute="top" secondItem="tAo-tz-Qxv" secondAttribute="top" id="ujm-Ox-It4"/>
+                        <constraint firstItem="36n-tK-tIC" firstAttribute="top" secondItem="tAo-tz-Qxv" secondAttribute="top" id="xUW-n0-Bi1"/>
+                        <constraint firstAttribute="bottom" secondItem="36n-tK-tIC" secondAttribute="bottom" id="zqf-5K-Srq"/>
                     </constraints>
                 </view>
             </subviews>
@@ -134,9 +154,11 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="firstBigTurnButton" destination="Ekd-zc-pGd" id="txU-8K-73b"/>
                 <outlet property="firstSide" destination="A0o-1N-Yqm" id="USF-yQ-epr"/>
                 <outlet property="firstTextHeight" destination="fNq-bJ-GI9" id="d5a-4T-PU7"/>
                 <outlet property="firstTextView" destination="P1G-W4-Nzq" id="953-Ki-p8z"/>
+                <outlet property="secondBigTurnButton" destination="36n-tK-tIC" id="2dZ-ds-l4W"/>
                 <outlet property="secondSide" destination="tAo-tz-Qxv" id="xLt-kz-dVC"/>
                 <outlet property="secondTextHeight" destination="Z98-JQ-KpC" id="eRL-Za-Myk"/>
                 <outlet property="secondTextView" destination="Y7v-N1-n6V" id="fUx-KW-gSr"/>

@@ -19,8 +19,8 @@ class ReviseSwipeViewProvider {
     }
     private static func createSwipeView() -> CardView {
         let cardView = CardView.loadFromXib()
-        cardView.firstTextView.isUserInteractionEnabled = false
-        cardView.secondTextView.isUserInteractionEnabled = false
+        cardView.firstBigTurnButton.isUserInteractionEnabled = true
+        cardView.secondBigTurnButton.isUserInteractionEnabled = true
         return cardView
     }
     

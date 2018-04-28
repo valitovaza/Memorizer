@@ -6,6 +6,9 @@ protocol CardViewDelegate: class {
 }
 class CardView: UIView {
     
+    
+    @IBOutlet weak var firstBigTurnButton: UIButton!
+    @IBOutlet weak var secondBigTurnButton: UIButton!
     @IBOutlet weak var firstSide: UIView!
     @IBOutlet weak var secondSide: UIView!
     @IBOutlet weak var firstTextHeight: NSLayoutConstraint!

@@ -137,18 +137,24 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="Delete"/>
+                                            <state key="highlighted">
+                                                <color key="titleColor" red="1" green="0.69195154150190374" blue="0.66719176331994268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
                                             <connections>
                                                 <action selector="deleteAction:" destination="onB-yz-nnA" eventType="touchUpInside" id="FwP-3h-KDl"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGc-XM-mrx">
                                             <rect key="frame" x="215" y="0.0" width="80" height="68"/>
-                                            <color key="backgroundColor" red="0.47197826727526093" green="0.480672914844674" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="80" id="jZi-c9-hiJ"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="Edit"/>
+                                            <state key="highlighted">
+                                                <color key="titleColor" red="0.77898362354405426" green="0.8135114636495554" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
                                             <connections>
                                                 <action selector="editAction:" destination="onB-yz-nnA" eventType="touchUpInside" id="YcQ-73-SOU"/>
                                             </connections>
@@ -162,6 +168,9 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="Combine"/>
+                                            <state key="highlighted">
+                                                <color key="titleColor" red="1" green="0.74726352655489903" blue="0.6303451716703905" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
                                             <connections>
                                                 <action selector="combineAction:" destination="onB-yz-nnA" eventType="touchUpInside" id="d2f-YO-52K"/>
                                             </connections>
