@@ -79,12 +79,30 @@ extension CardDetailsViewController: CardViewDelegate {
     func secondTextChanged(_ text: String) {
         eventHandler?.handle(event: .onSecondTextChanged(text))
     }
+    func returnAction() {
+        if canSave() {
+            eventHandler?.handle(event: .onSave)
+        }else{
+            cardView.turn()
+        }
+    }
+    private func canSave() -> Bool {
+        return navigationItem.rightBarButtonItem?.isEnabled ?? false
+    }
 }
 extension CardDetailsViewController: SaveCardPresenter {
     func enableSaveButton() {
+        change(returnKey: .done, of: cardView.firstTextView)
+        change(returnKey: .done, of: cardView.secondTextView)
         navigationItem.rightBarButtonItem?.isEnabled = true
     }
+    private func change(returnKey: UIReturnKeyType, of textView: UITextView) {
+        textView.returnKeyType = returnKey
+        textView.reloadInputViews()
+    }
     func disableSaveButton() {
+        change(returnKey: .next, of: cardView.firstTextView)
+        change(returnKey: .next, of: cardView.secondTextView)
         navigationItem.rightBarButtonItem?.isEnabled = false
     }
 }

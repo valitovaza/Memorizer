@@ -3,6 +3,7 @@ import UIKit
 protocol CardViewDelegate: class {
     func firstTextChanged(_ text: String)
     func secondTextChanged(_ text: String)
+    func returnAction()
 }
 class CardView: UIView {
     
@@ -54,7 +55,7 @@ class CardView: UIView {
     @IBAction func turnAction(_ sender: Any) {
         turn()
     }
-    private func turn() {
+    func turn() {
         let needOpenKeyboardAfterAnimation = currentTextView.isFirstResponder
         closeKeyboardIfNeed(needOpenKeyboardAfterAnimation)
         turnAnimation(currentSide, flippedSide) {
@@ -132,7 +133,7 @@ extension CardView: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange,
                   replacementText text: String) -> Bool {
         if text == "\n" {
-            turn()
+            delegate?.returnAction()
             return false
         }
         return true
