@@ -6,14 +6,83 @@ protocol PileCellDelegate: class {
     func onCombine(cell: PileCell)
     func swipeInProgress(cell: PileCell)
 }
-class PileCell: UITableViewCell {
+class SwipeTableCell: UITableViewCell {
+    
+    fileprivate var panGestureRecognizer: UIPanGestureRecognizer?
+    fileprivate var beginXPosition: CGFloat = 0.0
+    fileprivate var isSwiping = false
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        addPangesture()
+    }
+    var contentConstraint: NSLayoutConstraint? {
+        return nil
+    }
+    private func addPangesture() {
+        guard panGestureRecognizer == nil else { return }
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(panGesture(_:)))
+        pan.delegate = self
+        pan.maximumNumberOfTouches = 1
+        addGestureRecognizer(pan)
+        panGestureRecognizer = pan
+    }
+    @objc func panGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
+        switch gestureRecognizer.state {
+        case .began:
+            guard canStartToSwipe(gestureRecognizer) else { return }
+            isSwiping = true
+            beginXPosition = contentConstraint?.constant ?? 0.0
+            onSwipeBegan()
+        case .changed:
+            guard isSwiping else { return }
+            let translation = gestureRecognizer.translation(in: self)
+            contentConstraint?.constant = min(0.0, translation.x + beginXPosition)
+            onSwipeProgress()
+        case .ended:
+            guard isSwiping else { return }
+            if gestureRecognizer.velocity(in: self).x < 0
+                && abs(gestureRecognizer.translation(in: self).x) > 20.0 {
+                onOpenActions()
+            }else{
+                onCloseActions()
+            }
+            isSwiping = false
+        default:
+            guard isSwiping else { return }
+            onCloseActions()
+            isSwiping = false
+        }
+    }
+    func onSwipeBegan() {
+    }
+    func onSwipeProgress() {
+    }
+    func onOpenActions() {
+    }
+    func onCloseActions() {
+    }
+    private func canStartToSwipe(_ gestureRecognizer: UIPanGestureRecognizer) -> Bool {
+        return abs(gestureRecognizer.translation(in: self).y) < abs(gestureRecognizer.translation(in: self).x)
+    }
+    override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return !isSwiping
+    }
+    func preparePileCell() {
+        layer.removeAllAnimations()
+        contentConstraint?.constant = 0.0
+        isSwiping = false
+    }
+    func cancelGesture() {
+        panGestureRecognizer?.isEnabled = false
+        panGestureRecognizer?.isEnabled = true
+    }
+}
+class PileCell: SwipeTableCell {
     
     static let openedConstraint: CGFloat = 66.0
     static let closedConstraint: CGFloat = 16.0
-    
-    private var panGestureRecognizer: UIPanGestureRecognizer?
-    private var beginXPosition: CGFloat = 0.0
-    private var isSwiping = false
     
     weak var delegate: PileCellDelegate?
     
@@ -43,70 +112,41 @@ class PileCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         localize()
-        configureUI()
+        hideButtons()
     }
     private func localize() {
         deleteButton.setTitle(L10n.delete, for: .normal)
         editButton.setTitle(L10n.edit, for: .normal)
         combineButton.setTitle(L10n.combine, for: .normal)
     }
-    private func configureUI() {
-        addPangesture()
-        hideButtons()
-    }
     private func hideButtons() {
         deleteButton.isHidden = true
         editButton.isHidden = true
         combineButton.isHidden = true
     }
-    private func addPangesture() {
-        guard panGestureRecognizer == nil else { return }
-        
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(panGesture(_:)))
-        pan.delegate = self
-        pan.maximumNumberOfTouches = 1
-        addGestureRecognizer(pan)
-        panGestureRecognizer = pan
+    override var contentConstraint: NSLayoutConstraint? {
+        return contentLeading
     }
-    @objc func panGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
-        switch gestureRecognizer.state {
-        case .began:
-            guard canStartToSwipe(gestureRecognizer) else { return }
-            isSwiping = true
-            beginXPosition = contentLeading.constant
-            showButtons()
-        case .changed:
-            guard isSwiping else { return }
-            let translation = gestureRecognizer.translation(in: self)
-            contentLeading.constant = min(0.0, translation.x + beginXPosition)
-            delegate?.swipeInProgress(cell: self)
-        case .ended:
-            guard isSwiping else { return }
-            if gestureRecognizer.velocity(in: self).x < 0
-                && abs(gestureRecognizer.translation(in: self).x) > 20.0 {
-                openButtonsAnimated()
-            }else{
-                closeButtonsAnimated()
-            }
-            isSwiping = false
-        default:
-            guard isSwiping else { return }
-            closeButtonsAnimated()
-            isSwiping = false
-        }
-    }
-    private func canStartToSwipe(_ gestureRecognizer: UIPanGestureRecognizer) -> Bool {
-        return abs(gestureRecognizer.translation(in: self).y) < abs(gestureRecognizer.translation(in: self).x)
+    
+    override func onSwipeBegan() {
+        showButtons()
     }
     private func showButtons() {
         deleteButton.isHidden = false
         editButton.isHidden = false
         combineButton.isHidden = false
     }
-    func cancelGesture() {
-        panGestureRecognizer?.isEnabled = false
-        panGestureRecognizer?.isEnabled = true
+    
+    override func onSwipeProgress() {
+        delegate?.swipeInProgress(cell: self)
     }
+    override func onOpenActions() {
+        openButtonsAnimated()
+    }
+    override func onCloseActions() {
+        closeButtonsAnimated()
+    }
+
     func closeButtonsAnimated() {
         guard contentLeading.constant != 0.0 else { return }
         contentLeading.constant = 0.0
@@ -123,19 +163,8 @@ class PileCell: UITableViewCell {
             self.layoutIfNeeded()
         }
     }
-    func preparePileCell() {
-        layer.removeAllAnimations()
-        contentLeading.constant = 0.0
+    override func preparePileCell() {
+        super.preparePileCell()
         hideButtons()
-        isSwiping = false
-    }
-    func enablePan() {
-        panGestureRecognizer?.isEnabled = true
-    }
-    func disablePan() {
-        panGestureRecognizer?.isEnabled = false
-    }
-    override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return !isSwiping
     }
 }

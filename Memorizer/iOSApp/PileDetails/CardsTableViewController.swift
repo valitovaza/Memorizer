@@ -19,6 +19,17 @@ class CardsTableViewController: UITableViewController, CardsTableListenerHolder,
         tableView.estimatedRowHeight = 78
         tableView.rowHeight = UITableViewAutomaticDimension
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        closeAllOpenedCells()
+    }
+    private func closeAllOpenedCells() {
+        for tableCell in tableView.visibleCells {
+            guard let pileCell = tableCell as? CardTableViewCell else { continue }
+            pileCell.closeButtonsAnimated()
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         tableListener?.cellSelected(at: indexPath.row)
@@ -30,6 +41,8 @@ class CardsTableViewController: UITableViewController, CardsTableListenerHolder,
         let cell: CardTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         let card = dataSource?.getCard(at: indexPath.row)
         configure(cell: cell, card: card)
+        cell.delegate = self
+        cell.preparePileCell()
         return cell
     }
     private func configure(cell: CardTableViewCell, card: Card?) {
@@ -37,8 +50,19 @@ class CardsTableViewController: UITableViewController, CardsTableListenerHolder,
         cell.frontTitle.text = card.front as? String
         cell.backTitle.text = card.back as? String
     }
-    override func tableView(_ tableView: UITableView,
-                            commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        tableListener?.scrollOccur()
+        closeAllOpenedCells()
+    }
+}
+extension CardsTableViewController: UITableReloader {
+    func reloadTable() {
+        tableView.reloadData()
+    }
+}
+extension CardsTableViewController: CardTableViewCellDelegate {
+    func onDelete(cell: CardTableViewCell) {
+        guard let indexPath = getIndexPath(for: cell) else { return }
         openDeleteAlert(at: indexPath)
     }
     private func openDeleteAlert(at index: IndexPath) {
@@ -53,12 +77,19 @@ class CardsTableViewController: UITableViewController, CardsTableListenerHolder,
         alert.addAction(UIAlertAction(title: L10n.cancel, style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        tableListener?.scrollOccur()
+    private func getIndexPath(for cell: CardTableViewCell) -> IndexPath? {
+        return tableView.indexPath(for: cell)
     }
-}
-extension CardsTableViewController: UITableReloader {
-    func reloadTable() {
-        tableView.reloadData()
+    func swipeInProgress(cell: CardTableViewCell) {
+        closeAllOpenedCells(except: cell)
+        tableView.isScrollEnabled = false
+        tableView.isScrollEnabled = true
+    }
+    private func closeAllOpenedCells(except cell: CardTableViewCell) {
+        for tableCell in tableView.visibleCells {
+            guard tableCell != cell else { continue }
+            guard let pileCell = tableCell as? CardTableViewCell else { continue }
+            pileCell.closeButtonsAnimated()
+        }
     }
 }
