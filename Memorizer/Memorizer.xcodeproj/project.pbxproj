@@ -48,6 +48,7 @@
 		56358B9E204280A200D9BFF4 /* CardPile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18EA1FEFB99600A750E5 /* CardPile.swift */; };
 		56358BA3204299C200D9BFF4 /* PilesRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA2204299C200D9BFF4 /* PilesRepositoryTests.swift */; };
 		56358BA5204299F500D9BFF4 /* PilesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56358BA4204299F500D9BFF4 /* PilesRepository.swift */; };
+		5643174E2094D47600AE9108 /* CardTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5643174D2094D47600AE9108 /* CardTextView.swift */; };
 		5644A8492078A8DE00401AE5 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5644A8482078A8DE00401AE5 /* CardView.xib */; };
 		5644A84B2078A8F400401AE5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644A84A2078A8F400401AE5 /* CardView.swift */; };
 		5644A84E2078D97100401AE5 /* CardHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644A84D2078D97100401AE5 /* CardHolder.swift */; };
@@ -236,6 +237,7 @@
 		56358BA2204299C200D9BFF4 /* PilesRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesRepositoryTests.swift; sourceTree = "<group>"; };
 		56358BA4204299F500D9BFF4 /* PilesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesRepository.swift; sourceTree = "<group>"; };
 		56358BA62042AF1200D9BFF4 /* SpinnerAnimatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerAnimatorTests.swift; sourceTree = "<group>"; };
+		5643174D2094D47600AE9108 /* CardTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextView.swift; sourceTree = "<group>"; };
 		5644A8482078A8DE00401AE5 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		5644A84A2078A8F400401AE5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5644A84D2078D97100401AE5 /* CardHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHolder.swift; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 			children = (
 				564DF0D520789D7F00AAFA3F /* CardDetailsViewController.swift */,
 				564DF0D72078A40700AAFA3F /* CardDetailsEventReceiver.swift */,
+				5643174D2094D47600AE9108 /* CardTextView.swift */,
 				5644A84A2078A8F400401AE5 /* CardView.swift */,
 				5644A8482078A8DE00401AE5 /* CardView.xib */,
 				564DF0D320789D1600AAFA3F /* Card.storyboard */,
@@ -1307,6 +1310,7 @@
 				567BD3D320763F720007344F /* PileDetailsEventReceiver.swift in Sources */,
 				5644A8672079F0DE00401AE5 /* NibLoadableView.swift in Sources */,
 				568991A9204C21D000776431 /* PileListEmptyViewController.swift in Sources */,
+				5643174E2094D47600AE9108 /* CardTextView.swift in Sources */,
 				5657CCF42075025800F090DC /* PileDetailsViewController.swift in Sources */,
 				5644A8652079F0C000401AE5 /* ReusableView.swift in Sources */,
 				56881DB220399450001BEBAD /* AppDelegate.swift in Sources */,

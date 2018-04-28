@@ -7,14 +7,13 @@ protocol CardViewDelegate: class {
 }
 class CardView: UIView {
     
-    
     @IBOutlet weak var firstBigTurnButton: UIButton!
     @IBOutlet weak var secondBigTurnButton: UIButton!
     @IBOutlet weak var firstSide: UIView!
     @IBOutlet weak var secondSide: UIView!
     @IBOutlet weak var firstTextHeight: NSLayoutConstraint!
-    @IBOutlet weak var firstTextView: UITextView!
-    @IBOutlet weak var secondTextView: UITextView!
+    @IBOutlet weak var firstTextView: CardTextView!
+    @IBOutlet weak var secondTextView: CardTextView!
     @IBOutlet weak var secondTextHeight: NSLayoutConstraint!
     
     weak var delegate: CardViewDelegate?
@@ -29,6 +28,8 @@ class CardView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         onAwakeFromNib()
+        firstTextView.preferredLanguage = CardViewKeyboardSuggestions.firstPreferredLanguage
+        secondTextView.preferredLanguage = CardViewKeyboardSuggestions.secondPreferredLanguage
     }
     private func onAwakeFromNib() {
         secondSide.isHidden = true
@@ -137,5 +138,33 @@ extension CardView: UITextViewDelegate {
             return false
         }
         return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        guard let primaryLanguage = textView.textInputMode?.primaryLanguage else { return }
+        guard let cardTextView = textView as? CardTextView else { return }
+        cardTextView.preferredLanguage = primaryLanguage
+        if cardTextView == firstTextView {
+            CardViewKeyboardSuggestions.setFirstPreferredLanguage(primaryLanguage)
+        }else{
+            CardViewKeyboardSuggestions.setSecondPreferredLanguage(primaryLanguage)
+        }
+    }
+}
+struct CardViewKeyboardSuggestions {
+    private static let firstKeyboardPrimaryLanguageKey = "com.memorizer.firstKeyboardPrimaryLanguageKey"
+    private static let secondKeyboardPrimaryLanguageKey = "com.memorizer.secondKeyboardPrimaryLanguageKey"
+    private static let userDefaults = UserDefaults.standard
+    static func setFirstPreferredLanguage(_ lang: String) {
+        userDefaults.set(lang, forKey: firstKeyboardPrimaryLanguageKey)
+    }
+    static var firstPreferredLanguage: String? {
+        return userDefaults.object(forKey: firstKeyboardPrimaryLanguageKey) as? String
+    }
+    static func setSecondPreferredLanguage(_ lang: String) {
+        userDefaults.set(lang, forKey: secondKeyboardPrimaryLanguageKey)
+    }
+    static var secondPreferredLanguage: String? {
+        return userDefaults.object(forKey: secondKeyboardPrimaryLanguageKey) as? String
     }
 }
