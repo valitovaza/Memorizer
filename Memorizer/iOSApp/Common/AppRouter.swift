@@ -39,10 +39,13 @@ protocol CreateCardRouter {
 import UIKit
 
 class AppRouter {
-    private var startViewController: UIViewController
+    private var initialViewController: UIViewController
     private var modalStack: [UIViewController] = []
-    init(_ startViewController: UIViewController) {
-        self.startViewController = startViewController
+    init(_ initialViewController: UIViewController) {
+        self.initialViewController = initialViewController
+    }
+    private var startViewController: UIViewController {
+        return initialViewController.childViewControllers.first ?? initialViewController
     }
 }
 extension AppRouter: RoutersProvider {
@@ -114,7 +117,7 @@ extension AppRouter: PileListRouter {
         navigationController?.pushViewController(reviseVc, animated: true)
     }
     private var navigationController: UINavigationController? {
-        return startViewController.childViewControllers.compactMap({$0 as? UINavigationController}).first
+        return initialViewController.childViewControllers.compactMap({$0 as? UINavigationController}).first
     }
 }
 extension AppRouter: PileDetailsRouter {

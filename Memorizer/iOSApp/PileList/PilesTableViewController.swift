@@ -25,6 +25,17 @@ class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        closeAllOpenedCells()
+    }
+    private func closeAllOpenedCells() {
+        for tableCell in tableView.visibleCells {
+            guard let pileCell = tableCell as? PileCell else { continue }
+            pileCell.closeButtonsAnimated()
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return dataSource.sectionsCount
     }
@@ -64,12 +75,14 @@ class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
         cell.titleLabel.text = item.title
         cell.subtitleLabel.text = formatedTitle(item.createdDate)
         configureState(of: cell, at: indexPath)
+        cell.delegate = self
+        cell.preparePileCell()
     }
     private func configureState(of cell: PileCell, at indexPath: IndexPath) {
         switch state {
         case .normal:
             cell.selectImage.isHidden = true
-            cell.leadingConstraint.constant = 0
+            cell.leadingConstraint.constant = PileCell.closedConstraint
         case .combine:
             cell.selectImage.isHidden = false
             configure(selectedImage: cell.selectImage, at: indexPath)
@@ -102,35 +115,6 @@ class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
         return formatter.string(from: date)
-    }
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .destructive, title: L10n.delete) { action, index in
-            self.openDeleteAlert(at: index)
-        }
-        let editAction = UITableViewRowAction(style: .normal, title: L10n.edit) { action, index in
-            self.eventHandler?.handle(event: .openDetails(section: index.section, row: index.row))
-        }
-        editAction.backgroundColor = UIColor.blue
-        let combineAction = UITableViewRowAction(style: .normal, title: L10n.combine) { action, index in
-            self.eventHandler?.handle(event: .onCombine(section: index.section, row: index.row))
-        }
-        combineAction.backgroundColor = UIColor.brown
-        return [combineAction, editAction, deleteAction]
-    }
-    private func openDeleteAlert(at index: IndexPath) {
-        let alert = UIAlertController(title: L10n.deleteAlert,
-                                      message: nil,
-                                      preferredStyle: UIAlertControllerStyle.alert)
-        let deleteAction = UIAlertAction(title: L10n.delete, style: UIAlertActionStyle.destructive)
-        { action -> Void in
-            self.eventHandler?.handle(event: .onDelete(section: index.section, row: index.row))
-        }
-        alert.addAction(deleteAction)
-        alert.addAction(UIAlertAction(title: L10n.cancel, style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
 }
 extension PilesTableViewController: PilesDataSourceDelegate {
@@ -179,5 +163,50 @@ extension PilesTableViewController: PilesTableView {
     }
     func getSelectedIndexes() -> [IndexPath] {
         return selectedIndexes
+    }
+}
+extension PilesTableViewController: PileCellDelegate {
+    func onDelete(cell: PileCell) {
+        guard let indexPath = getIndexPath(for: cell) else { return }
+        openDeleteAlert(at: indexPath)
+    }
+    private func openDeleteAlert(at index: IndexPath) {
+        let alert = UIAlertController(title: L10n.deleteAlert,
+                                      message: nil,
+                                      preferredStyle: UIAlertControllerStyle.alert)
+        let deleteAction = UIAlertAction(title: L10n.delete, style: UIAlertActionStyle.destructive)
+        { action -> Void in
+            self.eventHandler?.handle(event: .onDelete(section: index.section, row: index.row))
+        }
+        alert.addAction(deleteAction)
+        alert.addAction(UIAlertAction(title: L10n.cancel, style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    private func getIndexPath(for cell: PileCell) -> IndexPath? {
+        return tableView.indexPath(for: cell)
+    }
+    func onEdit(cell: PileCell) {
+        guard let indexPath = getIndexPath(for: cell) else { return }
+        eventHandler?.handle(event: .openDetails(section: indexPath.section, row: indexPath.row))
+    }
+    func onCombine(cell: PileCell) {
+        guard let indexPath = getIndexPath(for: cell) else { return }
+        self.eventHandler?.handle(event: .onCombine(section: indexPath.section, row: indexPath.row))
+    }
+    func swipeInProgress(cell: PileCell) {
+        closeAllOpenedCells(except: cell)
+        tableView.isScrollEnabled = false
+        tableView.isScrollEnabled = true
+    }
+    private func closeAllOpenedCells(except cell: PileCell) {
+        for tableCell in tableView.visibleCells {
+            guard tableCell != cell else { continue }
+            guard let pileCell = tableCell as? PileCell else { continue }
+            pileCell.closeButtonsAnimated()
+        }
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        closeAllOpenedCells()
     }
 }
