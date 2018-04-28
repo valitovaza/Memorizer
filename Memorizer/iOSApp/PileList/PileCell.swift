@@ -90,7 +90,6 @@ class PileCell: UITableViewCell {
             }
             isSwiping = false
         default:
-            print("asdsad")
             guard isSwiping else { return }
             closeButtonsAnimated()
             isSwiping = false
