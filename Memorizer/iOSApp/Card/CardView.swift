@@ -121,13 +121,13 @@ extension CardView: UITextViewDelegate {
             configureSecondTextViewHeight()
         }
     }
-    private func configureFirstTextViewHeight() {
+    func configureFirstTextViewHeight() {
         configureHeight(of: firstTextView, constraint: firstTextHeight)
     }
     private func configureHeight(of tv: UITextView, constraint: NSLayoutConstraint) {
         constraint.constant = tv.contentSize.height + tv.textContainerInset.top + tv.textContainerInset.bottom
     }
-    private func configureSecondTextViewHeight() {
+    func configureSecondTextViewHeight() {
         configureHeight(of: secondTextView, constraint: secondTextHeight)
     }
     

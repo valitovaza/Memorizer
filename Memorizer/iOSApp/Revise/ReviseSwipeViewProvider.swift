@@ -40,7 +40,9 @@ extension ReviseSwipeViewProvider: SwipeViewProvider {
     }
     private func configure(cardView: CardView, _ word: (front: String, back: String)) {
         cardView.firstTextView.text = word.front
+        cardView.configureFirstTextViewHeight()
         cardView.secondTextView.text = word.back
+        cardView.configureSecondTextViewHeight()
         if isReverted {
             cardView.turnToSecondWithoutAnimation()
         }else{
