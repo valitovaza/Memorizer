@@ -12,6 +12,7 @@ class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
         case onCombine(section: Int, row: Int)
         case selectedCountChanged(Int)
         case onSelect(section: Int, row: Int)
+        case viewDidAppear(PileListOnboardingAnimator, PileListDataSource)
     }
     
     var dataSource: PileListDataSource!
@@ -23,6 +24,11 @@ class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 69
         tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        eventHandler?.handle(event: .viewDidAppear(self, dataSource))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -209,6 +215,11 @@ extension PilesTableViewController: PileCellDelegate {
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         closeAllOpenedCells()
+    }
+}
+extension PilesTableViewController: PileListOnboardingAnimator {
+    func animatePileListOnboarding() {
+        tableView.visibleCells.compactMap({$0 as? PileCell}).first?.animateOnboarding()
     }
 }
 extension PileItem {

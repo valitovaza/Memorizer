@@ -95,4 +95,30 @@ class PileCell: SwipeTableCell {
         super.preparePileCell()
         hideButtons()
     }
+    func animateOnboarding() {
+        isUserInteractionEnabled = false
+        showButtons()
+        contentLeading.constant = -100.0
+        UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.layoutIfNeeded()
+        }) { (_) in
+            self.contentLeading.constant = 0.0
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.layoutIfNeeded()
+            }) { (_) in
+                self.contentLeading.constant = -60.0
+                UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseInOut, animations: {
+                    self.layoutIfNeeded()
+                }) { (_) in
+                    self.contentLeading.constant = 0.0
+                    UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
+                        self.layoutIfNeeded()
+                    }) { (_) in
+                        self.isUserInteractionEnabled = true
+                        self.hideButtons()
+                    }
+                }
+            }
+        }
+    }
 }

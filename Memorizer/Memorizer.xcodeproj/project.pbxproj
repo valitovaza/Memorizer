@@ -74,6 +74,7 @@
 		5657CCF820750DCF00F090DC /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657CCF720750DCF00F090DC /* CardTableViewCell.swift */; };
 		5657CCFA20750EC800F090DC /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657CCF920750EC800F090DC /* AppRouter.swift */; };
 		565AA899209878180040D360 /* SwipeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565AA898209878180040D360 /* SwipeTableCell.swift */; };
+		565AA89B209885390040D360 /* PileListOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565AA89A209885390040D360 /* PileListOnboarding.swift */; };
 		5674CFBD208AE91B00A1CD40 /* WordReviser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFBC208AE91B00A1CD40 /* WordReviser.swift */; };
 		5674CFBF208B3C0B00A1CD40 /* PluggableAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFBE208B3C0A00A1CD40 /* PluggableAppDelegate.swift */; };
 		5674CFC1208B3C6100A1CD40 /* ApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFC0208B3C6100A1CD40 /* ApplicationService.swift */; };
@@ -261,6 +262,7 @@
 		5657CCF720750DCF00F090DC /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		5657CCF920750EC800F090DC /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		565AA898209878180040D360 /* SwipeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableCell.swift; sourceTree = "<group>"; };
+		565AA89A209885390040D360 /* PileListOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListOnboarding.swift; sourceTree = "<group>"; };
 		5674CFBC208AE91B00A1CD40 /* WordReviser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordReviser.swift; sourceTree = "<group>"; };
 		5674CFBE208B3C0A00A1CD40 /* PluggableAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluggableAppDelegate.swift; sourceTree = "<group>"; };
 		5674CFC0208B3C6100A1CD40 /* ApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationService.swift; sourceTree = "<group>"; };
@@ -774,6 +776,7 @@
 				568991A8204C21D000776431 /* PileListEmptyViewController.swift */,
 				560A2C122070DFE900CA9D6A /* PilesTableViewController.swift */,
 				56E51C532081F40B0029641E /* PilesTableEventReceiver.swift */,
+				565AA89A209885390040D360 /* PileListOnboarding.swift */,
 				56E51C552081FDC30029641E /* CombineWorker.swift */,
 				565AA898209878180040D360 /* SwipeTableCell.swift */,
 				560A2C182070E1B500CA9D6A /* PileCell.swift */,
@@ -1310,6 +1313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				565AA89B209885390040D360 /* PileListOnboarding.swift in Sources */,
 				567BD3D320763F720007344F /* PileDetailsEventReceiver.swift in Sources */,
 				5644A8672079F0DE00401AE5 /* NibLoadableView.swift in Sources */,
 				568991A9204C21D000776431 /* PileListEmptyViewController.swift in Sources */,

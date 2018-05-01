@@ -1,6 +1,6 @@
 import iOSAdapters
 
-class PilesTableEventReceiver {
+class PilesTableEventReceiver {    
     var router: PileListRouter = RouterFactory.getPileListRouter()
     private var pileItemCleanerInTable: PileItemCleanerInTable
     private let pilesCombiner: PilesCombiner
@@ -22,6 +22,14 @@ extension PilesTableEventReceiver: PilesTableEventHandler {
             pilesCombiner.selectedCountChanged(count)
         case .onSelect(section: let section, row: let row):
             router.openPileToRevise(at: section, row: row)
+        case .viewDidAppear(let animator, let dataSource):
+            if dataSource.sectionsCount > 0 {
+                PileListOnboarding(animator, dataSource).animateIfNeed()
+            }else{
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+                    PileListOnboarding(animator, dataSource).animateIfNeed()
+                }
+            }
         }
     }
 }
