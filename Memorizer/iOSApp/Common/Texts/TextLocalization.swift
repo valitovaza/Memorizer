@@ -20,7 +20,9 @@ enum L10n {
     static var pileRevised: String { return localize("Localizable", "pile_revised") }
     static var localNotificationTitle: String { return localize("Localizable", "local_notification_title") }
     static var count: String { return localize("Localizable", "count") }
-
+    static var info: String { return localize("Localizable", "info") }
+    static var swipeInfo: String { return localize("Localizable", "swipe_info") }
+    
     private static func localize(_ table: String, _ key: String, _ args: CVarArg...) -> String {
         return localizeFunc(table, key, args)
     }

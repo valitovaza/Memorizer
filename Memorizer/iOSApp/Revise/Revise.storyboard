@@ -53,7 +53,41 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nHX-Ui-DcH"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Revise pile" id="kzP-Nr-0fh"/>
+                    <navigationItem key="navigationItem" title="Revise pile" id="kzP-Nr-0fh">
+                        <barButtonItem key="rightBarButtonItem" id="5Ow-To-uc9">
+                            <view key="customView" contentMode="scaleToFill" id="uHd-1g-Fnv">
+                                <rect key="frame" x="315" y="0.0" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kz-wE-wdG">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="900" constant="44" id="QUi-7g-yPT"/>
+                                            <constraint firstAttribute="width" priority="900" constant="44" id="vdd-av-G3w"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="infoAction:" destination="t7b-gE-p3v" eventType="touchUpInside" id="wcb-AC-p9X"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLc-uf-SCZ">
+                                        <rect key="frame" x="21" y="11" width="22" height="22"/>
+                                        <connections>
+                                            <action selector="infoAction:" destination="t7b-gE-p3v" eventType="touchUpInside" id="Rs8-DB-XXP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="1Kz-wE-wdG" secondAttribute="trailing" id="6XF-mG-KQH"/>
+                                    <constraint firstItem="vLc-uf-SCZ" firstAttribute="centerY" secondItem="1Kz-wE-wdG" secondAttribute="centerY" id="799-yZ-g1n"/>
+                                    <constraint firstItem="vLc-uf-SCZ" firstAttribute="centerX" secondItem="1Kz-wE-wdG" secondAttribute="centerX" constant="10" id="Raa-Og-2Ly"/>
+                                    <constraint firstAttribute="bottom" secondItem="1Kz-wE-wdG" secondAttribute="bottom" id="aTq-45-brr"/>
+                                    <constraint firstItem="1Kz-wE-wdG" firstAttribute="top" secondItem="uHd-1g-Fnv" secondAttribute="top" id="oQ4-WD-4Hw"/>
+                                    <constraint firstItem="1Kz-wE-wdG" firstAttribute="leading" secondItem="uHd-1g-Fnv" secondAttribute="leading" id="uHy-gn-PDz"/>
+                                </constraints>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="swipeView" destination="723-TH-NZP" id="z2t-wy-pa4"/>
                     </connections>

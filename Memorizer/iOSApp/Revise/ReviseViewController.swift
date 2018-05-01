@@ -28,6 +28,10 @@ class ReviseViewController: UIViewController {
     
     @IBOutlet weak var swipeView: SwipeView!
     
+    @IBAction func infoAction(_ sender: Any) {
+        presentAlert(L10n.info, L10n.swipeInfo)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         onLoad()
@@ -62,12 +66,17 @@ extension ReviseViewController: WordReviserView {
         presentRevisedAlert()
     }
     private func presentRevisedAlert() {
-        let alert = UIAlertController(title: L10n.pileRevised,
-                                      message: nil,
+        presentAlert(L10n.pileRevised, nil) {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    private func presentAlert(_ title: String, _ message: String?, _ completion: (()->())? = nil) {
+        let alert = UIAlertController(title: title,
+                                      message: message,
                                       preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
         { action -> Void in
-            self.navigationController?.popViewController(animated: true)
+            completion?()
         }
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)

@@ -17,3 +17,5 @@
 "pile_revised" = "Pile revised!";
 "local_notification_title" = "You have piles to revise";
 "count" = "Count";
+"info" = "Info";
+"swipe_info" = "Swipe right to show that you recollect related hidden side of the card, swipe left means you can not remember or it's hard to recollect.\nIn order to check and revise just tap to turn the card. The cards you swiped left will be shown again.\nYou should swipe all cards right three times to revise the whole pile. You will be informed that it is revised.\nMemorizer will alert you when you need to revise the pile again. The main principle for remembering is a revision and we will help you with this.";
