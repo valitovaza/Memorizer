@@ -184,9 +184,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Nov 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZW-pX-T5Z">
-                                                    <rect key="frame" x="66" y="39.5" width="293" height="19.5"/>
+                                                    <rect key="frame" x="66" y="39.5" width="244.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="1 card" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSE-jt-qAI">
+                                                    <rect key="frame" x="318.5" y="43" width="36.5" height="16"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselectedCircle" translatesAutoresizingMaskIntoConstraints="NO" id="P82-h9-OHW">
@@ -195,8 +201,10 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="KZW-pX-T5Z" firstAttribute="trailing" secondItem="ChY-O5-mjq" secondAttribute="trailing" id="5Jb-VB-yAF"/>
+                                                <constraint firstAttribute="trailing" secondItem="zSE-jt-qAI" secondAttribute="trailing" constant="20" symbolic="YES" id="2oo-t9-QG8"/>
                                                 <constraint firstAttribute="bottom" secondItem="KZW-pX-T5Z" secondAttribute="bottom" constant="10" id="Bvw-Lg-a03"/>
+                                                <constraint firstItem="zSE-jt-qAI" firstAttribute="bottom" secondItem="KZW-pX-T5Z" secondAttribute="bottom" id="GAX-S2-0Es"/>
+                                                <constraint firstItem="zSE-jt-qAI" firstAttribute="leading" secondItem="KZW-pX-T5Z" secondAttribute="trailing" constant="8" symbolic="YES" id="HhS-wp-ZdP"/>
                                                 <constraint firstItem="ChY-O5-mjq" firstAttribute="leading" secondItem="RnL-wL-DGl" secondAttribute="leading" constant="66" id="Jy3-Um-u3K"/>
                                                 <constraint firstItem="ChY-O5-mjq" firstAttribute="leading" secondItem="P82-h9-OHW" secondAttribute="trailing" constant="16" id="U6e-6X-8TQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="ChY-O5-mjq" secondAttribute="trailing" constant="16" id="YKX-C4-IdR"/>
@@ -225,6 +233,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="buttonWidth" destination="ejf-8i-ugr" id="82Z-GO-9uN"/>
+                                    <outlet property="cardCountLabel" destination="zSE-jt-qAI" id="ySj-yx-TVM"/>
                                     <outlet property="combineButton" destination="cq1-Qs-36n" id="HmB-RC-kTH"/>
                                     <outlet property="contentLeading" destination="0me-MQ-zHu" id="5TT-0w-mBX"/>
                                     <outlet property="deleteButton" destination="f3d-Dj-AB9" id="AJD-um-cuD"/>

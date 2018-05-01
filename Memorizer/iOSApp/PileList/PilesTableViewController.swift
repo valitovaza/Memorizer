@@ -74,6 +74,7 @@ class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
         let item = dataSource.itemIn(section: indexPath.section, row: indexPath.row)
         cell.titleLabel.text = item.title
         cell.subtitleLabel.text = formatedTitle(item.createdDate)
+        cell.cardCountLabel.text = "\(L10n.count): \(item.cardCount)"
         configureState(of: cell, at: indexPath)
         cell.delegate = self
         cell.preparePileCell()
@@ -208,5 +209,11 @@ extension PilesTableViewController: PileCellDelegate {
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         closeAllOpenedCells()
+    }
+}
+extension PileItem {
+    var cardCount: Int {
+        guard let cardPile = pile as? CardPile else { return 0 }
+        return cardPile.cards.count
     }
 }
