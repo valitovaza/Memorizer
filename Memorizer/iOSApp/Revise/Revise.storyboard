@@ -42,13 +42,23 @@
                                     <constraint firstAttribute="width" secondItem="723-TH-NZP" secondAttribute="height" multiplier="15:9" priority="900" id="eq4-tN-7FI"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbsUp" translatesAutoresizingMaskIntoConstraints="NO" id="xG9-r3-IL2">
+                                <rect key="frame" x="313" y="84" width="42" height="42"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbsDown" translatesAutoresizingMaskIntoConstraints="NO" id="fLE-jo-Wr3">
+                                <rect key="frame" x="20" y="84" width="42" height="42"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fLE-jo-Wr3" firstAttribute="leading" secondItem="nHX-Ui-DcH" secondAttribute="leading" constant="20" id="BMB-tE-Eud"/>
                             <constraint firstItem="nHX-Ui-DcH" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="723-TH-NZP" secondAttribute="bottom" constant="40" id="Fmd-lK-3xc"/>
                             <constraint firstItem="723-TH-NZP" firstAttribute="centerX" secondItem="nHX-Ui-DcH" secondAttribute="centerX" id="OFi-E4-AlP"/>
                             <constraint firstItem="723-TH-NZP" firstAttribute="centerY" secondItem="nHX-Ui-DcH" secondAttribute="centerY" multiplier="0.8" priority="900" id="UoE-sL-RaX"/>
+                            <constraint firstItem="xG9-r3-IL2" firstAttribute="top" secondItem="nHX-Ui-DcH" secondAttribute="top" constant="20" id="Ygo-mH-qfY"/>
+                            <constraint firstItem="fLE-jo-Wr3" firstAttribute="top" secondItem="nHX-Ui-DcH" secondAttribute="top" constant="20" id="eaH-sq-xbz"/>
                             <constraint firstItem="723-TH-NZP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nHX-Ui-DcH" secondAttribute="top" constant="40" id="f41-GU-VDi"/>
+                            <constraint firstItem="nHX-Ui-DcH" firstAttribute="trailing" secondItem="xG9-r3-IL2" secondAttribute="trailing" constant="20" id="p4n-gQ-pl7"/>
                             <constraint firstItem="723-TH-NZP" firstAttribute="width" secondItem="aGf-RV-qi9" secondAttribute="width" multiplier="0.9" id="u1Q-V0-X0b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nHX-Ui-DcH"/>
@@ -90,6 +100,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="swipeView" destination="723-TH-NZP" id="z2t-wy-pa4"/>
+                        <outlet property="thumbsDown" destination="fLE-jo-Wr3" id="DXA-IW-E41"/>
+                        <outlet property="thumbsUp" destination="xG9-r3-IL2" id="iHk-gN-SB9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4l-Vl-Cpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -97,4 +109,8 @@
             <point key="canvasLocation" x="106" y="144"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="thumbsDown" width="42" height="42"/>
+        <image name="thumbsUp" width="42" height="42"/>
+    </resources>
 </document>

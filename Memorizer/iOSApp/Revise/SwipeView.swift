@@ -2,6 +2,8 @@ import UIKit
 
 protocol SwipeViewDelegate: class {
     func swiped(to: SwipeDirection)
+    func dragged(_ dragDistance: CGPoint)
+    func swipeCancelled()
 }
 protocol SwipeViewProvider: class {
     func nextSwipeView() -> UIView?
@@ -84,11 +86,13 @@ class SwipeView: UIView, UIGestureRecognizerDelegate {
         case .changed:
             applyTransformations(of: currentSwipeContainer,
                                  relatedTo: gestureRecognizer.translation(in: self))
+            delegate?.dragged(gestureRecognizer.translation(in: self))
         case .ended:
             endSwipe(for: currentSwipeContainer,
                      with: gestureRecognizer.velocity(in: currentSwipeContainer))
         default:
             resetWithAnimationPosition(of: currentSwipeContainer)
+            delegate?.swipeCancelled()
         }
     }
     private func prepareSwipe(for content: UIView, with firstTouchPoint: CGPoint) {
@@ -121,6 +125,7 @@ class SwipeView: UIView, UIGestureRecognizerDelegate {
             animateTillRemove(content, with: velocity)
         }else{
             resetWithAnimationPosition(of: content)
+            delegate?.swipeCancelled()
         }
     }
     private func canBeSwiped(_ content: UIView, velocity: CGPoint) -> Bool {
