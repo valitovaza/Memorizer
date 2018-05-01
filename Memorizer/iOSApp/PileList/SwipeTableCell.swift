@@ -4,7 +4,12 @@ class SwipeTableCell: UITableViewCell {
     
     fileprivate var panGestureRecognizer: UIPanGestureRecognizer?
     fileprivate var beginXPosition: CGFloat = 0.0
-    fileprivate var isSwiping = false
+    private static var isAnyCellSwiping = false
+    fileprivate var isSwiping = false {
+        didSet {
+            SwipeTableCell.isAnyCellSwiping = isSwiping
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +30,7 @@ class SwipeTableCell: UITableViewCell {
     @objc func panGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
         switch gestureRecognizer.state {
         case .began:
+            guard !SwipeTableCell.isAnyCellSwiping else { return }
             guard canStartToSwipe(gestureRecognizer) else { return }
             isSwiping = true
             beginXPosition = contentConstraint?.constant ?? 0.0
@@ -66,6 +72,7 @@ class SwipeTableCell: UITableViewCell {
     func preparePileCell() {
         layer.removeAllAnimations()
         contentConstraint?.constant = 0.0
+        guard isSwiping else { return }
         isSwiping = false
     }
     func cancelGesture() {
