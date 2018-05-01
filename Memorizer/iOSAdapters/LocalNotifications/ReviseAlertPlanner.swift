@@ -27,9 +27,23 @@ extension ReviseAlertPlanner: PileItemRepositoryDelegate {
         guard canBeRevisedItems.count > 0 else { return }
         let sortedByIntervalTillAlert = canBeRevisedItems
             .sorted(by: {$0.intervalToRevise < $1.intervalToRevise})
-        let alertDate = currentDateProvider.currentDate
-            .addingTimeInterval(sortedByIntervalTillAlert.first!.intervalToRevise)
-        scheduler.schedule(at: alertDate)
+        scheduler.schedule(at: alertDate(for: sortedByIntervalTillAlert.first!.intervalToRevise))
+    }
+    private func alertDate(for intervalToRevise: TimeInterval) -> Date {
+        let alertDate = currentDateProvider.currentDate.addingTimeInterval(intervalToRevise)
+        guard let earliestDate = Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: Date()) else {
+            return alertDate
+        }
+        guard let latestDate = Calendar.current.date(bySettingHour: 23, minute: 0, second: 0, of: Date()) else {
+            return alertDate
+        }
+        if alertDate < earliestDate {
+            return earliestDate
+        }else if alertDate > latestDate {
+            return earliestDate.addingTimeInterval(24 * 60 * 60)
+        }else {
+            return alertDate
+        }
     }
     public func onPileAdded(pile: PileItem, at index: Int) {
         planOrRemoveLocalNotificationIfNeed()
