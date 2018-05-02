@@ -7,7 +7,8 @@ protocol PilesCacheWorker {
 
 import Cadmium
 
-class CoreDataPileWorker: PilesCacheWorker {
+public class CoreDataPileWorker: PilesCacheWorker {
+    public init() {}
     func fetchPiles(_ completion: @escaping ([IdentifyablePileItem])->()) {
         Cd.transact {
             var fetchedItems: [IdentifyablePileItem] = []
@@ -102,6 +103,69 @@ class CoreDataPileWorker: PilesCacheWorker {
                     .filter(NSPredicate(format: "id == %lld", id)).fetchOne() else { return }
                 try self.fillInfo(pileToEdit, pileItem)
                 try Cd.commit()
+            } catch let error {
+                print("\(error)")
+            }
+        }
+    }
+}
+extension CoreDataPileWorker: CoreDataSaver {
+    public func save(_ loadedPiles: [PileItemWithNetId], _ completion: @escaping (Bool)->()) {
+        Cd.transact {
+            var hasChanges = false
+            defer {
+                DispatchQueue.main.async {
+                    completion(hasChanges)
+                }
+            }
+            do {
+                var nextId = try self.getNextIdForCDPile()
+                for pileWithId in loadedPiles {
+                    guard try self.getPile(by: pileWithId.netId) == nil else { continue }
+                    hasChanges = true
+                    let cdPile = try Cd.create(CDPile.self)
+                    cdPile.id = nextId
+                    cdPile.netId = pileWithId.netId
+                    try self.fillInfo(cdPile, pileWithId.pileItem)
+                    nextId += 1
+                }
+                if hasChanges {
+                    try Cd.commit()
+                }
+            } catch let error {
+                print("\(error)")
+            }
+        }
+    }
+    private func getPile(by netId: String) throws -> CDPile? {
+        return try Cd.objects(CDPile.self).filter(NSPredicate(format: "netId == %@", netId)).fetchOne()
+    }
+}
+extension CoreDataPileWorker: CacheIdResolver {
+    func save(netId: String, for cacheId: Int64) {
+        Cd.transact {
+            do {
+                guard let pile = try Cd.objects(CDPile.self)
+                    .filter(NSPredicate(format: "id == %lld", cacheId)).fetchOne() else { return }
+                pile.netId = netId
+                try Cd.commit()
+            } catch let error {
+                print("\(error)")
+            }
+        }
+    }
+    func getNetId(for coreDataId: Int64, _ completion: @escaping (String?)->()) {
+        Cd.transact {
+            var netId: String?
+            defer {
+                DispatchQueue.main.async {
+                    completion(netId)
+                }
+            }
+            do {
+                guard let pile = try Cd.objects(CDPile.self)
+                    .filter(NSPredicate(format: "id == %lld", coreDataId)).fetchOne() else { return }
+                netId = pile.netId
             } catch let error {
                 print("\(error)")
             }

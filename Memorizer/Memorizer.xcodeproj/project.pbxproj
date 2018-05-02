@@ -75,6 +75,9 @@
 		5657CCFA20750EC800F090DC /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657CCF920750EC800F090DC /* AppRouter.swift */; };
 		565AA899209878180040D360 /* SwipeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565AA898209878180040D360 /* SwipeTableCell.swift */; };
 		565AA89B209885390040D360 /* PileListOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565AA89A209885390040D360 /* PileListOnboarding.swift */; };
+		565BB62C2099F9B500AF1C2F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 565BB62B2099F9B500AF1C2F /* CloudKit.framework */; };
+		565BB62F2099FB0D00AF1C2F /* CloudKitCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565BB62E2099FB0D00AF1C2F /* CloudKitCache.swift */; };
+		565BB633209A0DA600AF1C2F /* PilesCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565BB632209A0DA600AF1C2F /* PilesCache.swift */; };
 		5674CFBD208AE91B00A1CD40 /* WordReviser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFBC208AE91B00A1CD40 /* WordReviser.swift */; };
 		5674CFBF208B3C0B00A1CD40 /* PluggableAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFBE208B3C0A00A1CD40 /* PluggableAppDelegate.swift */; };
 		5674CFC1208B3C6100A1CD40 /* ApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674CFC0208B3C6100A1CD40 /* ApplicationService.swift */; };
@@ -263,6 +266,10 @@
 		5657CCF920750EC800F090DC /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		565AA898209878180040D360 /* SwipeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableCell.swift; sourceTree = "<group>"; };
 		565AA89A209885390040D360 /* PileListOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileListOnboarding.swift; sourceTree = "<group>"; };
+		565BB62A2099F9B000AF1C2F /* iOSApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSApp.entitlements; sourceTree = "<group>"; };
+		565BB62B2099F9B500AF1C2F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		565BB62E2099FB0D00AF1C2F /* CloudKitCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitCache.swift; sourceTree = "<group>"; };
+		565BB632209A0DA600AF1C2F /* PilesCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesCache.swift; sourceTree = "<group>"; };
 		5674CFBC208AE91B00A1CD40 /* WordReviser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordReviser.swift; sourceTree = "<group>"; };
 		5674CFBE208B3C0A00A1CD40 /* PluggableAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluggableAppDelegate.swift; sourceTree = "<group>"; };
 		5674CFC0208B3C6100A1CD40 /* ApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationService.swift; sourceTree = "<group>"; };
@@ -353,6 +360,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				565BB62C2099F9B500AF1C2F /* CloudKit.framework in Frameworks */,
 				56881DDB20399978001BEBAD /* iOSAdapters.framework in Frameworks */,
 				34EC9F0D1064B53EDFC618B4 /* Pods_iOSApp.framework in Frameworks */,
 			);
@@ -566,10 +574,20 @@
 			path = PileDetails;
 			sourceTree = "<group>";
 		};
+		565BB62D2099FADA00AF1C2F /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				565BB62E2099FB0D00AF1C2F /* CloudKitCache.swift */,
+			);
+			path = CloudKit;
+			sourceTree = "<group>";
+		};
 		5674CFC2208B40FC00A1CD40 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
 				5674CFC3208B410100A1CD40 /* CoreData */,
+				565BB62D2099FADA00AF1C2F /* CloudKit */,
+				565BB632209A0DA600AF1C2F /* PilesCache.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -626,6 +644,7 @@
 		56881DB020399450001BEBAD /* iOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				565BB62A2099F9B000AF1C2F /* iOSApp.entitlements */,
 				56881DF620399E1B001BEBAD /* Common */,
 				56C446352041424E00D5D9B2 /* PileList */,
 				5657CCF02075016700F090DC /* PileDetails */,
@@ -837,6 +856,7 @@
 		6C379C067015851AA50FFD17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				565BB62B2099F9B500AF1C2F /* CloudKit.framework */,
 				15F97818834DBB1E876235BF /* Pods_iOSAdapters.framework */,
 				FC7C8B918C455A4A00EBF69B /* Pods_iOSAdaptersTests.framework */,
 				DCB1C6DB131CEF5613B1548F /* Pods_iOSAppTests.framework */,
@@ -993,6 +1013,14 @@
 					56881DAE20399450001BEBAD = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					56881DC520399978001BEBAD = {
 						CreatedOnToolsVersion = 9.2;
@@ -1378,6 +1406,7 @@
 				5644A85C2078F5C600401AE5 /* PileDetailsPresenter.swift in Sources */,
 				5644A8522078E27F00401AE5 /* String+.swift in Sources */,
 				560A2C172070E17700CA9D6A /* Date+.swift in Sources */,
+				565BB62F2099FB0D00AF1C2F /* CloudKitCache.swift in Sources */,
 				5674CFC1208B3C6100A1CD40 /* ApplicationService.swift in Sources */,
 				56358B6E2041797300D9BFF4 /* ViewControllerCreator.swift in Sources */,
 				5674CFC5208B412300A1CD40 /* CoreDataService.swift in Sources */,
@@ -1397,6 +1426,7 @@
 				5674CFE3208B449F00A1CD40 /* CoreDataPileWorker.swift in Sources */,
 				56358B9C2042808A00D9BFF4 /* Card.swift in Sources */,
 				560A2C152070E14900CA9D6A /* Revisable.swift in Sources */,
+				565BB633209A0DA600AF1C2F /* PilesCache.swift in Sources */,
 				560A2C162070E15A00CA9D6A /* CurrentDateProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1704,6 +1734,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = iOSApp/iOSApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
@@ -1772,6 +1803,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = iOSApp/iOSApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;

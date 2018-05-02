@@ -9,6 +9,7 @@ class PileListEventReceiver {
     private let pilesReviseUpdater: PilesReviseUpdater
     var router: PileListRouter = RouterFactory.getPileListRouter()
     var pilesRepositoryListener: PilesRepositoryListener?
+    var pilesFetcher: PileItemRepository?
     init(_ pilesLoader: PilesLoader,
          _ pilesDataSource: PileListDataSource,
          _ pileItemContainer: PileItemContainer) {
@@ -26,7 +27,9 @@ extension PileListEventReceiver: PileListEventHandler {
         case .onPrepareSegue(var dataSourceHolder, let doneView):
             dataSourceHolder.dataSource = pilesDataSource
             let combineWorker = CombineWorker(doneView, dataSourceHolder, pileItemContainer)
-            dataSourceHolder.eventHandler = PilesTableEventReceiver(pileItemContainer, combineWorker)
+            let netWorker = CloudKitCache(CoreDataPileWorker(), PileUpdater(self))
+            dataSourceHolder.eventHandler = PilesTableEventReceiver(pileItemContainer,
+                                                                    combineWorker, netWorker)
             pilesDataSource.delegate = dataSourceHolder
             pilesRepositoryListener?.fetchedListeners = [TableReloaderAtFetch(dataSourceHolder)]
             self.combineWorker = combineWorker
@@ -37,5 +40,14 @@ extension PileListEventReceiver: PileListEventHandler {
         case .cancelTableSelection:
             combineWorker?.cancel()
         }
+    }
+}
+struct PileUpdater: PileUpdatesPresenter {
+    private weak var er: PileListEventReceiver?
+    init(_ er: PileListEventReceiver) {
+        self.er = er
+    }
+    func pilesLoaded() {
+        er?.pilesFetcher?.fetchPiles()
     }
 }

@@ -17,6 +17,7 @@ extension CDPile {
     }
 
     @NSManaged public var id: Int64
+    @NSManaged public var netId: String?
     @NSManaged public var title: String?
     @NSManaged public var createdDate: NSDate?
     @NSManaged public var revisedDate: NSDate?

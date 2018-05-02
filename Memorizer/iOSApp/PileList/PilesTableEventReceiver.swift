@@ -4,9 +4,13 @@ class PilesTableEventReceiver {
     var router: PileListRouter = RouterFactory.getPileListRouter()
     private var pileItemCleanerInTable: PileItemCleanerInTable
     private let pilesCombiner: PilesCombiner
-    init(_ pileItemCleanerInTable: PileItemCleanerInTable, _ pilesCombiner: PilesCombiner) {
+    private let netUpdater: NetUpdater
+    init(_ pileItemCleanerInTable: PileItemCleanerInTable,
+         _ pilesCombiner: PilesCombiner,
+         _ netUpdater: NetUpdater) {
         self.pileItemCleanerInTable = pileItemCleanerInTable
         self.pilesCombiner = pilesCombiner
+        self.netUpdater = netUpdater
     }
 }
 extension PilesTableEventReceiver: PilesTableEventHandler {
@@ -30,6 +34,7 @@ extension PilesTableEventReceiver: PilesTableEventHandler {
                     PileListOnboarding(animator, dataSource).animateIfNeed()
                 }
             }
+            netUpdater.fetchAndSavePilesOptionally()
         }
     }
 }

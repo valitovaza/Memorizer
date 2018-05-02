@@ -10,7 +10,7 @@ public class PilesRepository {
     public var delegate: PileItemRepositoryDelegate?
     public var indexResolver: RepositoryIndexFinder?
     private var piles: [IdentifyablePileItem] = []
-    var cache: PilesCacheWorker = CoreDataPileWorker()
+    var cache: PilesCacheWorker = PilesCache()
     public init() {}
     
     private var pileItems: [PileItem] {

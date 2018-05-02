@@ -25,6 +25,7 @@ class PileListVCCreator: ViewControllerCreator {
                                                   DependencyResolver.getPileListDataSource(),
                                                   DependencyResolver.getPileItemContainer())
         eventReceiver.pilesRepositoryListener = listener
+        eventReceiver.pilesFetcher = repository
         return eventReceiver
     }
 }
