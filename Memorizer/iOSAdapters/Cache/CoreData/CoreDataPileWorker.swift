@@ -140,6 +140,39 @@ extension CoreDataPileWorker: CoreDataSaver {
     private func getPile(by netId: String) throws -> CDPile? {
         return try Cd.objects(CDPile.self).filter(NSPredicate(format: "netId == %@", netId)).fetchOne()
     }
+    public func getNeedToSendPiles(_ completion: @escaping ([IdentifyablePileItem])->()) {
+        Cd.transact {
+            var fetchedItems: [IdentifyablePileItem] = []
+            defer {
+                DispatchQueue.main.async {
+                    completion(fetchedItems)
+                }
+            }
+            do {
+                let cdPiles = try self.getAllCDPilesWithoutNetId()
+                fetchedItems = cdPiles.map({IdentifyablePileItem($0.id, self.convert($0))})
+            } catch let error {
+                print("\(error)")
+            }
+        }
+    }
+    private func getAllCDPilesWithoutNetId() throws -> [CDPile] {
+        return try Cd.objects(CDPile.self).fetch().sorted(by: {$0.id < $1.id}).filter({$0.netId == nil})
+    }
+    public func relateNetAndCoreDataIds(_ ids: [Int64: String]) {
+        Cd.transact {
+            do {
+                for (id, netId) in ids {
+                    guard let pile = try Cd.objects(CDPile.self)
+                        .filter(NSPredicate(format: "id == %lld", id)).fetchOne() else { return }
+                    pile.netId = netId
+                }
+                try Cd.commit()
+            } catch let error {
+                print("\(error)")
+            }
+        }
+    }
 }
 extension CoreDataPileWorker: CacheIdResolver {
     func save(netId: String, for cacheId: Int64) {

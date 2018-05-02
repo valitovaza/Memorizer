@@ -35,6 +35,7 @@ extension PilesTableEventReceiver: PilesTableEventHandler {
                 }
             }
             netUpdater.fetchAndSavePilesOptionally()
+            netUpdater.sendLocalPilesOptionally()
         }
     }
 }

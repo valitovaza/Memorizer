@@ -1,4 +1,4 @@
-struct IdentifyablePileItem {
+public struct IdentifyablePileItem {
     let id: Int64
     let pileItem: PileItem
     init(_ id: Int64, _ pileItem: PileItem) {
