@@ -7,6 +7,13 @@ public class ReviseAlertPlanner: CurrentDateConsumer {
     public init(_ scheduler: LocalNotificationScheduler, _ allPilesProvider: AllPilesProvider) {
         self.scheduler = scheduler
         self.allPilesProvider = allPilesProvider
+        NotificationCenter.default.addObserver(self, selector: #selector(resignActive), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
+    }
+    @objc private func resignActive() {
+        planOrRemoveLocalNotificationIfNeed()
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 extension ReviseAlertPlanner: PileItemRepositoryDelegate {
