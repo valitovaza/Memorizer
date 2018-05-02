@@ -64,7 +64,7 @@ class SwipeTableCell: UITableViewCell {
     func onCloseActions() {
     }
     private func canStartToSwipe(_ gestureRecognizer: UIPanGestureRecognizer) -> Bool {
-        return abs(gestureRecognizer.translation(in: self).y) < abs(gestureRecognizer.translation(in: self).x)
+        return abs(gestureRecognizer.translation(in: self).y) <= abs(gestureRecognizer.translation(in: self).x)
     }
     override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return !isSwiping

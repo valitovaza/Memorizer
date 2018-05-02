@@ -50,6 +50,7 @@ class CardTableViewCell: SwipeTableCell {
         closeButtonsAnimated()
     }
     func closeButtonsAnimated() {
+        cancelGesture()
         guard cardContentLeading.constant != 0.0 else { return }
         cardContentLeading.constant = 0.0
         UIView.animate(withDuration: 0.3, animations: {

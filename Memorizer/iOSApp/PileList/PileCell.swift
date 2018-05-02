@@ -76,6 +76,7 @@ class PileCell: SwipeTableCell {
     }
 
     func closeButtonsAnimated() {
+        cancelGesture()
         guard contentLeading.constant != 0.0 else { return }
         contentLeading.constant = 0.0
         UIView.animate(withDuration: 0.3, animations: {
