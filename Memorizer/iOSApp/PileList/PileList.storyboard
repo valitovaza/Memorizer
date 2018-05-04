@@ -161,7 +161,7 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cq1-Qs-36n">
                                             <rect key="frame" x="295" y="0.0" width="80" height="68"/>
-                                            <color key="backgroundColor" red="1" green="0.40593946257227864" blue="0.13052167199938169" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="1" green="0.58039215686274503" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="80" id="6ep-RG-7sv"/>
                                             </constraints>

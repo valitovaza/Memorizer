@@ -79,7 +79,7 @@
                                             <action selector="infoAction:" destination="t7b-gE-p3v" eventType="touchUpInside" id="wcb-AC-p9X"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLc-uf-SCZ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLc-uf-SCZ">
                                         <rect key="frame" x="21" y="11" width="22" height="22"/>
                                         <connections>
                                             <action selector="infoAction:" destination="t7b-gE-p3v" eventType="touchUpInside" id="Rs8-DB-XXP"/>

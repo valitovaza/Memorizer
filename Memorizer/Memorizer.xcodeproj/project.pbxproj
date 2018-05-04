@@ -15,6 +15,7 @@
 		560A2C162070E15A00CA9D6A /* CurrentDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BE61B2053D684004F5B53 /* CurrentDateProvider.swift */; };
 		560A2C172070E17700CA9D6A /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569EBA01205EB4B0006A7B78 /* Date+.swift */; };
 		560A2C192070E1B500CA9D6A /* PileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A2C182070E1B500CA9D6A /* PileCell.swift */; };
+		562B6128209C6915007001DE /* CustomAppearanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562B6127209C6914007001DE /* CustomAppearanceService.swift */; };
 		562D18DF1FEEE2FD00A750E5 /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18DE1FEEE2FD00A750E5 /* CardTests.swift */; };
 		562D18E11FEEE32300A750E5 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18E01FEEE32300A750E5 /* Card.swift */; };
 		562D18E31FEF932400A750E5 /* CardPileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D18E21FEF932400A750E5 /* CardPileTests.swift */; };
@@ -210,6 +211,7 @@
 		47C3CDE1D3016B264159C504 /* Pods-iOSAdapters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSAdapters.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-iOSAdapters/Pods-iOSAdapters.debug.xcconfig"; sourceTree = "<group>"; };
 		560A2C122070DFE900CA9D6A /* PilesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilesTableViewController.swift; sourceTree = "<group>"; };
 		560A2C182070E1B500CA9D6A /* PileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PileCell.swift; sourceTree = "<group>"; };
+		562B6127209C6914007001DE /* CustomAppearanceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAppearanceService.swift; sourceTree = "<group>"; };
 		562D18D51FEEE23000A750E5 /* MemorizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemorizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		562D18DA1FEEE23000A750E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		562D18DE1FEEE2FD00A750E5 /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
@@ -696,6 +698,7 @@
 			isa = PBXGroup;
 			children = (
 				56881DB120399450001BEBAD /* AppDelegate.swift */,
+				562B6127209C6914007001DE /* CustomAppearanceService.swift */,
 				5674CFEB208B8F6F00A1CD40 /* LocalAlertTextProvider.swift */,
 				5674CFE6208B847000A1CD40 /* LocalNotificationService.swift */,
 				5674CFBE208B3C0A00A1CD40 /* PluggableAppDelegate.swift */,
@@ -1378,6 +1381,7 @@
 				564DF0D82078A40700AAFA3F /* CardDetailsEventReceiver.swift in Sources */,
 				56881DF520399DCE001BEBAD /* MainViewController.swift in Sources */,
 				56E51C542081F40B0029641E /* PilesTableEventReceiver.swift in Sources */,
+				562B6128209C6915007001DE /* CustomAppearanceService.swift in Sources */,
 				5657CCF820750DCF00F090DC /* CardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
