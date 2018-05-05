@@ -14,3 +14,8 @@ class CardTextView: UITextView {
         return super.textInputMode
     }
 }
+extension UITextView {
+    var notOverriddenInputMode: UITextInputMode? {
+        return super.textInputMode
+    }
+}

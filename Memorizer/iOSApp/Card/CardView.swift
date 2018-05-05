@@ -141,7 +141,7 @@ extension CardView: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        guard let primaryLanguage = textView.textInputMode?.primaryLanguage else { return }
+        guard let primaryLanguage = textView.notOverriddenInputMode?.primaryLanguage else { return }
         guard let cardTextView = textView as? CardTextView else { return }
         cardTextView.preferredLanguage = primaryLanguage
         if cardTextView == firstTextView {
