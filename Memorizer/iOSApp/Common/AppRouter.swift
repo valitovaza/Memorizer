@@ -45,7 +45,7 @@ class AppRouter {
         self.initialViewController = initialViewController
     }
     private var startViewController: UIViewController {
-        return initialViewController.childViewControllers.first ?? initialViewController
+        return initialViewController.children.first ?? initialViewController
     }
 }
 extension AppRouter: RoutersProvider {
@@ -117,7 +117,7 @@ extension AppRouter: PileListRouter {
         navigationController?.pushViewController(reviseVc, animated: true)
     }
     private var navigationController: UINavigationController? {
-        return initialViewController.childViewControllers.compactMap({$0 as? UINavigationController}).first
+        return initialViewController.children.compactMap({$0 as? UINavigationController}).first
     }
 }
 extension AppRouter: PileDetailsRouter {

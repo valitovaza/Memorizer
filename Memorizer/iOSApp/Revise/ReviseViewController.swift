@@ -97,8 +97,8 @@ extension ReviseViewController: WordReviserView {
     private func presentAlert(_ title: String, _ message: String?, _ completion: (()->())? = nil) {
         let alert = UIAlertController(title: title,
                                       message: message,
-                                      preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                                      preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
         { action -> Void in
             completion?()
         }

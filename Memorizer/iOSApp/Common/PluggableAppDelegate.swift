@@ -10,7 +10,7 @@ class PluggableAppDelegate: UIResponder, UIApplicationDelegate {
         return services
     }()
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         window?.makeKeyAndVisible()
         var result = false
         for service in __services {
@@ -21,7 +21,7 @@ class PluggableAppDelegate: UIResponder, UIApplicationDelegate {
         return result
     }
     func application(_ application: UIApplication, open url: URL,
-                     options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+                     options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
         var result = false
         for service in __services {
             if service.application?(application, open: url, options: options) ?? false {

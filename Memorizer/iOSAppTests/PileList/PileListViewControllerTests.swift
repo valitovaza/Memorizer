@@ -16,7 +16,7 @@ class PileListViewControllerTests: LocalizerTests {
     private func createSut() {
         navigationController = UIControllerFactory
             .instantiateNavigation(.PileList, with: PileListViewController.self)
-        sut = navigationController.viewControllers.first as! PileListViewController
+        sut = navigationController.viewControllers.first as? PileListViewController
     }
     override func tearDown() {
         cleanVars()

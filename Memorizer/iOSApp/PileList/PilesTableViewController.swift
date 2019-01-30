@@ -23,7 +23,7 @@ class PilesTableViewController: UITableViewController, PilesDataSourceHolder {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 69
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -180,8 +180,8 @@ extension PilesTableViewController: PileCellDelegate {
     private func openDeleteAlert(at index: IndexPath) {
         let alert = UIAlertController(title: L10n.deleteAlert,
                                       message: nil,
-                                      preferredStyle: UIAlertControllerStyle.alert)
-        let deleteAction = UIAlertAction(title: L10n.delete, style: UIAlertActionStyle.destructive)
+                                      preferredStyle: UIAlertController.Style.alert)
+        let deleteAction = UIAlertAction(title: L10n.delete, style: UIAlertAction.Style.destructive)
         { action -> Void in
             self.eventHandler?.handle(event: .onDelete(section: index.section, row: index.row))
         }

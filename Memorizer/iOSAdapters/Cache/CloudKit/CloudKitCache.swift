@@ -188,7 +188,7 @@ extension CloudKitSaver: NetSaver {
         }
     }
     public func delete(id netId: String) {
-        privateDB.delete(withRecordID: CKRecordID(recordName: netId)) { (result, error) in
+        privateDB.delete(withRecordID: CKRecord.ID(recordName: netId)) { (result, error) in
             if let error = error {
                 print(error)
                 return
@@ -197,7 +197,7 @@ extension CloudKitSaver: NetSaver {
     }
     public func change(pileItem: PileItem, netId: String) {
         guard let cardPile = pileItem.pile as? CardPile else { return }
-        privateDB.fetch(withRecordID: CKRecordID(recordName: netId)) { (record, error) in
+        privateDB.fetch(withRecordID: CKRecord.ID(recordName: netId)) { (record, error) in
             if let error = error {
                 print(error)
                 return

@@ -26,7 +26,7 @@ public class ReviseAlertScheduler: LocalNotificationScheduler {
     private func addLocalNotification(at date: Date) {
         let content = UNMutableNotificationContent()
         content.title = textProvider.notificationTitle
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
 
         let trDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: trDate, repeats: false)

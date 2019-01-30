@@ -1,3 +1,5 @@
+import UIKit
+
 public protocol AllPilesProvider {
     var allPiles: [PileItem] { get }
 }
@@ -7,7 +9,7 @@ public class ReviseAlertPlanner: CurrentDateConsumer {
     public init(_ scheduler: LocalNotificationScheduler, _ allPilesProvider: AllPilesProvider) {
         self.scheduler = scheduler
         self.allPilesProvider = allPilesProvider
-        NotificationCenter.default.addObserver(self, selector: #selector(resignActive), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resignActive), name: UIApplication.willResignActiveNotification, object: nil)
     }
     @objc private func resignActive() {
         planOrRemoveLocalNotificationIfNeed()

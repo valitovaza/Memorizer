@@ -32,12 +32,12 @@ extension CardDetailsEventReceiver: CardDetailsEventHandler {
     private func createCardHolder(_ saveCardPresenter: SaveCardPresenter) {
         switch type {
         case .create:
-            cardHolder = StringCardHolder(SaveCardViewImpl(saveCardPresenter)) as! CHolder
+            cardHolder = StringCardHolder(SaveCardViewImpl(saveCardPresenter)) as? CHolder
         case .edit(let index):
             guard let frontText = getFrontText(index) else { return }
             guard let backText = getBackText(index) else { return }
             let saveCardView = SaveCardViewImpl(saveCardPresenter)
-            cardHolder = StringCardHolder(saveCardView, front: frontText, back: backText) as! CHolder
+            cardHolder = StringCardHolder(saveCardView, front: frontText, back: backText) as? CHolder
         }
     }
     private func getFrontText(_ index: Int) -> String? {

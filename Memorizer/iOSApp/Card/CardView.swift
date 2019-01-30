@@ -89,7 +89,7 @@ class CardView: UIView {
     }
     private func turnAnimation(_ firstView: UIView, _ secondView: UIView, _ completion: @escaping ()->()) {
         isUserInteractionEnabled = false
-        let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
+        let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
         UIView.transition(with: firstView, duration: turnDuration, options: transitionOptions, animations: {
             firstView.isHidden = true
         })

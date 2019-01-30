@@ -5,8 +5,8 @@ public class PilesReviseUpdater {
     private let updater: PilesReviseStateUpdater
     public init(_ updater: PilesReviseStateUpdater) {
         self.updater = updater
-        NotificationCenter.default.addObserver(self, selector: #selector(becomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(resignActive), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(becomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resignActive), name: UIApplication.willResignActiveNotification, object: nil)
     }
     func startTimer() {
         guard timer == nil else { return }

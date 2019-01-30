@@ -4,7 +4,7 @@ import XCTest
 class UIControllerPresentableSpy: UIViewController {
     var didMoveCallCount = 0
     var savedParent: UIViewController?
-    override func didMove(toParentViewController parent: UIViewController?) {
+    override func didMove(toParent parent: UIViewController?) {
         didMoveCallCount += 1
         savedParent = parent
     }

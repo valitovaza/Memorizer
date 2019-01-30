@@ -50,7 +50,7 @@ class SwipeView: UIView, UIGestureRecognizerDelegate {
         enableAntialiasing(on: secondSwipeContainer)
     }
     private func setFirstContainerAsCurrentSwipe() {
-        bringSubview(toFront: firstSwipeContainer)
+        bringSubviewToFront(firstSwipeContainer)
         currentSwipeContainer = firstSwipeContainer
     }
     private func enableAntialiasing(on content: UIView) {
@@ -165,7 +165,7 @@ class SwipeView: UIView, UIGestureRecognizerDelegate {
         resetAfterSwipePosition(of: bottomSwipeContainer)
     }
     private func revertCurrentAndBottomContainers() {
-        bringSubview(toFront: bottomSwipeContainer)
+        bringSubviewToFront(bottomSwipeContainer)
         currentSwipeContainer = bottomSwipeContainer
     }
     private func resetAfterSwipePosition(of content: UIView) {
@@ -189,7 +189,7 @@ class SwipeView: UIView, UIGestureRecognizerDelegate {
         let transformAnimation = CABasicAnimation(keyPath: "transform")
         transformAnimation.toValue = NSValue(caTransform3D: transformationForRemove(of: content))
         transformAnimation.duration = duration(for: velocity)
-        transformAnimation.fillMode = kCAFillModeForwards
+        transformAnimation.fillMode = CAMediaTimingFillMode.forwards
         transformAnimation.isRemovedOnCompletion = false
         return transformAnimation
     }

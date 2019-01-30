@@ -17,7 +17,7 @@ class CardsTableViewController: UITableViewController, CardsTableListenerHolder,
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 78
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -68,8 +68,8 @@ extension CardsTableViewController: CardTableViewCellDelegate {
     private func openDeleteAlert(at index: IndexPath) {
         let alert = UIAlertController(title: L10n.deleteCardAlert,
                                       message: nil,
-                                      preferredStyle: UIAlertControllerStyle.alert)
-        let deleteAction = UIAlertAction(title: L10n.delete, style: UIAlertActionStyle.destructive)
+                                      preferredStyle: UIAlertController.Style.alert)
+        let deleteAction = UIAlertAction(title: L10n.delete, style: UIAlertAction.Style.destructive)
         { action -> Void in
             self.dataCleaner?.removePile(at: index.row)
         }

@@ -18,9 +18,9 @@ public class PileListScreen {
 extension PileListScreen: Presenter {
     public func present() {
         let childViewController = viewControllerCreator.create()
-        controllerPresenter?.addChildViewController(childViewController)
+        controllerPresenter?.addChild(childViewController)
         addViewAndLayout(childViewController, controllerPresenter)
-        childViewController.didMove(toParentViewController: controllerPresenter)
+        childViewController.didMove(toParent: controllerPresenter)
     }
     private func addViewAndLayout(_ childViewController: UIViewController,
                                   _ parentViewController: UIViewController?) {

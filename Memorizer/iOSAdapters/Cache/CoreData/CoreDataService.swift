@@ -5,7 +5,7 @@ public final class CoreDataService: NSObject, ApplicationService {
     
     private let bundleID = "Memorizer.iOSAdapters"
     
-    public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         do {
             try Cd.initWithSQLStore(momdInbundleID: bundleID,
                                     momdName: "Memorizer.momd",

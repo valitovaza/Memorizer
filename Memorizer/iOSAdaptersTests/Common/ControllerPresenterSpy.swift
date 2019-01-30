@@ -19,7 +19,7 @@ class ControllerPresenterSpy: UIViewController {
     
     var addChildViewControllerCallCount = 0
     var savedChildController: UIViewController?
-    override func addChildViewController(_ childController: UIViewController) {
+    override func addChild(_ childController: UIViewController) {
         addChildViewControllerCallCount += 1
         savedChildController = childController
     }

@@ -1,6 +1,6 @@
 import UIKit
 
 protocol UIControllerPresentable {
-    func didMove(toParentViewController parent: UIViewController?)
+    func didMove(toParent parent: UIViewController?)
 }
 extension UIViewController: UIControllerPresentable {}
