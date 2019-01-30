@@ -1,6 +1,7 @@
 import UIKit
 
 public class PilesReviseUpdater {
+    private var isTimerBlocked = false
     private var timer: Timer?
     private let updater: PilesReviseStateUpdater
     public init(_ updater: PilesReviseStateUpdater) {
@@ -9,7 +10,7 @@ public class PilesReviseUpdater {
         NotificationCenter.default.addObserver(self, selector: #selector(resignActive), name: UIApplication.willResignActiveNotification, object: nil)
     }
     func startTimer() {
-        guard timer == nil else { return }
+        guard timer == nil, !isTimerBlocked else { return }
         timer = Timer.scheduledTimer(timeInterval: 3 * 60, target: self,
                                      selector: #selector(timerTick), userInfo: nil, repeats: true)
     }
@@ -30,6 +31,17 @@ public class PilesReviseUpdater {
     private func updateState() {
         updater.updateReviseState()
     }
+    
+    public func blockTimer() {
+        isTimerBlocked = true
+        stopTimer()
+    }
+    
+    public func unblockTimer() {
+        isTimerBlocked = false
+        startTimer()
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
         stopTimer()

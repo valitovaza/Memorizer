@@ -16,6 +16,8 @@ class PileListViewController: UIViewController {
         case onCreate
         case cancelTableSelection
         case doneTableSelection
+        case didAppear
+        case didDisappear
     }
     
     var eventHandler: PileListEventHandler?
@@ -47,6 +49,16 @@ class PileListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let dsHolder = segue.destination as? PileTableHolder else { return }
         eventHandler?.handle(event: .onPrepareSegue(dsHolder, self))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        eventHandler?.handle(event: .didAppear)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        eventHandler?.handle(event: .didDisappear)
     }
 }
 extension PileListViewController: ActivityIndicatorPresenter {

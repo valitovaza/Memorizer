@@ -39,6 +39,10 @@ extension PileListEventReceiver: PileListEventHandler {
             combineWorker?.combine()
         case .cancelTableSelection:
             combineWorker?.cancel()
+        case .didAppear:
+            pilesReviseUpdater.unblockTimer()
+        case .didDisappear:
+            pilesReviseUpdater.blockTimer()
         }
     }
 }
