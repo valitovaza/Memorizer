@@ -5,14 +5,14 @@ inhibit_all_warnings!
 
 project 'Memorizer/Memorizer.xcodeproj'
 target 'iOSAdapters' do
-    pod 'Cadmium', '~> 1.2'
+    pod 'Cadmium'
 end
 target 'iOSAdaptersTests' do
-    pod 'Cadmium', '~> 1.2'
+    pod 'Cadmium'
 end
 target 'iOSApp' do
-    pod 'Cadmium', '~> 1.2'
+    pod 'Cadmium'
 end
 target 'iOSAppTests' do
-    pod 'Cadmium', '~> 1.2'
+    pod 'Cadmium'
 end
