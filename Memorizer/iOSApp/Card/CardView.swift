@@ -32,7 +32,7 @@ class CardView: UIView {
         secondTextView.preferredLanguage = CardViewKeyboardSuggestions.secondPreferredLanguage
     }
     private func onAwakeFromNib() {
-        secondSide.isHidden = true
+        secondSide.alpha = 0.0
         addShadow()
         configureRadiuses()
         configureTextHeights()
@@ -64,12 +64,12 @@ class CardView: UIView {
         }
     }
     func turnToFirstWithoutAnimation() {
-        firstSide.isHidden = false
-        secondSide.isHidden = true
+        firstSide.alpha = 1.0
+        secondSide.alpha = 0.0
     }
     func turnToSecondWithoutAnimation() {
-        firstSide.isHidden = true
-        secondSide.isHidden = false
+        firstSide.alpha = 0.0
+        secondSide.alpha = 1.0
     }
     private func closeKeyboardIfNeed(_ needOpenKeyboardAfterAnimation: Bool) {
         if needOpenKeyboardAfterAnimation {
@@ -79,22 +79,22 @@ class CardView: UIView {
         }
     }
     private var currentTextView: UITextView {
-        return secondSide.isHidden ? firstTextView : secondTextView
+        return secondSide.alpha == 0.0 ? firstTextView : secondTextView
     }
     private var currentSide: UIView {
-        return secondSide.isHidden ? firstSide : secondSide
+        return secondSide.alpha == 0.0 ? firstSide : secondSide
     }
     private var flippedSide: UIView {
-        return secondSide.isHidden ? secondSide : firstSide
+        return secondSide.alpha == 0.0 ? secondSide : firstSide
     }
     private func turnAnimation(_ firstView: UIView, _ secondView: UIView, _ completion: @escaping ()->()) {
         isUserInteractionEnabled = false
         let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
         UIView.transition(with: firstView, duration: turnDuration, options: transitionOptions, animations: {
-            firstView.isHidden = true
+            firstView.alpha = 0.0
         })
         UIView.transition(with: secondView, duration: turnDuration, options: transitionOptions, animations: {
-            secondView.isHidden = false
+            secondView.alpha = 1.0
             self.isUserInteractionEnabled = true
             completion()
         })
